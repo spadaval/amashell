@@ -1,3 +1,9 @@
+/*!
+   \file amash.h
+   \brief Contains all the major struct, union, and API function definitions.
+   \author Sumeet Padavala
+   \date "16"/"March"/"2018"
+*/
 #ifndef AMASH_H
 #define AMASH_H 1
 
