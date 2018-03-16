@@ -7,6 +7,26 @@
 #ifndef AMASH_H
 #define AMASH_H 1
 
+#include<stdbool.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+/**
+ *  \union Target
+ *  \brief This union represents a target of a redirection.
+ *         This can be either a file handle or a path name(relative or absolute)
+ */
+typedef union Target {
+    char* path;             /*!< Path to the file */
+    int file_handle;        /*!< file handle of the target */
+} Target;
+
+typedef struct Redirect{
+    int file_handle;        /*!< source file handle to redirect to the target */
+    bool target_is_path;    /*!< Is the target a path or file handle? */
+    Target target;          /*!< target of the redirection (a union) */
+} Redirect;
+
 /**
  *  \struct ParsedInput
  *  \brief Represents one line of input after parsing(by the parse function).
@@ -22,22 +42,8 @@ typedef struct ParsedInput{
 //    int env_count;          /*!< Number of environment variables */
 } ParsedInput;
 
-/**
- *  \union Target
- *  \brief This union represents a target of a redirection.
- *         This can be either a file handle or a path name(relative or absolute)
- */
-typedef union Target {
-    char* path;             /*!< Path to the file */
-    int file_handle;        /*!< file handle of the target */
-} Target;
 
 
-typedef struct Redirect{
-    int file_handle;        /*!< source file handle to redirect to the target */
-    bool target_is_path;    /*!< Is the target a path or file handle? */
-    Target target;          /*!< target of the redirection (a union) */
-} Redirect;
 
 typedef struct ExecutableOptions{
     char* exec_path;        /*!< string of the exectuable to run, may or may not be relative */
@@ -63,7 +69,7 @@ void exec_input(ParsedInput* i);
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
  *  @param e Details of the executable
  */
-void exec_project(ExecutableOptions* e);
+void exec_program(ExecutableOptions* e);
 
 /**
  *  Starts the main event loop

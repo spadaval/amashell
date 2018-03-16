@@ -5,7 +5,7 @@
 #include "amash.h"
 
 //TODO finish this
-void exec_program((ExecutableOptions* e){
+void exec_program(ExecutableOptions* e){
 
 }
 //TODO finish this
