@@ -51,10 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Documentation files
-
-docs
-
 # ctags
 
 .tags
@@ -64,3 +60,7 @@ docs
 # build directory
 
 build
+
+# Documentation files
+
+docs
