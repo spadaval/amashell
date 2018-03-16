@@ -10,6 +10,8 @@
 /**
  *  \struct ParsedInput
  *  \brief Represents one line of input after parsing(by the parse function).
+ *         This operates similarly to the ExecutableOptions, but alows you to treat a
+ *         chain of piped executables as a single executable.
  */
 typedef struct ParsedInput{
     char** exec_strings;    /*!< List of executables to pipe to each other in sequence */
@@ -38,7 +40,7 @@ typedef struct Redirect{
 } Redirect;
 
 typedef struct ExecutableOptions{
-    char* exec_string;      /*!< string of the exectuable to run */
+    char* exec_path;        /*!< string of the exectuable to run, may or may not be relative */
     Redirect* redirects;    /*!< list of redirects to apply */
     int redirects_count;    /*!< Number of redirects to apply */
 } ExecutableOptions;
