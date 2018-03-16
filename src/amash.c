@@ -1,6 +1,6 @@
 /*!
    \file amash.c
-   \brief Contains the main function, and other control structures 
+   \brief Contains the main function, and other control structures
    \author "Your name"
    \date "DD"/"Month"/"Year"
 */
@@ -22,8 +22,11 @@ int run_event_loop(){
     char input[1000];
     do{
         fgets(input, 1000, stdin);
-        ParsedInput* p = parse(input);
-        exec_input(p);
+        //ParsedInput* p = parse(input);
+        //exec_input(p);
+        Executable* e = parse_single(input);
+        exec_program(e);
+
     }while(!startsWith("quit",input));
 }
 

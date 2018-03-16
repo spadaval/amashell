@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parse',['parse',['../amash_8h.html#a7e9b9c35a1c0118c5945cc05be30470e',1,'parse(char *input):&#160;parse.c'],['../parse_8c.html#a7e9b9c35a1c0118c5945cc05be30470e',1,'parse(char *input):&#160;parse.c']]]
+  ['run_5fevent_5floop',['run_event_loop',['../amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c'],['../amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c']]]
 ];

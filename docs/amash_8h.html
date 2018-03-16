@@ -86,10 +86,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html">Redirect</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParsedInput.html">ParsedInput</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one line of input after parsing(by the parse function). This operates similarly to the <a class="el" href="structExecutableOptions.html">ExecutableOptions</a>, but alows you to treat a chain of piped executables as a single executable.  <a href="structParsedInput.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutableOptions.html">ExecutableOptions</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html">Executable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -100,23 +97,19 @@ typedef union <a class="el" href="unionTarget.html">Target</a>&#160;</td><td cla
 <tr class="memitem:a67fb1576f7860fc183192b57b79f91ce"><td class="memItemLeft" align="right" valign="top"><a id="a67fb1576f7860fc183192b57b79f91ce"></a>
 typedef struct <a class="el" href="structRedirect.html">Redirect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Redirect</b></td></tr>
 <tr class="separator:a67fb1576f7860fc183192b57b79f91ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af343f5c1259e9b32a663f653dbfd5b48"><td class="memItemLeft" align="right" valign="top"><a id="af343f5c1259e9b32a663f653dbfd5b48"></a>
-typedef struct <a class="el" href="structParsedInput.html">ParsedInput</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ParsedInput</b></td></tr>
-<tr class="separator:af343f5c1259e9b32a663f653dbfd5b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f02ce74e6c698e1e1b59993588c16af"><td class="memItemLeft" align="right" valign="top"><a id="a7f02ce74e6c698e1e1b59993588c16af"></a>
-typedef struct <a class="el" href="structExecutableOptions.html">ExecutableOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ExecutableOptions</b></td></tr>
-<tr class="separator:a7f02ce74e6c698e1e1b59993588c16af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63aba8272f12fe21e9bf8c7453a1f4fb"><td class="memItemLeft" align="right" valign="top"><a id="a63aba8272f12fe21e9bf8c7453a1f4fb"></a>
+typedef struct <a class="el" href="structExecutable.html">Executable</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Executable</b></td></tr>
+<tr class="separator:a63aba8272f12fe21e9bf8c7453a1f4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a7e9b9c35a1c0118c5945cc05be30470e">parse</a> (char *input)</td></tr>
-<tr class="separator:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d9d849fbf13f36a317a92ff944ef06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ae3d9d849fbf13f36a317a92ff944ef06">exec_input</a> (<a class="el" href="structParsedInput.html">ParsedInput</a> *i)</td></tr>
-<tr class="separator:ae3d9d849fbf13f36a317a92ff944ef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2849694c7c77e75389fe03e42be429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a2e2849694c7c77e75389fe03e42be429">exec_program</a> (<a class="el" href="structExecutableOptions.html">ExecutableOptions</a> *e)</td></tr>
-<tr class="separator:a2e2849694c7c77e75389fe03e42be429"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5fee617bf32ca2b8183abc4e95efbae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ab5fee617bf32ca2b8183abc4e95efbae">set_redirects</a> (<a class="el" href="structExecutableOptions.html">ExecutableOptions</a> *e)</td></tr>
-<tr class="separator:ab5fee617bf32ca2b8183abc4e95efbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac87a118af55679693aed549766833324"><td class="memItemLeft" align="right" valign="top"><a id="ac87a118af55679693aed549766833324"></a>
+<a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>new_executable</b> ()</td></tr>
+<tr class="separator:ac87a118af55679693aed549766833324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8a91ac0f7fb10cb26c381b4a2a741749">exec_program</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a21e49d8b5354cde3dc21c3cdc28c0136">set_redirects</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -125,32 +118,8 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Sumeet Padavala </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>"16"/"March"/"2018" </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae3d9d849fbf13f36a317a92ff944ef06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3d9d849fbf13f36a317a92ff944ef06">&#9670;&nbsp;</a></span>exec_input()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void exec_input </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Executes parsed input, delegates most of the work to exec. Mostly concerned with pipes and stuff. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>Parsed input </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2e2849694c7c77e75389fe03e42be429"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e2849694c7c77e75389fe03e42be429">&#9670;&nbsp;</a></span>exec_program()</h2>
+<a id="a8a91ac0f7fb10cb26c381b4a2a741749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a91ac0f7fb10cb26c381b4a2a741749">&#9670;&nbsp;</a></span>exec_program()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,32 +127,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void exec_program </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structExecutableOptions.html">ExecutableOptions</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">e</td><td>Details of the executable </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7e9b9c35a1c0118c5945cc05be30470e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e9b9c35a1c0118c5945cc05be30470e">&#9670;&nbsp;</a></span>parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structParsedInput.html">ParsedInput</a>* parse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -194,7 +139,14 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An object representing a breakdown of the given command </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An object representing a breakdown of the given command Executes parsed input, delegates most of the work to exec. Mostly concerned with pipes and stuff. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Parsed input Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary. </td></tr>
+    <tr><td class="paramname">e</td><td>Details of the executable </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -216,8 +168,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab5fee617bf32ca2b8183abc4e95efbae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5fee617bf32ca2b8183abc4e95efbae">&#9670;&nbsp;</a></span>set_redirects()</h2>
+<a id="a21e49d8b5354cde3dc21c3cdc28c0136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e49d8b5354cde3dc21c3cdc28c0136">&#9670;&nbsp;</a></span>set_redirects()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +177,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void set_redirects </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structExecutableOptions.html">ExecutableOptions</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
           <td></td>
         </tr>
@@ -233,7 +185,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the file handles of the current process according to the parameter. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td><a class="el" href="structExecutableOptions.html">ExecutableOptions</a> object, containing a list of redirects to apply. </td></tr>
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html">Executable</a> object, containing a list of redirects to apply. </td></tr>
   </table>
   </dd>
 </dl>

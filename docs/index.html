@@ -75,7 +75,13 @@ $(function() {
 <ol type="1">
 <li>Create a build folder and cd to it. <div class="fragment"><div class="line">mkdir build; cd build;</div></div><!-- fragment --></li>
 <li>Initialize the meson system. <div class="fragment"><div class="line">meson ..</div></div><!-- fragment --></li>
-<li>Run ninja. <div class="fragment"><div class="line">ninja build</div></div><!-- fragment --> </li>
+<li>Run ninja. <div class="fragment"><div class="line">ninja build</div></div><!-- fragment --></li>
+</ol>
+<h2>Why are all the arrays statically allocated?</h2>
+<ol type="1">
+<li>It's faster that way, since it avoids memory allocation overhead.</li>
+<li>I can't possibly imagine a path longer than 100 characters, in any but the most exceptional circumstances.</li>
+<li>I'm lazy. </li>
 </ol>
 </div></div><!-- contents -->
 <!-- start footer part -->

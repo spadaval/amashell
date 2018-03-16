@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['set_5fredirects',['set_redirects',['../amash_8h.html#ab5fee617bf32ca2b8183abc4e95efbae',1,'set_redirects(ExecutableOptions *e):&#160;exec.c'],['../exec_8c.html#ab5fee617bf32ca2b8183abc4e95efbae',1,'set_redirects(ExecutableOptions *e):&#160;exec.c']]],
-  ['startswith',['startsWith',['../amash_8c.html#a266480e602ae7b55989e10c1de0d53f2',1,'amash.c']]]
+  ['redirect',['Redirect',['../structRedirect.html',1,'']]],
+  ['redirects',['redirects',['../structExecutable.html#a32080eda2688a167bba4965642eb7851',1,'Executable']]],
+  ['run_5fevent_5floop',['run_event_loop',['../amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c'],['../amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c']]]
 ];

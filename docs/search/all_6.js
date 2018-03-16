@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['the_20amadeus_20shell',['The Amadeus Shell',['../index.html',1,'']]],
-  ['target',['Target',['../unionTarget.html',1,'Target'],['../structRedirect.html#a19303191e62a6ddb3c59d03a8b2b90ac',1,'Redirect::target()']]],
-  ['target_5fis_5fpath',['target_is_path',['../structRedirect.html#a905759b7fea842d40b0bdbbd15706220',1,'Redirect']]]
+  ['set_5fredirects',['set_redirects',['../amash_8h.html#a21e49d8b5354cde3dc21c3cdc28c0136',1,'set_redirects(Executable *e):&#160;exec.c'],['../exec_8c.html#a21e49d8b5354cde3dc21c3cdc28c0136',1,'set_redirects(Executable *e):&#160;exec.c']]],
+  ['startswith',['startsWith',['../amash_8c.html#a266480e602ae7b55989e10c1de0d53f2',1,'amash.c']]]
 ];

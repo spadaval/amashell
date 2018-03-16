@@ -30,3 +30,9 @@ meson ..
 ```
 ninja build
 ```
+
+## Why are all the arrays statically allocated?
+
+1. It's faster that way, since it avoids memory allocation overhead.
+2. I can't possibly imagine a path longer than 100 characters, in any but the most exceptional circumstances.
+3. I'm lazy.
