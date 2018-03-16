@@ -1,4 +1,6 @@
-# The Amadeus Shell 
+The Amadeus Shell
+=======
+
 A basic shell implementation, written in C.
 
 ## File structure
