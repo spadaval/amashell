@@ -21,6 +21,7 @@ bool startsWith(const char *pre, const char *str)
 int run_event_loop(){
     char input[1000];
     do{
+        printf("\n$ ");
         fgets(input, 1000, stdin);
         //ParsedInput* p = parse(input);
         //exec_input(p);
@@ -28,6 +29,7 @@ int run_event_loop(){
         exec_program(e);
 
     }while(!startsWith("quit",input));
+    return 0;
 }
 
 //TODO add something cool here

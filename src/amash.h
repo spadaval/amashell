@@ -10,7 +10,8 @@
 #include<stdbool.h>
 #include<stdio.h>
 #include<stdlib.h>
-
+#include<string.h>
+#include<unistd.h>
 /**
  *  \union Target
  *  \brief This union represents a target of a redirection.
@@ -38,7 +39,11 @@ typedef struct Executable{
 
 Executable* new_executable();
 
-
+/**
+ *  Parse the input string for a single executable, and return an Executable object
+ *  @return An Executable object
+ */
+Executable* parse_single();
 
 /**
  *  \struct ParsedInput
