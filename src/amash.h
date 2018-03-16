@@ -72,6 +72,12 @@ void exec_input(ParsedInput* i);
 void exec_program(ExecutableOptions* e);
 
 /**
+ *  Set the file handles of the current process according to the parameter. 
+ *  @param e ExecutableOptions object, containing a list of redirects to apply.
+ */
+void set_redirects(ExecutableOptions* e);
+
+/**
  *  Starts the main event loop
  *  @return exit code
  */

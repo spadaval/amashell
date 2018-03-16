@@ -58,6 +58,8 @@ docs
 # ctags
 
 .tags
+.tags_swap
+.tags*
 
 # build directory
 
