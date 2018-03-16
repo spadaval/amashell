@@ -63,7 +63,7 @@ void exec_input(ParsedInput* i);
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
  *  @param e Details of the executable
  */
-void exec(ExecutableOptions* e);
+void exec_project(ExecutableOptions* e);
 
 /**
  *  Starts the main event loop
