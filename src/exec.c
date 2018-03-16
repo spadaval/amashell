@@ -16,7 +16,15 @@ void exec_program(ExecutableOptions* e){
         execlp(e->exec_path);
     }
 }
-//TODO finish this
-void exec_input(ParsedInput* i){
 
+void exec_input(ParsedInput* i){
+    //TODO make this work for pipelined programs
+    assert(i->exec_strings_count == 1);
+
+    ExecutableOptions* e = malloc(sizeof(ExecutableOptions));
+    e->exec_path = i->exec_paths[0];
+    e->redirects = i->redirects;
+    e->redirects_count = i->redirects_count;
+
+    exec_program(e);
 }

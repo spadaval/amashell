@@ -34,9 +34,9 @@ typedef struct Redirect{
  *         chain of piped executables as a single executable.
  */
 typedef struct ParsedInput{
-    char** exec_strings;    /*!< List of executables to pipe to each other in sequence */
-    int exec_strings_count; /*!< Number of executables */
-    Redirect* redirects;    /*!< List of file redirects to apply to the executable chain */
+    char** exec_paths;    /*!< List of executables to pipe to each other in sequence */
+    int exec_paths_count; /*!< Number of executables */
+    Redirect** redirects;    /*!< List of file redirects to apply to the executable chain */
     int redirects_count;    /*!< Number of executables */
 //    char* env;              /*!< Environment variables to apply */
 //    int env_count;          /*!< Number of environment variables */
@@ -47,7 +47,7 @@ typedef struct ParsedInput{
 
 typedef struct ExecutableOptions{
     char* exec_path;        /*!< string of the exectuable to run, may or may not be relative */
-    Redirect* redirects;    /*!< list of redirects to apply */
+    Redirect** redirects;    /*!< list of redirects to apply */
     int redirects_count;    /*!< Number of redirects to apply */
 } ExecutableOptions;
 
@@ -72,7 +72,7 @@ void exec_input(ParsedInput* i);
 void exec_program(ExecutableOptions* e);
 
 /**
- *  Set the file handles of the current process according to the parameter. 
+ *  Set the file handles of the current process according to the parameter.
  *  @param e ExecutableOptions object, containing a list of redirects to apply.
  */
 void set_redirects(ExecutableOptions* e);
