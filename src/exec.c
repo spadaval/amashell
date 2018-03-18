@@ -24,7 +24,11 @@ void exec_program(Executable* e)
                 /*child*/
                 log_trace("\tFork Successful");
                 //set_redirects(e);
-                execvp(e->exec_path, e->argv);
+                if(execvp(e->exec_path, e->argv) != 0){
+                    log_error("Exec error(error %d)", errno);
+                    abort();
+                }
+
         }
         wait(NULL);
         log_trace("Process Returned\n");
