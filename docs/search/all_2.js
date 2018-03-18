@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file_5fhandle',['file_handle',['../unionTarget.html#afbdd7684a97efddfbc5b38433cf1a8a3',1,'Target']]]
+  ['is_5fused',['is_used',['../structRedirect.html#a48c04d19b0d6fb4a720d40200f5d36b9',1,'Redirect']]]
 ];

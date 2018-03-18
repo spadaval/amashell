@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_5fevent_5floop',['run_event_loop',['../amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c'],['../amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac',1,'run_event_loop():&#160;amash.c']]]
+  ['parse_5fsingle',['parse_single',['../amash_8h.html#a33d34a324d0f0b05dc2af1d61cace0a2',1,'amash.h']]]
 ];

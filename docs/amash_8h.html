@@ -76,13 +76,16 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 </div>
 <p><a href="amash_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionTarget.html">Target</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This union represents a target of a redirection. This can be either a file handle or a path name(relative or absolute)  <a href="unionTarget.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html">Redirect</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,17 +109,21 @@ Functions</h2></td></tr>
 <tr class="memitem:ac87a118af55679693aed549766833324"><td class="memItemLeft" align="right" valign="top"><a id="ac87a118af55679693aed549766833324"></a>
 <a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>new_executable</b> ()</td></tr>
 <tr class="separator:ac87a118af55679693aed549766833324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33d34a324d0f0b05dc2af1d61cace0a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a33d34a324d0f0b05dc2af1d61cace0a2">parse_single</a> ()</td></tr>
+<tr class="separator:a33d34a324d0f0b05dc2af1d61cace0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8a91ac0f7fb10cb26c381b4a2a741749">exec_program</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a21e49d8b5354cde3dc21c3cdc28c0136">set_redirects</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab811b036dbb52955af5a2eb3ab1fe985"><td class="memItemLeft" align="right" valign="top"><a id="ab811b036dbb52955af5a2eb3ab1fe985"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>slice_count</b> (char *input)</td></tr>
+<tr class="separator:ab811b036dbb52955af5a2eb3ab1fe985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all the major struct, union, and API function definitions. </p>
-<dl class="section author"><dt>Author</dt><dd>Sumeet Padavala </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>"16"/"March"/"2018" </dd></dl>
+<p>Contains definitions for all the structs and functions in the shell.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a8a91ac0f7fb10cb26c381b4a2a741749"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a91ac0f7fb10cb26c381b4a2a741749">&#9670;&nbsp;</a></span>exec_program()</h2>
@@ -147,6 +154,24 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a33d34a324d0f0b05dc2af1d61cace0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d34a324d0f0b05dc2af1d61cace0a2">&#9670;&nbsp;</a></span>parse_single()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structExecutable.html">Executable</a>* parse_single </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parse the input string for a single executable, and return an <a class="el" href="structExecutable.html">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="structExecutable.html">Executable</a> object </dd></dl>
 
 </div>
 </div>
