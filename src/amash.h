@@ -1,9 +1,4 @@
-/*!
-   \file amash.h
-   \brief Contains all the major struct, union, and API function definitions.
-   \author Sumeet Padavala
-   \date "16"/"March"/"2018"
-*/
+
 #ifndef AMASH_H
 #define AMASH_H 1
 
@@ -12,18 +7,15 @@
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
-#include "log.h"
-/**
- *  \union Target
- *  \brief This union represents a target of a redirection.
- *         This can be either a file handle or a path name(relative or absolute)
- */
-typedef union Target {
-    char* path;             /*!< Path to the file */
-    int file_handle;        /*!< file handle of the target */
+
+typedef union Target
+{
+    char* path;
+    int file_handle;
 } Target;
 
-typedef struct Redirect{
+typedef struct Redirect
+{
     bool is_used;           /*!< Is this redirect supposed to applied? */
     bool target_is_path;    /*!< Is the target a path or file handle? */
     Target target;          /*!< target of the redirection (a union) */
@@ -32,9 +24,9 @@ typedef struct Redirect{
 //TODO make sure argv is always null-terminated
 typedef struct Executable{
     char exec_path[100];        /*!< string of the exectuable to run, may or may not be relative */
-    Redirect* redirects[10];    /*!< list of redirects to apply for the first 10 file handles*/
-    int redirects_count;
-    char* argv[10];         /*!< Argument strings to pass */
+    //Redirect* redirects[10];    /*!< list of redirects to apply for the first 10 file handles*/
+    //int redirects_count;
+    char* argv[10][10];         /*!< Argument strings to pass */
     int argc;               /*!< Number of arguments being passed */
 } Executable;
 
@@ -56,8 +48,10 @@ Executable* parse_single();
 // typedef struct ParsedInput{
 //     Executable* executables[10];    /*!< List of executables to pipe to each other in sequence */
 //     int executables_count; /*!< Number of executables */
-//     char* env;              /*!< Environment variables to apply */
-//     int env_count;          /*!< Number of environment variables */
+//     Redirect* redirects[10];    /*!< List of file redirects to apply to the executable chain */
+//     int redirects_count;    /*!< Number of executables */
+// //    char* env;              /*!< Environment variables to apply */
+// //    int env_count;          /*!< Number of environment variables */
 // } ParsedInput;
 
 // ParsedInput* new_parsedinput();
@@ -95,6 +89,6 @@ void set_redirects(Executable* e);
  *  @return exit code
  */
 int run_event_loop();
-
+int slice_count(char* input);
 
 #endif

@@ -1,45 +1,48 @@
-/*!
-   \file amash.c
-   \brief Contains the main function, and other control structures
-   \author "Your name"
-   \date "DD"/"Month"/"Year"
-*/
 #include "amash.h"
 #include <string.h>
 
-/**
- *  Basic prefix matching utility function
- *  @param  pre Prefix to test for
- *  @param  str Target string to test
- *  @return     boolean
- */
-bool startsWith(const char *pre, const char *str)
+void strip_input(char * input)
 {
-    return strncmp(pre, str, strlen(pre)) == 0;
+        input[strlen(input)-1] = '\0';
 }
 
-int run_event_loop(){
-    log_info("Starting event loop");
-    char input[1000];
-    do{
-        printf("\n$ ");
-        fgets(input, 1000, stdin);
-        //ParsedInput* p = parse(input);
-        //exec_input(p);
-        Executable* e = parse_single(input);
-        exec_program(e);
+bool startsWith(const char *pre, const char *str)
+{
+        return strncmp(pre, str, strlen(pre)) == 0;
+}
 
-    }while(!startsWith("quit",input));
-    return 0;
+int run_event_loop()
+{
+        char input[1000];
+        while(1)
+        {
+                printf("\n$ ");
+                fgets(input, 1000, stdin);
+
+                strip_input(input);
+
+                //printf("\ninput : %s END",input);
+                if(startsWith("quit",input))
+                {
+                        break;
+                }
+                Executable* e = parse_single(input);
+                exec_program(e);
+
+        }
+        return 0;
 }
 
 //TODO add something cool here
-void print_intro_screen(){
+/*
+void print_intro_screen()
+{
 
 }
+*/
 
-int main(){
-    log_info("Initializing");
-    print_intro_screen();
-    run_event_loop();
+int main()
+{
+        //print_intro_screen();
+        run_event_loop();
 }
