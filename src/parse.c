@@ -6,6 +6,7 @@
 
 //TODO Should we use Lex here, or just do it ourselves?
 Executable* parse_single(char* input){
+    log_debug("Parsing string: %s", input);
     int offset = 0;
     int length = strlen(input);
 

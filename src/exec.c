@@ -10,6 +10,7 @@ void set_redirects(Executable* e){
 }
 
 void exec_program(Executable* e){
+    dump_executable();
     if(fork() == 0){
         /*child*/
         set_redirects(e);
@@ -24,3 +25,11 @@ void exec_input(ParsedInput* i){
 
 }
 */
+
+void dump_executable(Executable* e){
+    log_debug("Beginning dump:");
+    log_debug("\tExec path: %s", e->exec_path);
+    log_debug("\tNumber of redirects: %d", e->redirects_count);
+    for(int i = 0; i < e->argc; i++)
+        log_debug("Argument %d: %s", i, e->argv[i]);
+}

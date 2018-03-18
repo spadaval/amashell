@@ -19,6 +19,7 @@ bool startsWith(const char *pre, const char *str)
 }
 
 int run_event_loop(){
+    log_info("Starting event loop");
     char input[1000];
     do{
         printf("\n$ ");
@@ -38,6 +39,7 @@ void print_intro_screen(){
 }
 
 int main(){
+    log_info("Initializing");
     print_intro_screen();
     run_event_loop();
 }

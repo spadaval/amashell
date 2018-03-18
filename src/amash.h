@@ -12,6 +12,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
+#include "log.h"
 /**
  *  \union Target
  *  \brief This union represents a target of a redirection.
@@ -55,10 +56,8 @@ Executable* parse_single();
 // typedef struct ParsedInput{
 //     Executable* executables[10];    /*!< List of executables to pipe to each other in sequence */
 //     int executables_count; /*!< Number of executables */
-//     Redirect* redirects[10];    /*!< List of file redirects to apply to the executable chain */
-//     int redirects_count;    /*!< Number of executables */
-// //    char* env;              /*!< Environment variables to apply */
-// //    int env_count;          /*!< Number of environment variables */
+//     char* env;              /*!< Environment variables to apply */
+//     int env_count;          /*!< Number of environment variables */
 // } ParsedInput;
 
 // ParsedInput* new_parsedinput();
