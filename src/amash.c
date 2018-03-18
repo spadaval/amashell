@@ -18,10 +18,20 @@ bool startsWith(const char *pre, const char *str)
 
 int run_event_loop()
 {
-        char input[1000];
+        char input[100];
+        char login[100];
+        char hostname[100];
         while(1)
         {
-                printf("\n$ ");
+                char cwd[100];
+                getcwd(cwd, sizeof(cwd));
+                getlogin_r(login, sizeof(login));
+                gethostname(hostname, sizeof(hostname));
+                printf(KBLU "\n%s@%s",hostname,login);
+                printf(KRED":");
+                printf(KWHT"%s",cwd);
+                printf(KRED"$");
+                printf(KGRN "");
                 fgets(input, 1000, stdin);
 
                 strip_input(input);
