@@ -11,6 +11,8 @@
 #include<string.h>
 #include<unistd.h>
 
+#include "log.h"
+
 typedef union Target
 {
     char* path;
