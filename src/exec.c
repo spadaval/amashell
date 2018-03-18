@@ -19,7 +19,12 @@ void exec_program(Executable* e)
         {
                 log_debug("\t\t%s ",e->argv[i]);
         }
-        if(fork() == 0)
+
+        if(strcmp(e->exec_path, "cd") == 0)
+            do_cd();
+        else if(strcmp(e->exec_path, "pwd") == 0)
+            do_pwd();
+        else if(fork() == 0)
         {
                 /*child*/
                 log_trace("\tFork Successful");
@@ -48,4 +53,17 @@ void dump_executable(Executable* e){
     log_debug("\tExec path: %s", e->exec_path);
     for(int i = 0; i < e->argc; i++)
         log_debug("Argument %d: %s", i, e->argv[i]);
+}
+
+void do_cd(Executable* e)
+{
+    if(e->argv[1] == NULL)
+        chdir("/");
+    else
+        chdir(e->argv[1]);
+}
+
+void do_pwd(Executable* e)
+{
+    printf("%s\n", get_current_dir_name());
 }
