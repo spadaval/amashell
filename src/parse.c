@@ -15,7 +15,7 @@ int slice_count(char* input)
                 }
                 i++;
         }
-        printf("\n\tNumber of arguments = %d",count);
+        log_debug("\tNumber of arguments = %d",count);
         return count;
 }
 

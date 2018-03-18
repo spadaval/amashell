@@ -12,22 +12,22 @@ void set_redirects(Executable* e)
 
 void exec_program(Executable* e)
 {
-        printf("\n\tPath : %s",e->exec_path);
-        printf("\n\tArguments : ");
+        log_debug("\tPath : %s",e->exec_path);
+        log_debug("\tArguments : ");
         int i;
         for(i=0; i<e->argc; i++)
         {
-                printf("%s ",e->argv[i]);
+                log_debug("%s, ",e->argv[i]);
         }
         if(fork() == 0)
         {
                 /*child*/
-                printf("\n\tFork Successful");
+                log_trace("\tFork Successful");
                 //set_redirects(e);
                 execvp(e->exec_path, e->argv);
         }
         wait(NULL);
-        printf("\n\nProcess Returned\n");
+        log_trace("Process Returned\n");
 }
 /*
    void exec_input(ParsedInput* i)
