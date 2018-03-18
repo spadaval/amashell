@@ -1,6 +1,6 @@
 /*!
-   \file amash.h
-   \brief Contains all the major struct, union, and API function definitions.
+   \file amash.c
+   \brief Contains implementations for core functions.
 */
 
 #include "amash.h"
