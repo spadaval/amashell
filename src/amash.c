@@ -1,3 +1,8 @@
+/*!
+   \file amash.h
+   \brief Contains all the major struct, union, and API function definitions.
+*/
+
 #include "amash.h"
 #include <string.h>
 

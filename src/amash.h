@@ -1,4 +1,7 @@
-
+/*!
+   \file amash.h
+   \brief Contains definitions for all the structs and functions in the shell
+*/
 #ifndef AMASH_H
 #define AMASH_H 1
 

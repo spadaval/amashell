@@ -1,3 +1,7 @@
+/*!
+   \file parse.c
+   \brief Contains subroutines for parsing the input
+*/
 #include "amash.h"
 
 int slice_count(char* input)
