@@ -26,7 +26,7 @@ int run_event_loop()
 
                 strip_input(input);
 
-                //printf("\ninput : %s END",input);
+                printf("\ninput : %s END\n",input);
                 if(startsWith("quit",input))
                 {
                         break;

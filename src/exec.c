@@ -17,7 +17,7 @@ void exec_program(Executable* e)
         int i;
         for(i=0; i<e->argc; i++)
         {
-                log_debug("%s, ",e->argv[i]);
+                log_debug("\t\t%s ",e->argv[i]);
         }
         if(fork() == 0)
         {

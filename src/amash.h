@@ -31,7 +31,7 @@ typedef struct Executable{
     char exec_path[100];        /*!< string of the exectuable to run, may or may not be relative */
     //Redirect* redirects[10];    /*!< list of redirects to apply for the first 10 file handles*/
     //int redirects_count;
-    char* argv[10][10];         /*!< Argument strings to pass */
+    char* argv[10];         /*!< Argument strings to pass */
     int argc;               /*!< Number of arguments being passed */
 } Executable;
 
