@@ -11,7 +11,7 @@ int slice_count(char* input)
                 }
                 i++;
         }
-        printf("\n\tNumber of arguments = %d",count);
+        printf("\n\tNumber of arguments = %d",count+1);
         return count;
 }
 
@@ -24,6 +24,8 @@ Executable* parse_single(char* input)
 
         sscanf(input, "%s", e->exec_path);
         offset += strlen(e->exec_path);
+        sscanf(e->exec_path, "%s", e->argv[0]);
+        e->argc++;
 
         int arg_count = slice_count(input);
 
