@@ -39,6 +39,7 @@ Executable* parse_single(char* input)
         {
                 //e->argv=NULL;
                 e->argc=0;
+                e->argv[0]=strdup(e->exec_path);
         }
         else
         {
