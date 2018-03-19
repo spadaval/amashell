@@ -38,12 +38,17 @@ typedef struct Redirect
 //TODO make sure argv is always null-terminated
 typedef struct Executable{
     char exec_path[100];        /*!< string of the exectuable to run, may or may not be relative */
-    //Redirect* redirects[10];    /*!< list of redirects to apply for the first 10 file handles*/
-    //int redirects_count;
+    Redirect* stdin;            /*!< What should stdin be set to? */
+    Redirect* stdout;           /*!< What should stdout be set to? */
+    Redirect* stderr;           /*!< What should stderr be set to? */
     char* argv[10];         /*!< Argument strings to pass */
     int argc;               /*!< Number of arguments being passed */
 } Executable;
 
+/**
+ *  Create a new struct Executable object
+ *  @return A blank struct Executable object
+ */
 Executable* new_executable();
 
 /**
@@ -62,8 +67,6 @@ Executable* parse_single();
 // typedef struct ParsedInput{
 //     Executable* executables[10];    /*!< List of executables to pipe to each other in sequence */
 //     int executables_count; /*!< Number of executables */
-//     Redirect* redirects[10];    /*!< List of file redirects to apply to the executable chain */
-//     int redirects_count;    /*!< Number of executables */
 // //    char* env;              /*!< Environment variables to apply */
 // //    int env_count;          /*!< Number of environment variables */
 // } ParsedInput;
