@@ -60,18 +60,6 @@ typedef struct Executable{
  */
 Executable* new_executable();
 
-
-////////////
-//Parsing //
-////////////
-
-
-/**
- *  Parse the input string for a single executable, and return an Executable object
- *  @return An Executable object
- */
-Executable* parse_single();
-
 /**
  *  \struct ParsedInput
  *  \brief Represents one line of input after parsing(by the parse function).
@@ -89,6 +77,16 @@ Executable* parse_single();
 // ParsedInput* new_parsedinput();
 
 
+////////////
+//parse.c //
+////////////
+
+
+/**
+ *  Parse the input string for a single executable, and return an Executable object
+ *  @return An Executable object
+ */
+Executable* parse_single();
 
 /**
  *  Parse the received input, and produce a ParsedInput object
@@ -96,6 +94,10 @@ Executable* parse_single();
  *  @return       An object representing a breakdown of the given command
  */
 // ParsedInput* parse(char* input);
+
+///////////
+//exec.c //
+///////////
 
 /**
  *  Executes parsed input, delegates most of the work to exec. Mostly concerned
@@ -109,9 +111,6 @@ Executable* parse_single();
  *  @param e Details of the executable
  */
 
-/////////
-//Exec //
-/////////
 
 
 void exec_program(Executable* e);
@@ -130,9 +129,9 @@ void set_redirects(Executable* e);
 void do_cd(Executable* e);
 void do_pwd(Executable* e);
 
-/////////
-//Main //
-/////////
+////////////
+//amash.c //
+////////////
 
 
 int run_event_loop();
