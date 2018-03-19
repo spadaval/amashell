@@ -36,7 +36,7 @@ int run_event_loop()
 {
     char input[100];
 
-    while (1)
+    while(true)
     {
         printPrompt();
         fgets(input, 1000, stdin);

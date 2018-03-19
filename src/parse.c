@@ -38,7 +38,7 @@ Executable* parse_single(char* input)
         if(arg_count==0)
         {
                 //e->argv=NULL;
-                e->argc=0;
+                e->argc=1;
                 e->argv[0]=strdup(e->exec_path);
         }
         else

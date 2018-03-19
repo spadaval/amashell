@@ -20,7 +20,7 @@ void exec_program(Executable* e)
                 log_debug("\t\t%s ",e->argv[i]);
         }
 
-        if(startsWith("quit", e->exec_path) || startsWith("exit", e->exec_path))
+        if(startsWith("quit", e->exec_path))
             do_quit(e);
         else if(strcmp(e->exec_path, "cd") == 0)
             do_cd(e);
@@ -30,14 +30,18 @@ void exec_program(Executable* e)
         {
                 /*child*/
                 log_trace("\tFork Successful");
+                printf(KMAG "\n__________________________________________________________________________________________________________________________\n");
+                printf(KCYN "\n");
                 //set_redirects(e);
                 if(execvp(e->exec_path, e->argv) != 0){
                     log_error("Exec error(error %d)", errno);
-                    abort();
                 }
+                abort();
 
         }
         wait(NULL);
+        printf(KMAG "\n__________________________________________________________________________________________________________________________\n");
+        printf(KRED "\n");
         log_trace("Process Returned\n");
 }
 /*
