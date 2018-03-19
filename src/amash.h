@@ -1,16 +1,16 @@
 /*!
    \file amash.h
    \brief Contains definitions for all the structs and functions in the shell
-*/
+ */
 #ifndef AMASH_H
 #define AMASH_H 1
 
-#include<stdbool.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<unistd.h>
-#include<errno.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
 #include "log.h"
 
 #define KNRM  "\x1B[0m"
@@ -34,8 +34,8 @@
  */
 typedef union Target
 {
-    char path[PATH_LENGTH];
-    int fd;
+        char path[PATH_LENGTH];
+        int fd;
 } Target;
 
 /**
@@ -45,9 +45,9 @@ typedef union Target
  */
 typedef struct Redirect
 {
-    bool is_used;           /*!< Is this redirect supposed to applied? */
-    bool target_is_path;    /*!< Is the target a path or file handle? */
-    Target* target;         /*!< target of the redirection (a union) */
+        bool is_used;       /*!< Is this redirect supposed to applied? */
+        bool target_is_path; /*!< Is the target a path or file handle? */
+        Target* target;     /*!< target of the redirection (a union) */
 } Redirect;
 
 Redirect* newRedirectFromPath(char* path);
@@ -59,13 +59,13 @@ Redirect* newRedirectFromFileHandle(int fd);
  *  \brief Represents one single executable to run, containing the path,
  *         arguments, and redirects.
  */
-typedef struct Executable{
-    char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
-    Redirect* stdin;            /*!< What should stdin be set to? */
-    Redirect* stdout;           /*!< What should stdout be set to? */
-    Redirect* stderr;           /*!< What should stderr be set to? */
-    char* argv[MAX_ARGUMENTS];  /*!< Argument strings to pass */
-    int argc;                   /*!< Number of arguments being passed */
+typedef struct Executable {
+        char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
+        Redirect* stdin;        /*!< What should stdin be set to? */
+        Redirect* stdout;       /*!< What should stdout be set to? */
+        Redirect* stderr;       /*!< What should stderr be set to? */
+        char* argv[MAX_ARGUMENTS]; /*!< Argument strings to pass */
+        int argc;               /*!< Number of arguments being passed */
 } Executable;
 
 /**

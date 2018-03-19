@@ -1,59 +1,61 @@
 /*!
    \file parse.c
    \brief Contains subroutines for parsing the input
-*/
+ */
 #include "amash.h"
 
-int slice_count(char* input)
+int slice_count(char *input)
 {
-        int i = 0, count = 0;
-        while(input[i]!='\0')
+    int i = 0, count = 0;
+
+    while (input[i] != '\0')
+    {
+        if (input[i] == ' ')
         {
-                if(input[i]==' ')
-                {
-                        count++;
-                }
-                i++;
+            count++;
         }
-        log_debug("\tNumber of arguments = %d",count);
-        return count;
+        i++;
+    }
+    log_debug("\tNumber of arguments = %d", count);
+    return count;
 }
 
-Executable* parse_single(char* input)
+Executable *parse_single(char *input)
 {
-        int offset = 0;
-        int length = strlen(input);
-        char temp[10][10];
-        int i;
+    int offset = 0;
+    int length = strlen(input);
+    char temp[10][10];
+    int i;
 
-        Executable* e = newExecutable();
+    Executable *e = newExecutable();
 
-        sscanf(input, "%s", e->exec_path);
-        offset += strlen(e->exec_path);
-        sscanf(e->exec_path, "%s", temp[0]);
-        e->argc++;
+    sscanf(input, "%s", e->exec_path);
+    offset += strlen(e->exec_path);
+    sscanf(e->exec_path, "%s", temp[0]);
+    e->argc++;
 
-        int arg_count = slice_count(input);
+    int arg_count = slice_count(input);
 
-        if(arg_count==0)
+    if (arg_count == 0)
+    {
+        //e->argv=NULL;
+        e->argc = 1;
+        e->argv[0] = strdup(e->exec_path);
+    }
+    else
+    {
+        for (i = 0; i < arg_count; i++)
         {
-                //e->argv=NULL;
-                e->argc=1;
-                e->argv[0]=strdup(e->exec_path);
+            sscanf((input + offset), "%s", temp[e->argc]);
+            offset += strlen(temp[e->argc++]) + 1;
         }
-        else
+        for (i = 0; i <= arg_count; i++)
         {
-                for(i=0;i<arg_count;i++)
-                {
-                        sscanf((input+offset), "%s", temp[e->argc]);
-                        offset += strlen(temp[e->argc++])+1;
-                }
-                for(i=0;i<=arg_count;i++)
-                {
-                        log_debug("%s",temp[i]);
-                        e->argv[i] = strdup(temp[i]);
-                }
+            log_debug("%s", temp[i]);
+            e->argv[i] = strdup(temp[i]);
         }
+    }
+
 /*
         while(offset < length)
         {
@@ -61,7 +63,7 @@ Executable* parse_single(char* input)
             offset += strlen(e->argv[e->argc++]);
         }
  */
-        return e;
+    return e;
 }
 
 /*

@@ -1,46 +1,54 @@
 #include "amash.h"
 
-Executable* newExecutable()
+Executable *newExecutable()
 {
-        Executable* e = (Executable*)malloc(sizeof(Executable));
+    Executable *e = (Executable *)malloc(sizeof(Executable));
 
-        for(int i = 0; i<100; i++)
-                e->exec_path[i] = '\0';
+    for (int i = 0; i < 100; i++)
+    {
+        e->exec_path[i] = '\0';
+    }
+
 /*
         for(int i = 0; i<10; i++)
                 e->redirects[i] = NULL;
 
         e->redirects_count = 0;
  */
-        for(int i = 0; i<10; i++)
-                e->argv[i] = '\0';
+    for (int i = 0; i < 10; i++)
+    {
+        e->argv[i] = '\0';
+    }
 
-        e->argc = 0;
+    e->argc = 0;
 
-        return e;
+    return e;
 }
 
-Redirect* newRedirect()
+Redirect *newRedirect()
 {
-    Redirect* r = (Redirect*)malloc(sizeof(Redirect));
+    Redirect *r = (Redirect *)malloc(sizeof(Redirect));
+
     r->is_used = false;
     r->target_is_path = false;
-    r->target = (Target*)malloc(sizeof(Target));
+    r->target = (Target *)malloc(sizeof(Target));
     return r;
 }
 
-Redirect* newRedirectFromFileHandle(int fd)
+Redirect *newRedirectFromFileHandle(int fd)
 {
-    Redirect* r = newRedirect();
+    Redirect *r = newRedirect();
+
     r->is_used = true;
     r->target_is_path = false;
     r->target->fd = fd;
     return r;
 }
 
-Redirect* newRedirectFromPath(char* path)
+Redirect *newRedirectFromPath(char *path)
 {
-    Redirect* r = newRedirect();
+    Redirect *r = newRedirect();
+
     r->is_used = true;
     r->target_is_path = true;
     strcpy(r->target->path, path);

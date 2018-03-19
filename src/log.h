@@ -1,7 +1,7 @@
 /*!
    \file log.h
    \brief Contains definitions for the logging mini-library
-*/
+ */
 /**
  * Copyright (c) 2017 rxi
  *
