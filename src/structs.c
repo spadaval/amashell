@@ -1,3 +1,8 @@
+/*!
+   \file structs.c
+   \brief Contains subroutines for creating and manipulating objects of the various
+          structs in the project.
+*/
 #include "amash.h"
 
 Executable *newExecutable()
