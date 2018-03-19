@@ -20,7 +20,9 @@ void exec_program(Executable* e)
                 log_debug("\t\t%s ",e->argv[i]);
         }
 
-        if(strcmp(e->exec_path, "cd") == 0)
+        if(startsWith("quit", e->exec_path) || startsWith("exit", e->exec_path))
+            do_quit(e);
+        else if(strcmp(e->exec_path, "cd") == 0)
             do_cd(e);
         else if(strcmp(e->exec_path, "pwd") == 0)
             do_pwd(e);
@@ -66,4 +68,10 @@ void do_cd(Executable* e)
 void do_pwd(Executable* e)
 {
     printf("%s\n", get_current_dir_name());
+}
+
+void do_quit(Executable* e)
+{
+    printf("\nBye bye.");
+    exit(0);
 }

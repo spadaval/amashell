@@ -26,7 +26,7 @@ Executable* parse_single(char* input)
         char temp[10][10];
         int i;
 
-        Executable* e = new_executable();
+        Executable* e = newExecutable();
 
         sscanf(input, "%s", e->exec_path);
         offset += strlen(e->exec_path);
@@ -61,26 +61,6 @@ Executable* parse_single(char* input)
             offset += strlen(e->argv[e->argc++]);
         }
  */
-        return e;
-}
-
-Executable* new_executable()
-{
-        Executable* e = (Executable*)malloc(sizeof(Executable));
-
-        for(int i = 0; i<100; i++)
-                e->exec_path[i] = '\0';
-/*
-        for(int i = 0; i<10; i++)
-                e->redirects[i] = NULL;
-
-        e->redirects_count = 0;
- */
-        for(int i = 0; i<10; i++)
-                e->argv[i] = '\0';
-
-        e->argc = 0;
-
         return e;
 }
 

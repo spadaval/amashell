@@ -22,43 +22,56 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 
+#define PATH_LENGTH 100
+#define MAX_ARGUMENTS 10
 
-
-
-/////////////////////
-//Basic structures //
-/////////////////////
-
-
-
+//////////////
+//structs.c //
+//////////////
+/*
+ *  Represents the target of a redirection. Can either be a path or a file handle.
+ */
 typedef union Target
 {
-    char* path;
-    int file_handle;
+    char path[PATH_LENGTH];
+    int fd;
 } Target;
 
+/**
+ *  \struct Redirect
+ *  \brief Represents one redirect directive. Holds the fd to redirect, and an
+ *         object of union Target to define the actual target to redirect to.
+ */
 typedef struct Redirect
 {
     bool is_used;           /*!< Is this redirect supposed to applied? */
     bool target_is_path;    /*!< Is the target a path or file handle? */
-    Target target;          /*!< target of the redirection (a union) */
+    Target* target;         /*!< target of the redirection (a union) */
 } Redirect;
 
+Redirect* newRedirectFromPath(char* path);
+Redirect* newRedirectFromFileHandle(int fd);
+
 //TODO make sure argv is always null-terminated
+/**
+ *  \struct Executable
+ *  \brief Represents one single executable to run, containing the path,
+ *         arguments, and redirects.
+ */
 typedef struct Executable{
-    char exec_path[100];        /*!< string of the exectuable to run, may or may not be relative */
+    char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
     Redirect* stdin;            /*!< What should stdin be set to? */
     Redirect* stdout;           /*!< What should stdout be set to? */
     Redirect* stderr;           /*!< What should stderr be set to? */
-    char* argv[10];         /*!< Argument strings to pass */
-    int argc;               /*!< Number of arguments being passed */
+    char* argv[MAX_ARGUMENTS];  /*!< Argument strings to pass */
+    int argc;                   /*!< Number of arguments being passed */
 } Executable;
 
 /**
  *  Create a new struct Executable object
  *  @return A blank struct Executable object
  */
-Executable* new_executable();
+Executable* newExecutable();
 
 /**
  *  \struct ParsedInput
@@ -128,7 +141,7 @@ void set_redirects(Executable* e);
 
 void do_cd(Executable* e);
 void do_pwd(Executable* e);
-
+void do_quit(Executable* e);
 ////////////
 //amash.c //
 ////////////

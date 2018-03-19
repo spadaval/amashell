@@ -19,6 +19,8 @@ bool startsWith(const char *pre, const char *str)
 void printPrompt()
 {
     char cwd[100];
+    char login[100];
+    char hostname[100];
     getcwd(cwd, sizeof(cwd));
     getlogin_r(login, sizeof(login));
     gethostname(hostname, sizeof(hostname));
@@ -31,20 +33,15 @@ void printPrompt()
 
 int run_event_loop()
 {
-        char input[100];
-        char login[100];
-        char hostname[100];
+    char input[100];
         while(1)
         {
                 printPrompt();
                 fgets(input, 1000, stdin);
                 strip_input(input);
 
-                printf("\ninput : %s END\n",input);
-                if(startsWith("quit",input))
-                {
-                        break;
-                }
+                log_debug("input : <%s>",input);
+
                 Executable* e = parse_single(input);
                 exec_program(e);
 
