@@ -22,6 +22,15 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 
+
+
+
+/////////////////////
+//Basic structures //
+/////////////////////
+
+
+
 typedef union Target
 {
     char* path;
@@ -50,6 +59,12 @@ typedef struct Executable{
  *  @return A blank struct Executable object
  */
 Executable* new_executable();
+
+
+////////////
+//Parsing //
+////////////
+
 
 /**
  *  Parse the input string for a single executable, and return an Executable object
@@ -93,6 +108,12 @@ Executable* parse_single();
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
  *  @param e Details of the executable
  */
+
+/////////
+//Exec //
+/////////
+
+
 void exec_program(Executable* e);
 
 /**
@@ -105,6 +126,15 @@ void set_redirects(Executable* e);
  *  Starts the main event loop
  *  @return exit code
  */
+
+void do_cd(Executable* e);
+void do_pwd(Executable* e);
+
+/////////
+//Main //
+/////////
+
+
 int run_event_loop();
 int slice_count(char* input);
 

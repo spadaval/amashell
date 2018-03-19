@@ -21,9 +21,9 @@ void exec_program(Executable* e)
         }
 
         if(strcmp(e->exec_path, "cd") == 0)
-            do_cd();
+            do_cd(e);
         else if(strcmp(e->exec_path, "pwd") == 0)
-            do_pwd();
+            do_pwd(e);
         else if(fork() == 0)
         {
                 /*child*/
