@@ -16,6 +16,19 @@ bool startsWith(const char *pre, const char *str)
         return strncmp(pre, str, strlen(pre)) == 0;
 }
 
+void printPrompt()
+{
+    char cwd[100];
+    getcwd(cwd, sizeof(cwd));
+    getlogin_r(login, sizeof(login));
+    gethostname(hostname, sizeof(hostname));
+    printf(KBLU "\n%s@%s",hostname,login);
+    printf(KRED":");
+    printf(KWHT"%s",cwd);
+    printf(KRED"$");
+    printf(KGRN "");
+}
+
 int run_event_loop()
 {
         char input[100];
@@ -23,17 +36,8 @@ int run_event_loop()
         char hostname[100];
         while(1)
         {
-                char cwd[100];
-                getcwd(cwd, sizeof(cwd));
-                getlogin_r(login, sizeof(login));
-                gethostname(hostname, sizeof(hostname));
-                printf(KBLU "\n%s@%s",hostname,login);
-                printf(KRED":");
-                printf(KWHT"%s",cwd);
-                printf(KRED"$");
-                printf(KGRN "");
+                printPrompt();
                 fgets(input, 1000, stdin);
-
                 strip_input(input);
 
                 printf("\ninput : %s END\n",input);

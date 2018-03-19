@@ -136,5 +136,6 @@ void do_pwd(Executable* e);
 
 int run_event_loop();
 int slice_count(char* input);
+void printPrompt();
 
 #endif
