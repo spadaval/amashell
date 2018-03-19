@@ -29,7 +29,8 @@
 //structs.c //
 //////////////
 /*
- *  Represents the target of a redirection. Can either be a path or a file handle.
+ *  \union Target
+ *  Represents the target of a redirection. Can be either a path or a file handle.
  */
 typedef union Target
 {
@@ -79,7 +80,6 @@ Executable* newExecutable();
  *         This operates similarly to the Executable, but alows you to treat a
  *         chain of piped executables as a single executable.
  */
-
 // typedef struct ParsedInput{
 //     Executable* executables[10];    /*!< List of executables to pipe to each other in sequence */
 //     int executables_count; /*!< Number of executables */
@@ -142,6 +142,7 @@ void set_redirects(Executable* e);
 void do_cd(Executable* e);
 void do_pwd(Executable* e);
 void do_quit(Executable* e);
+
 ////////////
 //amash.c //
 ////////////
