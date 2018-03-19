@@ -65,6 +65,11 @@ $(function() {
 <div class="title">Redirect Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents one redirect directive. Holds the fd to redirect, and an object of union <a class="el" href="unionTarget.html">Target</a> to define the actual target to redirect to.  
+ <a href="structRedirect.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="amash_8h_source.html">amash.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -72,10 +77,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a48c04d19b0d6fb4a720d40200f5d36b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a905759b7fea842d40b0bdbbd15706220"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html#a905759b7fea842d40b0bdbbd15706220">target_is_path</a></td></tr>
 <tr class="separator:a905759b7fea842d40b0bdbbd15706220"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19303191e62a6ddb3c59d03a8b2b90ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionTarget.html">Target</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html#a19303191e62a6ddb3c59d03a8b2b90ac">target</a></td></tr>
-<tr class="separator:a19303191e62a6ddb3c59d03a8b2b90ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1abbeb37908b457798f8dc3d7458709"><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionTarget.html">Target</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html#af1abbeb37908b457798f8dc3d7458709">target</a></td></tr>
+<tr class="separator:af1abbeb37908b457798f8dc3d7458709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents one redirect directive. Holds the fd to redirect, and an object of union <a class="el" href="unionTarget.html">Target</a> to define the actual target to redirect to. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a48c04d19b0d6fb4a720d40200f5d36b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48c04d19b0d6fb4a720d40200f5d36b9">&#9670;&nbsp;</a></span>is_used</h2>
 
@@ -91,14 +98,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a19303191e62a6ddb3c59d03a8b2b90ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19303191e62a6ddb3c59d03a8b2b90ac">&#9670;&nbsp;</a></span>target</h2>
+<a id="af1abbeb37908b457798f8dc3d7458709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1abbeb37908b457798f8dc3d7458709">&#9670;&nbsp;</a></span>target</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="unionTarget.html">Target</a> Redirect::target</td>
+          <td class="memname"><a class="el" href="unionTarget.html">Target</a>* Redirect::target</td>
         </tr>
       </table>
 </div><div class="memdoc">

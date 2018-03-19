@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -71,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all the major struct, union, and API function definitions.  
+<p>Contains definitions for all the structs and functions in the shell.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -88,9 +89,44 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionTarget.html">Target</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRedirect.html">Redirect</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one redirect directive. Holds the fd to redirect, and an object of union <a class="el" href="unionTarget.html">Target</a> to define the actual target to redirect to.  <a href="structRedirect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html">Executable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one single executable to run, containing the path, arguments, and redirects.  <a href="structExecutable.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a137aa83ec74421d226a90c92ec032ac9"><td class="memItemLeft" align="right" valign="top"><a id="a137aa83ec74421d226a90c92ec032ac9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KNRM</b>&#160;&#160;&#160;&quot;\x1B[0m&quot;</td></tr>
+<tr class="separator:a137aa83ec74421d226a90c92ec032ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66290957baed5df3930ada4cb8caccf1"><td class="memItemLeft" align="right" valign="top"><a id="a66290957baed5df3930ada4cb8caccf1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KRED</b>&#160;&#160;&#160;&quot;\x1B[31m&quot;</td></tr>
+<tr class="separator:a66290957baed5df3930ada4cb8caccf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac081c83b067273757f7a2e54a5957d41"><td class="memItemLeft" align="right" valign="top"><a id="ac081c83b067273757f7a2e54a5957d41"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KGRN</b>&#160;&#160;&#160;&quot;\x1B[32m&quot;</td></tr>
+<tr class="separator:ac081c83b067273757f7a2e54a5957d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897b10d246533c95ba86cb79f92e465a"><td class="memItemLeft" align="right" valign="top"><a id="a897b10d246533c95ba86cb79f92e465a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KYEL</b>&#160;&#160;&#160;&quot;\x1B[33m&quot;</td></tr>
+<tr class="separator:a897b10d246533c95ba86cb79f92e465a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f838f2fc3a9a3b434be606fc908964b"><td class="memItemLeft" align="right" valign="top"><a id="a3f838f2fc3a9a3b434be606fc908964b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KBLU</b>&#160;&#160;&#160;&quot;\x1B[34m&quot;</td></tr>
+<tr class="separator:a3f838f2fc3a9a3b434be606fc908964b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6825f05d3b9d619d91d79d0ef18bb8b2"><td class="memItemLeft" align="right" valign="top"><a id="a6825f05d3b9d619d91d79d0ef18bb8b2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KMAG</b>&#160;&#160;&#160;&quot;\x1B[35m&quot;</td></tr>
+<tr class="separator:a6825f05d3b9d619d91d79d0ef18bb8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32036c94dbb166a3f874b7efc169841f"><td class="memItemLeft" align="right" valign="top"><a id="a32036c94dbb166a3f874b7efc169841f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KCYN</b>&#160;&#160;&#160;&quot;\x1B[36m&quot;</td></tr>
+<tr class="separator:a32036c94dbb166a3f874b7efc169841f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0036c8022c9980079ab17e5c87fd478"><td class="memItemLeft" align="right" valign="top"><a id="af0036c8022c9980079ab17e5c87fd478"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>KWHT</b>&#160;&#160;&#160;&quot;\x1B[37m&quot;</td></tr>
+<tr class="separator:af0036c8022c9980079ab17e5c87fd478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cf34e0db252791157d1860a412381a"><td class="memItemLeft" align="right" valign="top"><a id="af9cf34e0db252791157d1860a412381a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PATH_LENGTH</b>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:af9cf34e0db252791157d1860a412381a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0edb60dab8dbc580a40d8d987492631f"><td class="memItemLeft" align="right" valign="top"><a id="a0edb60dab8dbc580a40d8d987492631f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_ARGUMENTS</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a0edb60dab8dbc580a40d8d987492631f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -106,25 +142,60 @@ typedef struct <a class="el" href="structExecutable.html">Executable</a>&#160;</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac87a118af55679693aed549766833324"><td class="memItemLeft" align="right" valign="top"><a id="ac87a118af55679693aed549766833324"></a>
-<a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>new_executable</b> ()</td></tr>
-<tr class="separator:ac87a118af55679693aed549766833324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6800af15f2f520ea94fed18d8df8b137"><td class="memItemLeft" align="right" valign="top"><a id="a6800af15f2f520ea94fed18d8df8b137"></a>
+<a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newRedirectFromPath</b> (char *path)</td></tr>
+<tr class="separator:a6800af15f2f520ea94fed18d8df8b137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270b74f538c2b5db05b424c5dc921836"><td class="memItemLeft" align="right" valign="top"><a id="a270b74f538c2b5db05b424c5dc921836"></a>
+<a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newRedirectFromFileHandle</b> (int fd)</td></tr>
+<tr class="separator:a270b74f538c2b5db05b424c5dc921836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01876584b372b9d39c167a30292385da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a01876584b372b9d39c167a30292385da">newExecutable</a> ()</td></tr>
+<tr class="separator:a01876584b372b9d39c167a30292385da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33d34a324d0f0b05dc2af1d61cace0a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a33d34a324d0f0b05dc2af1d61cace0a2">parse_single</a> ()</td></tr>
 <tr class="separator:a33d34a324d0f0b05dc2af1d61cace0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8a91ac0f7fb10cb26c381b4a2a741749">exec_program</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a21e49d8b5354cde3dc21c3cdc28c0136">set_redirects</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
+<tr class="memitem:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ae9e6018bbbaff02faffd9ab885ef17cd">do_cd</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e6e42aa51870698268deadbbc088ef"><td class="memItemLeft" align="right" valign="top"><a id="a06e6e42aa51870698268deadbbc088ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>do_pwd</b> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a06e6e42aa51870698268deadbbc088ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56237fe6b812a37b2227509263c49084"><td class="memItemLeft" align="right" valign="top"><a id="a56237fe6b812a37b2227509263c49084"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>do_quit</b> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a56237fe6b812a37b2227509263c49084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top"><a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>run_event_loop</b> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab811b036dbb52955af5a2eb3ab1fe985"><td class="memItemLeft" align="right" valign="top"><a id="ab811b036dbb52955af5a2eb3ab1fe985"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>slice_count</b> (char *input)</td></tr>
 <tr class="separator:ab811b036dbb52955af5a2eb3ab1fe985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70749195adc0ab8c373020426dcf2800"><td class="memItemLeft" align="right" valign="top"><a id="a70749195adc0ab8c373020426dcf2800"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printPrompt</b> ()</td></tr>
+<tr class="separator:a70749195adc0ab8c373020426dcf2800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains all the major struct, union, and API function definitions. </p>
-<p>Contains definitions for all the structs and functions in the shell.</p>
+<div class="textblock"><p>Contains definitions for all the structs and functions in the shell. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae9e6018bbbaff02faffd9ab885ef17cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e6018bbbaff02faffd9ab885ef17cd">&#9670;&nbsp;</a></span>do_cd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_cd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+</div>
+</div>
 <a id="a8a91ac0f7fb10cb26c381b4a2a741749"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a91ac0f7fb10cb26c381b4a2a741749">&#9670;&nbsp;</a></span>exec_program()</h2>
 
@@ -157,6 +228,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>slice_count</b> (char 
 
 </div>
 </div>
+<a id="a01876584b372b9d39c167a30292385da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01876584b372b9d39c167a30292385da">&#9670;&nbsp;</a></span>newExecutable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structExecutable.html">Executable</a>* newExecutable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>A blank struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </dd></dl>
+
+</div>
+</div>
 <a id="a33d34a324d0f0b05dc2af1d61cace0a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33d34a324d0f0b05dc2af1d61cace0a2">&#9670;&nbsp;</a></span>parse_single()</h2>
 
@@ -171,25 +260,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>slice_count</b> (char 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Parse the input string for a single executable, and return an <a class="el" href="structExecutable.html">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="structExecutable.html">Executable</a> object </dd></dl>
-
-</div>
-</div>
-<a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a735c28d653d36eb26c7c815a867cd5ac">&#9670;&nbsp;</a></span>run_event_loop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int run_event_loop </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+<p>Parse the input string for a single executable, and return an <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </dd></dl>
 
 </div>
 </div>
@@ -210,7 +281,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>slice_count</b> (char 
 </div><div class="memdoc">
 <p>Set the file handles of the current process according to the parameter. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html">Executable</a> object, containing a list of redirects to apply. </td></tr>
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object, containing a list of redirects to apply. </td></tr>
   </table>
   </dd>
 </dl>

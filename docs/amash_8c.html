@@ -69,84 +69,32 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the main function, and other control structures.  
+<p>Contains implementations for core functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="amash_8h_source.html">amash.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a266480e602ae7b55989e10c1de0d53f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a266480e602ae7b55989e10c1de0d53f2">startsWith</a> (const char *pre, const char *str)</td></tr>
+<tr class="memitem:ae21aa645a5558346d06df902c1a3457e"><td class="memItemLeft" align="right" valign="top"><a id="ae21aa645a5558346d06df902c1a3457e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>strip_input</b> (char *input)</td></tr>
+<tr class="separator:ae21aa645a5558346d06df902c1a3457e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266480e602ae7b55989e10c1de0d53f2"><td class="memItemLeft" align="right" valign="top"><a id="a266480e602ae7b55989e10c1de0d53f2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>startsWith</b> (const char *pre, const char *str)</td></tr>
 <tr class="separator:a266480e602ae7b55989e10c1de0d53f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
+<tr class="memitem:a70749195adc0ab8c373020426dcf2800"><td class="memItemLeft" align="right" valign="top"><a id="a70749195adc0ab8c373020426dcf2800"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printPrompt</b> ()</td></tr>
+<tr class="separator:a70749195adc0ab8c373020426dcf2800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top"><a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>run_event_loop</b> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc7c3904fa8ddcbf0023de57b2e2920"><td class="memItemLeft" align="right" valign="top"><a id="aebc7c3904fa8ddcbf0023de57b2e2920"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_intro_screen</b> ()</td></tr>
-<tr class="separator:aebc7c3904fa8ddcbf0023de57b2e2920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains the main function, and other control structures. </p>
-<dl class="section author"><dt>Author</dt><dd>"Your name" </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>"DD"/"Month"/"Year" </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a735c28d653d36eb26c7c815a867cd5ac">&#9670;&nbsp;</a></span>run_event_loop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int run_event_loop </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-</div>
-</div>
-<a id="a266480e602ae7b55989e10c1de0d53f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a266480e602ae7b55989e10c1de0d53f2">&#9670;&nbsp;</a></span>startsWith()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool startsWith </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pre</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Basic prefix matching utility function </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pre</td><td>Prefix to test for </td></tr>
-    <tr><td class="paramname">str</td><td><a class="el" href="unionTarget.html" title="This union represents a target of a redirection. This can be either a file handle or a path name(rela...">Target</a> string to test </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p>Contains implementations for core functions. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

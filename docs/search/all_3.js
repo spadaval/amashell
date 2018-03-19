@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['log_2eh',['log.h',['../log_8h.html',1,'']]],
-  ['log_5fversion',['LOG_VERSION',['../log_8h.html#aa48b2017856a8a9c33a9935afe604c8d',1,'log.h']]]
+  ['is_5fused',['is_used',['../structRedirect.html#a48c04d19b0d6fb4a720d40200f5d36b9',1,'Redirect']]]
 ];
