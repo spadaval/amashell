@@ -52,15 +52,16 @@ int run_event_loop()
 
 //TODO add something cool here
 
-/*
-   void print_intro_screen()
-   {
-
-   }
+/**
+ *  This function prints the intro splash screen at startup.
  */
+void print_intro_screen()
+{
+
+}
 
 int main()
 {
-    //print_intro_screen();
+    print_intro_screen();
     run_event_loop();
 }

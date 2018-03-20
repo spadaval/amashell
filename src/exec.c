@@ -7,6 +7,7 @@
 //TODO finish this
 void set_redirects(Executable *e)
 {
+    
 }
 
 void exec_program(Executable *e)

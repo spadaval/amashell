@@ -14,12 +14,6 @@ Executable *newExecutable()
         e->exec_path[i] = '\0';
     }
 
-/*
-        for(int i = 0; i<10; i++)
-                e->redirects[i] = NULL;
-
-        e->redirects_count = 0;
- */
     for (int i = 0; i < 10; i++)
     {
         e->argv[i] = '\0';
