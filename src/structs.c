@@ -14,10 +14,10 @@ Executable *newExecutable()
         e->exec_path[i] = '\0';
     }
 
-    for (int i = 0; i < 10; i++)
-    {
-        e->argv[i] = '\0';
-    }
+    for (int i = 0; i < MAX_ARGUMENTS; i++)
+        for(int j = 0;j < ARG_LENGTH; j++)
+        e->argv[i][j] = '\0';
+
 
     e->argc = 0;
 
@@ -52,4 +52,25 @@ Redirect *newRedirectFromPath(char *path)
     r->target_is_path = true;
     strcpy(r->target->path, path);
     return r;
+}
+
+void dump_executable(Executable *e)
+{
+    if(e == NULL)
+        log_error("Received null executable!!");
+
+    log_trace("Printing executable details:");
+    char arguments_string[100];
+    int offset = 0;
+    strcpy(arguments_string, "'");
+    strcat(arguments_string, e->argv[0]);
+    strcat(arguments_string, "'");
+
+    for (int i = 1; i < e->argc; i++)
+    {
+        strcat(arguments_string, ",'");
+        strcat(arguments_string, e->argv[i]);
+        strcat(arguments_string, "'");
+    }
+    log_debug("Executable(path = '%s', argc=%d, argv=(%s) )", e->exec_path, e->argc, arguments_string);
 }

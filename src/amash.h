@@ -11,6 +11,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 #include "log.h"
 
 #define KNRM  "\x1B[0m"
@@ -24,7 +26,7 @@
 
 #define PATH_LENGTH 100
 #define MAX_ARGUMENTS 10
-
+#define ARG_LENGTH 100
 //////////////
 //structs.c //
 //////////////
@@ -64,7 +66,7 @@ typedef struct Executable {
         Redirect* stdin;        /*!< What should stdin be set to? */
         Redirect* stdout;       /*!< What should stdout be set to? */
         Redirect* stderr;       /*!< What should stderr be set to? */
-        char* argv[MAX_ARGUMENTS]; /*!< Argument strings to pass */
+        char argv[MAX_ARGUMENTS][ARG_LENGTH]; /*!< Argument strings to pass */
         int argc;               /*!< Number of arguments being passed */
 } Executable;
 
@@ -73,22 +75,6 @@ typedef struct Executable {
  *  @return A blank struct Executable object
  */
 Executable* newExecutable();
-
-/**
- *  \struct ParsedInput
- *  \brief Represents one line of input after parsing(by the parse function).
- *         This operates similarly to the Executable, but alows you to treat a
- *         chain of piped executables as a single executable.
- */
-// typedef struct ParsedInput{
-//     Executable* executables[10];    /*!< List of executables to pipe to each other in sequence */
-//     int executables_count; /*!< Number of executables */
-// //    char* env;              /*!< Environment variables to apply */
-// //    int env_count;          /*!< Number of environment variables */
-// } ParsedInput;
-
-// ParsedInput* new_parsedinput();
-
 
 ////////////
 //parse.c //

@@ -6,17 +6,18 @@
 #include "amash.h"
 #include <string.h>
 
-void strip_input(char *input)
-{
-    input[strlen(input) - 1] = '\0';
-}
-
 bool startsWith(const char *pre, const char *str)
 {
-    return strncmp(pre, str, strlen(pre)) == 0;
+    while(*pre != '\0')
+        if(*(pre++) != *(str++))
+            return false;
+    return true;
 }
 
-void printPrompt()
+
+char prompt[200];
+
+void generatePrompt()
 {
     char cwd[100];
     char login[100];
@@ -25,11 +26,7 @@ void printPrompt()
     getcwd(cwd, sizeof(cwd));
     getlogin_r(login, sizeof(login));
     gethostname(hostname, sizeof(hostname));
-    printf(KBLU "\n%s@%s", hostname, login);
-    printf(KRED ":");
-    printf(KWHT "%s", cwd);
-    printf(KRED "$");
-    printf(KGRN "");
+    sprintf(prompt, "%s%s@%s%s:%s%s$%s ", KRED, hostname, KBLU, login, KYEL, cwd, KGRN);
 }
 
 int run_event_loop()
@@ -38,14 +35,19 @@ int run_event_loop()
 
     while (true)
     {
-        printPrompt();
-        fgets(input, 1000, stdin);
-        strip_input(input);
+        generatePrompt();
+        char* input = readline(prompt);
+        log_debug("Read input '%s'", input);
+        if(!input){
+            do_quit(NULL);
+        }
 
-        log_debug("input : <%s>", input);
+        add_history(input);
 
         Executable *e = parse_single(input);
         exec_program(e);
+
+        free(input);
     }
     return 0;
 }
