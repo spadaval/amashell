@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parsedinput',['ParsedInput',['../structParsedInput.html',1,'']]]
+  ['redirect',['Redirect',['../structRedirect.html',1,'']]]
 ];

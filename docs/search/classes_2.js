@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['redirect',['Redirect',['../structRedirect.html',1,'']]]
+  ['target',['Target',['../unionTarget.html',1,'']]]
 ];

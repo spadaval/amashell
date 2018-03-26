@@ -80,6 +80,8 @@ $(function() {
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;readline/readline.h&gt;</code><br />
+<code>#include &lt;readline/history.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 </div>
 <p><a href="amash_8h_source.html">Go to the source code of this file.</a></p>
@@ -127,6 +129,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a0edb60dab8dbc580a40d8d987492631f"><td class="memItemLeft" align="right" valign="top"><a id="a0edb60dab8dbc580a40d8d987492631f"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_ARGUMENTS</b>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:a0edb60dab8dbc580a40d8d987492631f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f40fb7595d797ba48b360ceb962387"><td class="memItemLeft" align="right" valign="top"><a id="a25f40fb7595d797ba48b360ceb962387"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ARG_LENGTH</b>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a25f40fb7595d797ba48b360ceb962387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -211,7 +216,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printPrompt</b> ()</t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Parse the received input, and produce a <a class="el" href="structParsedInput.html" title="Represents one line of input after parsing(by the parse function). This operates similarly to the Exe...">ParsedInput</a> object </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Parse the received input, and produce a ParsedInput object </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>input string </td></tr>
   </table>
