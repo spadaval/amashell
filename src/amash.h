@@ -98,6 +98,12 @@ ParsedInput* parse(char* input);
 void exec_program(Executable* e);
 
 /**
+ *  Executes a chain of programs.
+ *  @param e A ParsedInput object
+ */
+void exec(ParsedInput* e);
+
+/**
  *  Set the file handles of the current process according to the parameter.
  *  @param e Executable object, containing a list of redirects to apply.
  */
