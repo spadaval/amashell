@@ -59,14 +59,13 @@ void exec_program(Executable *e)
         wait(NULL);
     }
 }
-/*
-   void exec_input(ParsedInput* i)
-   {
-        assert(false);
-        //TODO make this work for pipelined programs
-        assert(i->exec_strings_count == 1);
-   }
- */
+//TODO implement this
+void exec(ParsedInput* i)
+{
+    assert(false);
+    assert(i->executables_count == 1);
+}
+
 
 void do_cd(Executable *e)
 {
