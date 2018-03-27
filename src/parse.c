@@ -16,25 +16,97 @@ char* new_string()
     return x;
 }
 
-Executable *parse_single(char *input)
+enum parse_mode{
+    START,
+    EXEC_PATH,
+    ARGUMENT,
+    STDIN,
+    STDOUT,
+    WHITESPACE
+};
+
+struct {
+    enum parse_mode curr_mode;
+    char* curr_word_base, *curr_word;
+    Executable* curr_executable;
+    ParsedInput* output;
+} dfa;
+
+//TODO finish this
+ParsedInput* parse(char *input)
 {
-    int offset = 0;
-    int length = strlen(input);
+    assert(input != NULL);
 
-    Executable *e = new_executable();
+    // Initialize the DFA
+    dfa.curr_mode = START;
+    dfa.output = new_parsedinput();
 
-    sscanf(input, "%s", e->exec_path);
-    e->argv[0] = new_string();
-    sscanf(input, "%s", e->argv[0]);
-    e->argc = 1;
-    offset += strlen(e->exec_path);
+    // begin parsing each character
+    while(input++)
+    {
+        switch(dfa.curr_mode)
+        {
+            case START:
+                dfa.curr_word_base = dfa.curr_word = new_string();
+                dfa.curr_executable = new_executable();
+                dfa.curr_mode = EXEC_PATH;
+                break;
 
-    while(offset < strlen(input)){
-        e->argv[e->argc] = new_string();
+            case EXEC_PATH:
+                switch(*input)
+                {
+                    case ' ':
+                    case '<':
+                    case '>':
+                    case '|':
+                    default: break;
+                }
+                break;
 
-        sscanf(input+offset, "%s", e->argv[e->argc]);
-        offset += strlen(e->argv[e->argc++]) + 1;
+            case ARGUMENT:
+                switch(*input)
+                {
+                    case ' ':
+                    case '<':
+                    case '>':
+                    case '|':
+                    default: break;
+                }
+                break;
+
+            case STDIN:
+                switch(*input)
+                {
+                    case ' ':
+                    case '<':
+                    case '>':
+                    case '|':
+                    default: break;
+                }
+                break;
+
+                case STDOUT:
+                    switch(*input)
+                    {
+                        case ' ':
+                        case '<':
+                        case '>':
+                        case '|':
+                        default: break;
+                    }
+                    break;
+
+                case WHITESPACE:
+                    switch(*input)
+                    {
+                        case ' ':
+                        case '<':
+                        case '>':
+                        case '|':
+                        default: break;
+                    }
+                    break;
+
+        }
     }
-    e->argv[e->argc] = NULL;
-    return e;
 }
