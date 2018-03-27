@@ -65,5 +65,6 @@ void print_intro_screen()
 int main()
 {
     print_intro_screen();
+    log_set_level(LOG_ERROR);
     run_event_loop();
 }
