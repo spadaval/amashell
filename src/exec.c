@@ -12,7 +12,7 @@ void set_redirects(Executable *e)
 
 bool handle_builtins(Executable* e)
 {
-    if (startsWith("quit", e->exec_path))
+    if (starts_with("quit", e->exec_path))
     {
         log_trace("Quit detected");
         do_quit(e);
