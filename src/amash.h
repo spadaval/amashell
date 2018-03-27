@@ -63,9 +63,9 @@ Redirect* newRedirectFromFileHandle(int fd);
  */
 typedef struct Executable {
         char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
-        Redirect* stdin;        /*!< What should stdin be set to? */
-        Redirect* stdout;       /*!< What should stdout be set to? */
-        Redirect* stderr;       /*!< What should stderr be set to? */
+        Redirect stdin;        /*!< What should stdin be set to? */
+        Redirect stdout;       /*!< What should stdout be set to? */
+        Redirect stderr;       /*!< What should stderr be set to? */
         char* argv[ARG_LENGTH]; /*!< Argument strings to pass */
         int argc;               /*!< Number of arguments being passed */
 } Executable;
@@ -99,19 +99,9 @@ Executable* parse_single();
 ///////////
 
 /**
- *  Executes parsed input, delegates most of the work to exec. Mostly concerned
- *  with pipes and stuff.
- *  @param i Parsed input
- */
-// void exec_input(ParsedInput* i);
-
-/**
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
  *  @param e Details of the executable
  */
-
-
-
 void exec_program(Executable* e);
 
 /**
@@ -120,10 +110,6 @@ void exec_program(Executable* e);
  */
 void set_redirects(Executable* e);
 
-/**
- *  Starts the main event loop
- *  @return exit code
- */
 
 void do_cd(Executable* e);
 void do_pwd(Executable* e);
@@ -133,9 +119,15 @@ void do_quit(Executable* e);
 //amash.c //
 ////////////
 
-
+/**
+ *  Starts the main event loop
+ *  @return exit code
+ */
 int run_event_loop();
-int slice_count(char* input);
+
+/**
+ *  Print the welcome prompt to STDOUT
+ */
 void printPrompt();
 
 #endif
