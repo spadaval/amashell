@@ -55,14 +55,24 @@ typedef struct Executable {
  */
 Executable* new_executable();
 
-////////////
-//parse.c //
-////////////
-
+/**
+ *  Log the details of an executable
+ *  @param e Executable object to display
+ */
+void dump_executable(Executable* e);
 
 /**
- *  Parse the input string for a single executable, and return an Executable object
- *  @return An Executable object
+ *  \struct ParsedInput
+ *  \brief A chain if executables to run
+ */
+typedef struct ParsedInput {
+        Executable executables[MAX_ARGUMENTS];/*!< Chain of executables to run */
+        int executables_count;               /*!< Number of executables currently in chain*/
+} ParsedInput;
+
+/**
+ *  Create a new struct ParsedInput object
+ *  @return A blank struct ParsedInput object
  */
 Executable* parse_single();
 
