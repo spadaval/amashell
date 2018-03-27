@@ -7,9 +7,9 @@
 
 Executable *new_executable()
 {
-    Executable *e = (Executable *)malloc(sizeof(Executable));
+    Executable* e = (Executable*)malloc(sizeof(Executable));
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < PATH_LENGTH; i++)
     {
         e->exec_path[i] = '\0';
     }
@@ -23,44 +23,21 @@ Executable *new_executable()
     return e;
 }
 
-Redirect *newRedirect()
+ParsedInput *new_parsedinput()
 {
-    Redirect *r = (Redirect *)malloc(sizeof(Redirect));
+    ParsedInput* p = (ParsedInput*)malloc(sizeof(ParsedInput));
+    p->executables_count = 0;
 
-    r->is_used = false;
-    r->target_is_path = false;
-    r->target = (Target *)malloc(sizeof(Target));
-    return r;
+    return p;
 }
 
-Redirect *newRedirectFromFileHandle(int fd)
-{
-    Redirect *r = newRedirect();
-
-    r->is_used = true;
-    r->target_is_path = false;
-    r->target->fd = fd;
-    return r;
-}
-
-Redirect *newRedirectFromPath(char *path)
-{
-    Redirect *r = newRedirect();
-
-    r->is_used = true;
-    r->target_is_path = true;
-    strcpy(r->target->path, path);
-    return r;
-}
-
-void dump_executable(Executable *e)
+void dump_executable(Executable* e)
 {
     if(e == NULL)
         log_error("Received null executable!!");
 
     log_trace("Dumping executable:");
     char arguments_string[100];
-    int offset = 0;
     strcpy(arguments_string, "'");
     strcat(arguments_string, e->argv[0]);
     strcat(arguments_string, "'");
@@ -71,5 +48,6 @@ void dump_executable(Executable *e)
         strcat(arguments_string, e->argv[i]);
         strcat(arguments_string, "'");
     }
-    log_debug("Executable(path = '%s', argc=%d, argv=(%s) )", e->exec_path, e->argc, arguments_string);
+    log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin={%s}, stdout={%s}, redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
+                                                                                                          , e->stdin, e->stdout, e->stderr_to_stdout);
 }
