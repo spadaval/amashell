@@ -5,7 +5,7 @@
 */
 #include "amash.h"
 
-Executable *newExecutable()
+Executable *new_executable()
 {
     Executable *e = (Executable *)malloc(sizeof(Executable));
 
@@ -15,8 +15,7 @@ Executable *newExecutable()
     }
 
     for (int i = 0; i < MAX_ARGUMENTS; i++)
-        for(int j = 0;j < ARG_LENGTH; j++)
-        e->argv[i][j] = '\0';
+        e->argv[i] = NULL;
 
 
     e->argc = 0;
@@ -59,7 +58,7 @@ void dump_executable(Executable *e)
     if(e == NULL)
         log_error("Received null executable!!");
 
-    log_trace("Printing executable details:");
+    log_trace("Dumping executable:");
     char arguments_string[100];
     int offset = 0;
     strcpy(arguments_string, "'");

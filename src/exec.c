@@ -35,8 +35,6 @@ bool handle_builtins(Executable* e)
 
 void exec_program(Executable *e)
 {
-    dump_executable(e);
-
     if(handle_builtins(e))
         log_trace("Processed as builtin");
     else
@@ -50,9 +48,12 @@ void exec_program(Executable *e)
         {
             /*child*/
             set_redirects(e);
+
+            dump_executable(e);
             if (execvp(e->exec_path, e->argv) != 0)
             {
                 log_error("Exec error(error %d)", errno);
+                log_debug("exec_path:'%s'(%d)", e->exec_path,strlen(e->exec_path));
                 printf(KNRM "\namash: command not found : '%s'\n\n", e->exec_path);
                 abort();
             }

@@ -66,7 +66,7 @@ typedef struct Executable {
         Redirect* stdin;        /*!< What should stdin be set to? */
         Redirect* stdout;       /*!< What should stdout be set to? */
         Redirect* stderr;       /*!< What should stderr be set to? */
-        char argv[MAX_ARGUMENTS][ARG_LENGTH]; /*!< Argument strings to pass */
+        char* argv[ARG_LENGTH]; /*!< Argument strings to pass */
         int argc;               /*!< Number of arguments being passed */
 } Executable;
 
@@ -74,7 +74,7 @@ typedef struct Executable {
  *  Create a new struct Executable object
  *  @return A blank struct Executable object
  */
-Executable* newExecutable();
+Executable* new_executable();
 
 ////////////
 //parse.c //

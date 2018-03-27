@@ -4,22 +4,33 @@
  */
 #include "amash.h"
 
+char* new_string()
+{
+    char* x = (char*)malloc(sizeof(char)*ARG_LENGTH);
+    for(int i = 0; i < ARG_LENGTH; i++)
+        x[i] = '\0';
+    return x;
+}
+
 Executable *parse_single(char *input)
 {
     int offset = 0;
     int length = strlen(input);
 
-    Executable *e = newExecutable();
+    Executable *e = new_executable();
 
     sscanf(input, "%s", e->exec_path);
+    e->argv[0] = new_string();
     sscanf(input, "%s", e->argv[0]);
     e->argc = 1;
     offset += strlen(e->exec_path);
 
     while(offset < strlen(input)){
+        e->argv[e->argc] = new_string();
+
         sscanf(input+offset, "%s", e->argv[e->argc]);
         offset += strlen(e->argv[e->argc++]) + 1;
     }
-
+    e->argv[e->argc] = NULL;
     return e;
 }
