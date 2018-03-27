@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TheAmadeusShell: The Amadeus Shell</title>
+<title>The Amadeus Shell: The Amadeus Shell</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="Amadeuslogo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TheAmadeusShell
+   <div id="projectname">The Amadeus Shell
    </div>
   </td>
  </tr>
@@ -79,7 +79,25 @@ $(function() {
 <li>Run ninja. <div class="fragment"><div class="line">ninja build</div></div><!-- fragment --> <h2>Working</h2>
 </li>
 </ol>
-<p>This code works through</p>
+<p>This program's functionality is divided into 3 main parts:</p><ol type="1">
+<li>amash: The main function, event handling, control flow, I/O.</li>
+<li>parse: Parses the input, figures out what needs to be done.</li>
+<li>exec: Executes the parsed input, handles redirects and stuff.</li>
+</ol>
+<p>The general algorithm of the event loop is:</p><ol type="1">
+<li>read input from readline</li>
+<li>parse INPUT</li>
+<li>exec input</li>
+<li>goto 1</li>
+</ol>
+<h3>Parse</h3>
+<p>The parser is a fairly basic DFA implementation. It scans the input left to right, one character at a time. State is tracked with an enum(<code>enum parse_mode</code>). As input is detected, the DFA transitions between states and performs certain actions. At the end of the parse(state END), the final <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object is retured.</p>
+<h3>Exec</h3>
+<p>To run a program, these things happen:</p><ol type="1">
+<li>The program forks.</li>
+<li>The new forked program sets its current file handles as specified.</li>
+<li>The new program runs the target program with an exec system call.</li>
+</ol>
 <h2>About the name</h2>
 <p>The word <code>amadeus</code> derives from a latin word that roughly translates to <code>love God</code>. It is named after the memory storage and artificial intelligence system if the same name, developed by <code>Makise Kurisu</code> at Victor Chondria University. The system was designed to convert human memory data to digital data and to emulate a human brain.</p>
 <h2>Why are all the arrays statically allocated?</h2>
