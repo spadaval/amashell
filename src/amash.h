@@ -85,6 +85,7 @@ ParsedInput* new_parsedinput();
  *  @param  input input string
  *  @return       An object representing a breakdown of the given command
  */
+ParsedInput* parse(char* input);
 
 ///////////
 //exec.c //
