@@ -4,6 +4,10 @@
  */
 #include "amash.h"
 
+/**
+ *  mallocs a block of memory INPUT_LENGTH characters long
+ *  @return Pointer to the block of memory
+ */
 char* new_string()
 {
     char* x = (char*)malloc(sizeof(char)*ARG_LENGTH);
