@@ -10,7 +10,7 @@
  */
 char* new_string()
 {
-    char* x = (char*)malloc(sizeof(char)*ARG_LENGTH);
+    char* x = (char*)malloc(sizeof(char)*INPUT_LENGTH);
     for(int i = 0; i < ARG_LENGTH; i++)
         x[i] = '\0';
     return x;
