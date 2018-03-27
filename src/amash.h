@@ -34,7 +34,7 @@
 //structs.c //
 //////////////
 
-//TODO make sure argv is always null-terminated
+//NB make sure argv is always null-terminated
 /**
  *  \struct Executable
  *  \brief Represents one single executable to run, containing the path,
