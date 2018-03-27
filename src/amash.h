@@ -129,4 +129,12 @@ int run_event_loop();
  */
 void printPrompt();
 
+/**
+ *  Test if str starts with pre
+ *  @param  pre The prefix
+ *  @param  str The string to test
+ *  @return     true if str starts with pre, false otherwise
+ */
+bool starts_with(const char *pre, const char *str);
+
 #endif
