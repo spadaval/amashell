@@ -41,8 +41,6 @@ void exec_program(Executable *e)
     {
         // fork and handle
         log_trace("\tBegin forked process");
-        printf(KMAG "\n__________________________________________________________________________________________________________________________\n");
-        printf(KCYN "\n");
 
         if (fork() == 0)
         {
