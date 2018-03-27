@@ -33,30 +33,6 @@
 //////////////
 //structs.c //
 //////////////
-/*
- *  \union Target
- *  Represents the target of a redirection. Can be either a path or a file handle.
- */
-typedef union Target
-{
-        char path[PATH_LENGTH];
-        int fd;
-} Target;
-
-/**
- *  \struct Redirect
- *  \brief Represents one redirect directive. Holds the fd to redirect, and an
- *         object of union Target to define the actual target to redirect to.
- */
-typedef struct Redirect
-{
-        bool is_used;       /*!< Is this redirect supposed to applied? */
-        bool target_is_path; /*!< Is the target a path or file handle? */
-        Target* target;     /*!< target of the redirection (a union) */
-} Redirect;
-
-Redirect* newRedirectFromPath(char* path);
-Redirect* newRedirectFromFileHandle(int fd);
 
 //TODO make sure argv is always null-terminated
 /**
