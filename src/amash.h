@@ -74,14 +74,17 @@ typedef struct ParsedInput {
  *  Create a new struct ParsedInput object
  *  @return A blank struct ParsedInput object
  */
-Executable* parse_single();
+ParsedInput* new_parsedinput();
+
+////////////
+//parse.c //
+////////////
 
 /**
  *  Parse the received input, and produce a ParsedInput object
  *  @param  input input string
  *  @return       An object representing a breakdown of the given command
  */
-// ParsedInput* parse(char* input);
 
 ///////////
 //exec.c //
