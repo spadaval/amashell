@@ -6,7 +6,7 @@
 #include "amash.h"
 #include <string.h>
 
-bool startsWith(const char *pre, const char *str)
+bool starts_with(const char *pre, const char *str)
 {
     while(*pre != '\0')
         if(*(pre++) != *(str++))
@@ -44,8 +44,8 @@ int run_event_loop()
 
         add_history(input);
 
-        Executable *e = parse_single(input);
-        exec_program(e);
+        ParsedInput *e = parse(input);
+        exec(e);
 
         free(input);
     }
