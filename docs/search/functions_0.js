@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['do_5fcd',['do_cd',['../amash_8h.html#ae9e6018bbbaff02faffd9ab885ef17cd',1,'do_cd(Executable *e):&#160;exec.c'],['../exec_8c.html#ae9e6018bbbaff02faffd9ab885ef17cd',1,'do_cd(Executable *e):&#160;exec.c']]]
+  ['dump_5fexecutable',['dump_executable',['../amash_8h.html#ae2529ce8d3250f1f9359b39777563286',1,'dump_executable(Executable *e):&#160;structs.c'],['../structs_8c.html#ae2529ce8d3250f1f9359b39777563286',1,'dump_executable(Executable *e):&#160;structs.c']]]
 ];

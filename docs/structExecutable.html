@@ -75,12 +75,12 @@ $(function() {
 Public Attributes</h2></td></tr>
 <tr class="memitem:aba8a76baa1e2c20cf84a8fe750efaea5"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#aba8a76baa1e2c20cf84a8fe750efaea5">exec_path</a> [PATH_LENGTH]</td></tr>
 <tr class="separator:aba8a76baa1e2c20cf84a8fe750efaea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7c447267310cc5e13466b2cb223956e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#af7c447267310cc5e13466b2cb223956e">stdin</a></td></tr>
-<tr class="separator:af7c447267310cc5e13466b2cb223956e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d342a1d57418d2cef118f1da7621b64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a6d342a1d57418d2cef118f1da7621b64">stdout</a></td></tr>
-<tr class="separator:a6d342a1d57418d2cef118f1da7621b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dc55316f84363c22cd53009cb9c629e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a9dc55316f84363c22cd53009cb9c629e">stderr</a></td></tr>
-<tr class="separator:a9dc55316f84363c22cd53009cb9c629e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0916869f906c081c1c3e9579171f0d7c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a0916869f906c081c1c3e9579171f0d7c">stdin</a></td></tr>
+<tr class="separator:a0916869f906c081c1c3e9579171f0d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434c452cc7cc536b47224f5e17fdf5ad"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a434c452cc7cc536b47224f5e17fdf5ad">stdout</a></td></tr>
+<tr class="separator:a434c452cc7cc536b47224f5e17fdf5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e6a7e0544f69fd0e2cd909941c96fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#ad4e6a7e0544f69fd0e2cd909941c96fd">stderr_to_stdout</a></td></tr>
+<tr class="separator:ad4e6a7e0544f69fd0e2cd909941c96fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d87e6088f14c9dda6afed9ddb1ba11"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a14d87e6088f14c9dda6afed9ddb1ba11">argv</a> [ARG_LENGTH]</td></tr>
 <tr class="separator:a14d87e6088f14c9dda6afed9ddb1ba11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a451255cfb172bb84ed468b31024ed5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structExecutable.html#a8a451255cfb172bb84ed468b31024ed5">argc</a></td></tr>
@@ -134,29 +134,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9dc55316f84363c22cd53009cb9c629e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dc55316f84363c22cd53009cb9c629e">&#9670;&nbsp;</a></span>stderr</h2>
+<a id="ad4e6a7e0544f69fd0e2cd909941c96fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e6a7e0544f69fd0e2cd909941c96fd">&#9670;&nbsp;</a></span>stderr_to_stdout</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structRedirect.html">Redirect</a>* Executable::stderr</td>
+          <td class="memname">bool Executable::stderr_to_stdout</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>What should stderr be set to? </p>
+<p>Should stderr be set to stdout? </p>
 
 </div>
 </div>
-<a id="af7c447267310cc5e13466b2cb223956e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7c447267310cc5e13466b2cb223956e">&#9670;&nbsp;</a></span>stdin</h2>
+<a id="a0916869f906c081c1c3e9579171f0d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0916869f906c081c1c3e9579171f0d7c">&#9670;&nbsp;</a></span>stdin</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structRedirect.html">Redirect</a>* Executable::stdin</td>
+          <td class="memname">char* Executable::stdin</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -164,14 +164,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6d342a1d57418d2cef118f1da7621b64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d342a1d57418d2cef118f1da7621b64">&#9670;&nbsp;</a></span>stdout</h2>
+<a id="a434c452cc7cc536b47224f5e17fdf5ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a434c452cc7cc536b47224f5e17fdf5ad">&#9670;&nbsp;</a></span>stdout</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structRedirect.html">Redirect</a>* Executable::stdout</td>
+          <td class="memname">char* Executable::stdout</td>
         </tr>
       </table>
 </div><div class="memdoc">

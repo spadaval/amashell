@@ -83,7 +83,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>handle_builtins</b> (
 <tr class="separator:aa7406b94568c840be6913bdb0d3096c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exec_8c.html#a8a91ac0f7fb10cb26c381b4a2a741749">exec_program</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exec_8c.html#ae9e6018bbbaff02faffd9ab885ef17cd">do_cd</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="memitem:a2a4465e4111a6e1185ca341cde051cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exec_8c.html#a2a4465e4111a6e1185ca341cde051cd8">exec</a> (<a class="el" href="structParsedInput.html">ParsedInput</a> *i)</td></tr>
+<tr class="separator:a2a4465e4111a6e1185ca341cde051cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memItemLeft" align="right" valign="top"><a id="ae9e6018bbbaff02faffd9ab885ef17cd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>do_cd</b> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06e6e42aa51870698268deadbbc088ef"><td class="memItemLeft" align="right" valign="top"><a id="a06e6e42aa51870698268deadbbc088ef"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>do_pwd</b> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
@@ -95,22 +98,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>do_quit</b> (<a class
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains subroutines for executing parsed input. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae9e6018bbbaff02faffd9ab885ef17cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9e6018bbbaff02faffd9ab885ef17cd">&#9670;&nbsp;</a></span>do_cd()</h2>
+<a id="a2a4465e4111a6e1185ca341cde051cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4465e4111a6e1185ca341cde051cd8">&#9670;&nbsp;</a></span>exec()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void do_cd </td>
+          <td class="memname">void exec </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+<p>Executes a chain of programs. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>A <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -129,16 +137,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>do_quit</b> (<a class
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Parse the received input, and produce a ParsedInput object </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>input string </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An object representing a breakdown of the given command Executes parsed input, delegates most of the work to exec. Mostly concerned with pipes and stuff. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>Parsed input Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary. </td></tr>
     <tr><td class="paramname">e</td><td>Details of the executable </td></tr>
   </table>
   </dd>

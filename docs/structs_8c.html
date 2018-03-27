@@ -77,22 +77,38 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:ac87a118af55679693aed549766833324"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_8c.html#ac87a118af55679693aed549766833324">new_executable</a> ()</td></tr>
 <tr class="separator:ac87a118af55679693aed549766833324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebddf6b083c4329309a62a7029619e7f"><td class="memItemLeft" align="right" valign="top"><a id="aebddf6b083c4329309a62a7029619e7f"></a>
-<a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newRedirect</b> ()</td></tr>
-<tr class="separator:aebddf6b083c4329309a62a7029619e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a270b74f538c2b5db05b424c5dc921836"><td class="memItemLeft" align="right" valign="top"><a id="a270b74f538c2b5db05b424c5dc921836"></a>
-<a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newRedirectFromFileHandle</b> (int fd)</td></tr>
-<tr class="separator:a270b74f538c2b5db05b424c5dc921836"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6800af15f2f520ea94fed18d8df8b137"><td class="memItemLeft" align="right" valign="top"><a id="a6800af15f2f520ea94fed18d8df8b137"></a>
-<a class="el" href="structRedirect.html">Redirect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newRedirectFromPath</b> (char *path)</td></tr>
-<tr class="separator:a6800af15f2f520ea94fed18d8df8b137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2529ce8d3250f1f9359b39777563286"><td class="memItemLeft" align="right" valign="top"><a id="ae2529ce8d3250f1f9359b39777563286"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dump_executable</b> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="memitem:af4def5160ba9bea9b7691efefd0639b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_8c.html#af4def5160ba9bea9b7691efefd0639b9">new_parsedinput</a> ()</td></tr>
+<tr class="separator:af4def5160ba9bea9b7691efefd0639b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2529ce8d3250f1f9359b39777563286"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_8c.html#ae2529ce8d3250f1f9359b39777563286">dump_executable</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:ae2529ce8d3250f1f9359b39777563286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains subroutines for creating and manipulating objects of the various structs in the project. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae2529ce8d3250f1f9359b39777563286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2529ce8d3250f1f9359b39777563286">&#9670;&nbsp;</a></span>dump_executable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dump_executable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Log the details of an executable </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object to display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac87a118af55679693aed549766833324"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac87a118af55679693aed549766833324">&#9670;&nbsp;</a></span>new_executable()</h2>
 
@@ -108,6 +124,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>dump_executable</b> (
       </table>
 </div><div class="memdoc">
 <p>Create a new struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>A blank struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </dd></dl>
+
+</div>
+</div>
+<a id="af4def5160ba9bea9b7691efefd0639b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4def5160ba9bea9b7691efefd0639b9">&#9670;&nbsp;</a></span>new_parsedinput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structParsedInput.html">ParsedInput</a>* new_parsedinput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new struct <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object </p><dl class="section return"><dt>Returns</dt><dd>A blank struct <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object </dd></dl>
 
 </div>
 </div>

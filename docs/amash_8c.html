@@ -77,14 +77,12 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a266480e602ae7b55989e10c1de0d53f2"><td class="memItemLeft" align="right" valign="top"><a id="a266480e602ae7b55989e10c1de0d53f2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>startsWith</b> (const char *pre, const char *str)</td></tr>
-<tr class="separator:a266480e602ae7b55989e10c1de0d53f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68df9d5c0bc680f4315a580fe0fb62d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#ac68df9d5c0bc680f4315a580fe0fb62d">starts_with</a> (const char *pre, const char *str)</td></tr>
+<tr class="separator:ac68df9d5c0bc680f4315a580fe0fb62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac798b1a7d5a29e386a3ae734b73f13fc"><td class="memItemLeft" align="right" valign="top"><a id="ac798b1a7d5a29e386a3ae734b73f13fc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>generatePrompt</b> ()</td></tr>
 <tr class="separator:ac798b1a7d5a29e386a3ae734b73f13fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top"><a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>run_event_loop</b> ()</td></tr>
+<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc7c3904fa8ddcbf0023de57b2e2920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#aebc7c3904fa8ddcbf0023de57b2e2920">print_intro_screen</a> ()</td></tr>
 <tr class="separator:aebc7c3904fa8ddcbf0023de57b2e2920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +114,60 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>prompt</b> [200]</td>
       </table>
 </div><div class="memdoc">
 <p>This function prints the intro splash screen at startup. </p>
+
+</div>
+</div>
+<a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735c28d653d36eb26c7c815a867cd5ac">&#9670;&nbsp;</a></span>run_event_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int run_event_loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+</div>
+</div>
+<a id="ac68df9d5c0bc680f4315a580fe0fb62d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68df9d5c0bc680f4315a580fe0fb62d">&#9670;&nbsp;</a></span>starts_with()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool starts_with </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Test if str starts with pre </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pre</td><td>The prefix </td></tr>
+    <tr><td class="paramname">str</td><td>The string to test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if str starts with pre, false otherwise </dd></dl>
 
 </div>
 </div>

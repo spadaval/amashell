@@ -63,7 +63,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">parse.c File Reference</div>  </div>
 </div><!--header-->
@@ -73,18 +75,96 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="amash_8h_source.html">amash.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a7f66a2f0b7c864ac01083d9603b84ac6"><td class="memItemLeft" align="right" valign="top"><a id="a7f66a2f0b7c864ac01083d9603b84ac6"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>parse_mode</b> { <br />
+&#160;&#160;<b>START</b>, 
+<b>EXEC_PATH</b>, 
+<b>ARGUMENT</b>, 
+<b>STDIN</b>, 
+<br />
+&#160;&#160;<b>STDOUT</b>, 
+<b>WHITESPACE</b>
+<br />
+ }</td></tr>
+<tr class="separator:a7f66a2f0b7c864ac01083d9603b84ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af6fdb4e7bf7bb4d4ed3e6f32a58ad964"><td class="memItemLeft" align="right" valign="top"><a id="af6fdb4e7bf7bb4d4ed3e6f32a58ad964"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>new_string</b> ()</td></tr>
+<tr class="memitem:af6fdb4e7bf7bb4d4ed3e6f32a58ad964"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#af6fdb4e7bf7bb4d4ed3e6f32a58ad964">new_string</a> ()</td></tr>
 <tr class="separator:af6fdb4e7bf7bb4d4ed3e6f32a58ad964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a969011473f875bbb54f288f60e1bb96f"><td class="memItemLeft" align="right" valign="top"><a id="a969011473f875bbb54f288f60e1bb96f"></a>
-<a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parse_single</b> (char *input)</td></tr>
-<tr class="separator:a969011473f875bbb54f288f60e1bb96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a7e9b9c35a1c0118c5945cc05be30470e">parse</a> (char *input)</td></tr>
+<tr class="separator:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a121c73fea40b4fa67e74c3ed3c8cd8df"><td class="memItemLeft" ><a id="a121c73fea40b4fa67e74c3ed3c8cd8df"></a>
+struct {</td></tr>
+<tr class="memitem:a98c3dbd473ed375797446782fbe7c75f"><td class="memItemLeft" >
+&#160;&#160;&#160;enum parse_mode&#160;&#160;&#160;<b>curr_mode</b></td></tr>
+<tr class="separator:a98c3dbd473ed375797446782fbe7c75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4b1c4b760359480963c885421e7c88"><td class="memItemLeft" >
+&#160;&#160;&#160;char *&#160;&#160;&#160;<b>curr_word_base</b></td></tr>
+<tr class="separator:abd4b1c4b760359480963c885421e7c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac73969b6e534048b9178137fa45987"><td class="memItemLeft" >
+&#160;&#160;&#160;char *&#160;&#160;&#160;<b>curr_word</b></td></tr>
+<tr class="separator:abac73969b6e534048b9178137fa45987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602a1e914c247509b37894fb8771b778"><td class="memItemLeft" >
+&#160;&#160;&#160;<a class="el" href="structExecutable.html">Executable</a> *&#160;&#160;&#160;<b>curr_executable</b></td></tr>
+<tr class="separator:a602a1e914c247509b37894fb8771b778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd626ce5ab86b0ac32f9b2714ffff0ef"><td class="memItemLeft" >
+&#160;&#160;&#160;<a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;&#160;&#160;<b>output</b></td></tr>
+<tr class="separator:acd626ce5ab86b0ac32f9b2714ffff0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121c73fea40b4fa67e74c3ed3c8cd8df"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><b>dfa</b></td></tr>
+<tr class="separator:a121c73fea40b4fa67e74c3ed3c8cd8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains subroutines for parsing the input. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="af6fdb4e7bf7bb4d4ed3e6f32a58ad964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6fdb4e7bf7bb4d4ed3e6f32a58ad964">&#9670;&nbsp;</a></span>new_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* new_string </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>mallocs a block of memory INPUT_LENGTH characters long </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the block of memory </dd></dl>
+
+</div>
+</div>
+<a id="a7e9b9c35a1c0118c5945cc05be30470e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e9b9c35a1c0118c5945cc05be30470e">&#9670;&nbsp;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structParsedInput.html">ParsedInput</a>* parse </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parse the received input, and produce a <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>input string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An object representing a breakdown of the given command </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
