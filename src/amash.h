@@ -81,9 +81,10 @@ ParsedInput* new_parsedinput();
 ////////////
 
 /**
- *  Parse the received input, and produce a ParsedInput object
+ *  Parse the received input, and produce a ParsedInput object.
+ *  Utilizes a DFA. Scans the input left-to-right, one character at a time.
  *  @param  input input string
- *  @return       An object representing a breakdown of the given command
+ *  @return A `ParsedInput` object
  */
 ParsedInput* parse(char* input);
 
@@ -109,9 +110,27 @@ void exec(ParsedInput* e);
  */
 void set_redirects(Executable* e);
 
+/**
+ *  If the given command is a builtin, run the approproate function and return true.
+ *  @param  e The given executable
+ *  @return   true if a builtin was run, false if otherwise
+ */
+bool handle_builtins(Executable* e)
 
+/**
+ *  Run the cd builtin
+ *  @param e Executable details
+ */
 void do_cd(Executable* e);
+/**
+ *  Run the pwd builtin
+ *  @param e Executable details
+ */
 void do_pwd(Executable* e);
+/**
+ *  Run the quit builtin
+ *  @param e Executable details
+ */
 void do_quit(Executable* e);
 
 ////////////

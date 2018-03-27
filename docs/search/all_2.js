@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['exec',['exec',['../amash_8h.html#a24a5204d783d20dcfcf31c085622cb43',1,'exec(ParsedInput *e):&#160;exec.c'],['../exec_8c.html#a2a4465e4111a6e1185ca341cde051cd8',1,'exec(ParsedInput *i):&#160;exec.c']]],
-  ['exec_2ec',['exec.c',['../exec_8c.html',1,'']]],
-  ['exec_5fpath',['exec_path',['../structExecutable.html#aba8a76baa1e2c20cf84a8fe750efaea5',1,'Executable']]],
-  ['exec_5fprogram',['exec_program',['../amash_8h.html#a8a91ac0f7fb10cb26c381b4a2a741749',1,'exec_program(Executable *e):&#160;exec.c'],['../exec_8c.html#a8a91ac0f7fb10cb26c381b4a2a741749',1,'exec_program(Executable *e):&#160;exec.c']]],
-  ['executable',['Executable',['../structExecutable.html',1,'']]],
-  ['executables',['executables',['../structParsedInput.html#a32175887c19c1dbe5e8fc7f2fbfd191f',1,'ParsedInput']]],
-  ['executables_5fcount',['executables_count',['../structParsedInput.html#a8c1ab13a0c7dce9f4b426b431863f351',1,'ParsedInput']]]
+  ['dfa',['DFA',['../structDFA.html',1,'DFA'],['../parse_8c.html#a97ea04b1b173942ee42a079863920fda',1,'dfa():&#160;parse.c']]],
+  ['do_5fcd',['do_cd',['../exec_8c.html#ae9e6018bbbaff02faffd9ab885ef17cd',1,'exec.c']]],
+  ['do_5fpwd',['do_pwd',['../amash_8h.html#a06e6e42aa51870698268deadbbc088ef',1,'do_pwd(Executable *e):&#160;exec.c'],['../exec_8c.html#a06e6e42aa51870698268deadbbc088ef',1,'do_pwd(Executable *e):&#160;exec.c']]],
+  ['do_5fquit',['do_quit',['../amash_8h.html#a56237fe6b812a37b2227509263c49084',1,'do_quit(Executable *e):&#160;exec.c'],['../exec_8c.html#a56237fe6b812a37b2227509263c49084',1,'do_quit(Executable *e):&#160;exec.c']]],
+  ['dump_5fexecutable',['dump_executable',['../amash_8h.html#ae2529ce8d3250f1f9359b39777563286',1,'dump_executable(Executable *e):&#160;structs.c'],['../structs_8c.html#ae2529ce8d3250f1f9359b39777563286',1,'dump_executable(Executable *e):&#160;structs.c']]]
 ];

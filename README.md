@@ -30,30 +30,33 @@ meson ..
 ```
 ninja build
 ```
+
+
 ## Working
 This program's functionality is divided into 3 main parts:
-1. amash: The main function, event handling, control flow, I/O.
-2. parse: Parses the input, figures out what needs to be done.
-3. exec: Executes the parsed input, handles redirects and stuff.
 
+### Main
 The general algorithm of the event loop is:
 1. read input from readline
 2. parse INPUT
 3. exec input
 4. goto 1
 
+See `run_event_loop`.
+
 ### Parse
 The parser is a fairly basic DFA implementation. It scans the input left to right, one character at a time.
-State is tracked with an enum(`enum parse_mode`).
+State is tracked with an enum(`parse_mode`).
 As input is detected, the DFA transitions between states and performs certain actions.
 At the end of the parse(state END), the final `ParsedInput` object is retured.
+This is implemented in `parse`.
 
 ### Exec
 To run a program, these things happen:
 1. The program forks.
 2. The new forked program sets its current file handles as specified.
 3. The new program runs the target program with an exec system call.
-
+This is implemented in `exec_program` for a single program, and `exec` for a chain of executables.
 
 ## About the name
 The word `amadeus` derives from a latin word that roughly translates to `love God`.   

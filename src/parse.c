@@ -15,7 +15,10 @@ char* new_string()
         x[i] = '\0';
     return x;
 }
-
+/**
+ *  \enum parse_mode
+ *  \brief  State numbers for the parser DFA
+ */
 enum parse_mode{
     START,
     EXEC_PATH,
@@ -25,7 +28,11 @@ enum parse_mode{
     WHITESPACE
 };
 
-struct {
+/**
+ *  \struct DFA
+ *  \brief A simple container struct for the data of the DFA
+ */
+struct DFA{
     enum parse_mode curr_mode;
     char* curr_word_base, *curr_word;
     Executable* curr_executable;

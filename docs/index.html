@@ -76,14 +76,11 @@ $(function() {
 <ol type="1">
 <li>Create a build folder and cd to it. <div class="fragment"><div class="line">mkdir build; cd build;</div></div><!-- fragment --></li>
 <li>Initialize the meson system. <div class="fragment"><div class="line">meson ..</div></div><!-- fragment --></li>
-<li>Run ninja. <div class="fragment"><div class="line">ninja build</div></div><!-- fragment --> <h2>Working</h2>
-</li>
+<li>Run ninja. <div class="fragment"><div class="line">ninja build</div></div><!-- fragment --></li>
 </ol>
-<p>This program's functionality is divided into 3 main parts:</p><ol type="1">
-<li>amash: The main function, event handling, control flow, I/O.</li>
-<li>parse: Parses the input, figures out what needs to be done.</li>
-<li>exec: Executes the parsed input, handles redirects and stuff.</li>
-</ol>
+<h2>Working</h2>
+<p>This program's functionality is divided into 3 main parts:</p>
+<h3>Main</h3>
 <p>The general algorithm of the event loop is:</p><ol type="1">
 <li>read input from readline</li>
 <li>parse INPUT</li>
@@ -91,7 +88,7 @@ $(function() {
 <li>goto 1</li>
 </ol>
 <h3>Parse</h3>
-<p>The parser is a fairly basic DFA implementation. It scans the input left to right, one character at a time. State is tracked with an enum(<code>enum parse_mode</code>). As input is detected, the DFA transitions between states and performs certain actions. At the end of the parse(state END), the final <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object is retured.</p>
+<p>The parser is a fairly basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> implementation. It scans the input left to right, one character at a time. State is tracked with an enum(<code>parse_mode</code>). As input is detected, the <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> transitions between states and performs certain actions. At the end of the parse(state END), the final <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object is retured.</p>
 <h3>Exec</h3>
 <p>To run a program, these things happen:</p><ol type="1">
 <li>The program forks.</li>

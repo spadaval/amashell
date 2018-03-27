@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['new_5fexecutable',['new_executable',['../amash_8h.html#ac87a118af55679693aed549766833324',1,'new_executable():&#160;structs.c'],['../structs_8c.html#ac87a118af55679693aed549766833324',1,'new_executable():&#160;structs.c']]],
-  ['new_5fparsedinput',['new_parsedinput',['../amash_8h.html#af4def5160ba9bea9b7691efefd0639b9',1,'new_parsedinput():&#160;structs.c'],['../structs_8c.html#af4def5160ba9bea9b7691efefd0639b9',1,'new_parsedinput():&#160;structs.c']]],
-  ['new_5fstring',['new_string',['../parse_8c.html#af6fdb4e7bf7bb4d4ed3e6f32a58ad964',1,'parse.c']]]
+  ['generateprompt',['generatePrompt',['../amash_8c.html#ac798b1a7d5a29e386a3ae734b73f13fc',1,'amash.c']]]
 ];
