@@ -28,6 +28,8 @@
 #define PATH_LENGTH 100
 #define MAX_ARGUMENTS 10
 #define ARG_LENGTH 100
+#define INPUT_LENGTH 1000
+#define MAX_EXECUTABLES 10
 //////////////
 //structs.c //
 //////////////
