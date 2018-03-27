@@ -42,9 +42,9 @@
  */
 typedef struct Executable {
         char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
-        Redirect stdin;        /*!< What should stdin be set to? */
-        Redirect stdout;       /*!< What should stdout be set to? */
-        Redirect stderr;       /*!< What should stderr be set to? */
+        char* stdin;        /*!< What should stdin be set to? */
+        char* stdout;       /*!< What should stdout be set to? */
+        bool stderr_to_stdout; /*!< Should stderr be set to stdout? */
         char* argv[ARG_LENGTH]; /*!< Argument strings to pass */
         int argc;               /*!< Number of arguments being passed */
 } Executable;
