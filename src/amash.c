@@ -8,14 +8,18 @@
 
 bool starts_with(const char *pre, const char *str)
 {
-    while(*pre != '\0')
-        if(*(pre++) != *(str++))
+    while (*pre != '\0')
+    {
+        if (*(pre++) != *(str++))
+        {
             return false;
+        }
+    }
     return true;
 }
 
-
 char prompt[200];   /*!< A string containing the prompt to display */
+
 /**
  *  Generate the prompt string, and copy it to `prompt`.
  */
@@ -30,6 +34,7 @@ void generatePrompt()
     gethostname(hostname, sizeof(hostname));
     sprintf(prompt, "%s%s@%s%s:%s%s$%s ", KRED, hostname, KBLU, login, KYEL, cwd, KGRN);
 }
+
 /**
  *  Runs the main event loop
  *  @return return code
@@ -41,9 +46,10 @@ int run_event_loop()
     while (true)
     {
         generatePrompt();
-        char* input = readline(prompt);
+        char *input = readline(prompt);
         log_debug("Read input '%s'", input);
-        if(!input){
+        if (!input)
+        {
             do_quit(NULL);
         }
 
@@ -57,15 +63,15 @@ int run_event_loop()
     return 0;
 }
 
-//TODO add something cool here
+/// \todo add something cool here
 
 /**
  *  This function prints the intro splash screen at startup.
  */
 void print_intro_screen()
 {
-
 }
+
 /**
  *  The main function
  */

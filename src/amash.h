@@ -8,6 +8,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -42,8 +43,8 @@
  */
 typedef struct Executable {
         char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
-        char* stdin;        /*!< What should stdin be set to? */
-        char* stdout;       /*!< What should stdout be set to? */
+        char* stdin;        /*!< What should stdin be set to? (null =>not used) */
+        char* stdout;       /*!< What should stdout be set to? (null =>not used)*/
         bool stderr_to_stdout; /*!< Should stderr be set to stdout? */
         char* argv[ARG_LENGTH]; /*!< Argument strings to pass */
         int argc;               /*!< Number of arguments being passed */
@@ -115,7 +116,7 @@ void set_redirects(Executable* e);
  *  @param  e The given executable
  *  @return   true if a builtin was run, false if otherwise
  */
-bool handle_builtins(Executable* e)
+bool handle_builtins(Executable* e);
 
 /**
  *  Run the cd builtin

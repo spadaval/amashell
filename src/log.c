@@ -2,6 +2,7 @@
    \file log.c
    \brief Contains implementations for the logging mini-library
  */
+
 /*
  * Copyright (c) 2017 rxi
  *

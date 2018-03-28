@@ -59,7 +59,7 @@ To run a program, these things happen:
 This is implemented in `exec_program` for a single program, and `exec` for a chain of executables.
 
 ## About the name
-The word `amadeus` derives from a latin word that roughly translates to `love God`.   
+The word `amadeus` is a latin word which roughly translates to `love God`.   
 It is named after the memory storage and artificial intelligence system if the same name, developed by `Makise Kurisu` at Victor Chondria University.
 The system was designed to convert human memory data to digital data and to emulate a human brain.
 

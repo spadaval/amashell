@@ -4,13 +4,25 @@
  */
 #include "amash.h"
 #include <sys/wait.h>
-//TODO finish this
+
 void set_redirects(Executable *e)
 {
-
+    log_debug("Applying redirects");
+    if (e->stdin != NULL)
+    {
+        int fd = open(e->stdin, O_RDONLY);
+        dup2(STDIN_FILENO, fd);
+        log_trace("Redirecting stdin to '%s'", e->stdin);
+    }
+    if (e->stdout != NULL)
+    {
+        int fd = open(e->stdout, O_WRONLY);
+        dup2(STDOUT_FILENO, fd);
+        log_trace("Redirecting stdin to '%s'", e->stdin);
+    }
 }
 
-bool handle_builtins(Executable* e)
+bool handle_builtins(Executable *e)
 {
     if (starts_with("quit", e->exec_path))
     {
@@ -29,14 +41,17 @@ bool handle_builtins(Executable* e)
         return true;
     }
     else
+    {
         return false;
-
+    }
 }
 
 void exec_program(Executable *e)
 {
-    if(handle_builtins(e))
+    if (handle_builtins(e))
+    {
         log_trace("Processed as builtin");
+    }
     else
     {
         // fork and handle
@@ -51,7 +66,7 @@ void exec_program(Executable *e)
             if (execvp(e->exec_path, e->argv) != 0)
             {
                 log_error("Exec error(error %d)", errno);
-                log_debug("exec_path:'%s'(%d)", e->exec_path,strlen(e->exec_path));
+                log_debug("exec_path:'%s'(%d)", e->exec_path, strlen(e->exec_path));
                 printf(KNRM "\namash: command not found : '%s'\n\n", e->exec_path);
                 abort();
             }
@@ -59,13 +74,13 @@ void exec_program(Executable *e)
         wait(NULL);
     }
 }
-//TODO implement this
-void exec(ParsedInput* i)
+
+/// \todo implement the exec function
+void exec(ParsedInput *i)
 {
     assert(false);
     assert(i->executables_count == 1);
 }
-
 
 void do_cd(Executable *e)
 {

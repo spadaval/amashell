@@ -2,12 +2,12 @@
    \file structs.c
    \brief Contains subroutines for creating and manipulating objects of the various
           structs in the project.
-*/
+ */
 #include "amash.h"
 
 Executable *new_executable()
 {
-    Executable* e = (Executable*)malloc(sizeof(Executable));
+    Executable *e = (Executable *)malloc(sizeof(Executable));
 
     for (int i = 0; i < PATH_LENGTH; i++)
     {
@@ -15,7 +15,9 @@ Executable *new_executable()
     }
 
     for (int i = 0; i < MAX_ARGUMENTS; i++)
+    {
         e->argv[i] = NULL;
+    }
 
 
     e->argc = 0;
@@ -25,16 +27,19 @@ Executable *new_executable()
 
 ParsedInput *new_parsedinput()
 {
-    ParsedInput* p = (ParsedInput*)malloc(sizeof(ParsedInput));
+    ParsedInput *p = (ParsedInput *)malloc(sizeof(ParsedInput));
+
     p->executables_count = 0;
 
     return p;
 }
 
-void dump_executable(Executable* e)
+void dump_executable(Executable *e)
 {
-    if(e == NULL)
+    if (e == NULL)
+    {
         log_error("Received null executable!!");
+    }
 
     log_trace("Dumping executable:");
     char arguments_string[100];
@@ -49,5 +54,5 @@ void dump_executable(Executable* e)
         strcat(arguments_string, "'");
     }
     log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin={%s}, stdout={%s}, redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
-                                                                                                          , e->stdin, e->stdout, e->stderr_to_stdout);
+              , e->stdin, e->stdout, e->stderr_to_stdout);
 }
