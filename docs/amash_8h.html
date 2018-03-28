@@ -78,6 +78,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
@@ -149,8 +150,10 @@ Functions</h2></td></tr>
 <tr class="separator:a24a5204d783d20dcfcf31c085622cb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a21e49d8b5354cde3dc21c3cdc28c0136">set_redirects</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a21e49d8b5354cde3dc21c3cdc28c0136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5335f75a5926e7cbbadc5b890f8678b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ab5335f75a5926e7cbbadc5b890f8678b">handle_builtins</a> (<a class="el" href="structExecutable.html">Executable</a> *e) void <a class="el" href="exec_8c.html#ae9e6018bbbaff02faffd9ab885ef17cd">do_cd</a>(<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
-<tr class="separator:ab5335f75a5926e7cbbadc5b890f8678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7406b94568c840be6913bdb0d3096c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aa7406b94568c840be6913bdb0d3096c3">handle_builtins</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:aa7406b94568c840be6913bdb0d3096c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ae9e6018bbbaff02faffd9ab885ef17cd">do_cd</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:ae9e6018bbbaff02faffd9ab885ef17cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06e6e42aa51870698268deadbbc088ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a06e6e42aa51870698268deadbbc088ef">do_pwd</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a06e6e42aa51870698268deadbbc088ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56237fe6b812a37b2227509263c49084"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a56237fe6b812a37b2227509263c49084">do_quit</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
@@ -377,6 +380,30 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ae9e6018bbbaff02faffd9ab885ef17cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e6018bbbaff02faffd9ab885ef17cd">&#9670;&nbsp;</a></span>do_cd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_cd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Run the cd builtin </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> details </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a06e6e42aa51870698268deadbbc088ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06e6e42aa51870698268deadbbc088ef">&#9670;&nbsp;</a></span>do_pwd()</h2>
 
@@ -459,17 +486,18 @@ Functions</h2></td></tr>
           <td class="memname">void exec </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Executes a chain of programs. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>A <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object </td></tr>
+    <tr><td class="paramname">e</td><td>A <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>implement the exec function </dd></dl>
 
 </div>
 </div>
@@ -497,8 +525,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab5335f75a5926e7cbbadc5b890f8678b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5335f75a5926e7cbbadc5b890f8678b">&#9670;&nbsp;</a></span>handle_builtins()</h2>
+<a id="aa7406b94568c840be6913bdb0d3096c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7406b94568c840be6913bdb0d3096c3">&#9670;&nbsp;</a></span>handle_builtins()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,13 +546,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if a builtin was run, false if otherwise Run the cd builtin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> details </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a builtin was run, false if otherwise </dd></dl>
 
 </div>
 </div>
@@ -585,7 +607,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement the parser, using basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> semantics </dd></dl>
 
 </div>
 </div>

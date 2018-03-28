@@ -87,16 +87,17 @@ $(function() {
 <li>exec input</li>
 <li>goto 1</li>
 </ol>
+<p>See <code>run_event_loop</code>.</p>
 <h3>Parse</h3>
-<p>The parser is a fairly basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> implementation. It scans the input left to right, one character at a time. State is tracked with an enum(<code>parse_mode</code>). As input is detected, the <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> transitions between states and performs certain actions. At the end of the parse(state END), the final <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object is retured.</p>
+<p>The parser is a fairly basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> implementation. It scans the input left to right, one character at a time. State is tracked with an enum(<code>parse_mode</code>). As input is detected, the <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> transitions between states and performs certain actions. At the end of the parse(state END), the final <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object is retured. This is implemented in <code>parse</code>.</p>
 <h3>Exec</h3>
 <p>To run a program, these things happen:</p><ol type="1">
 <li>The program forks.</li>
 <li>The new forked program sets its current file handles as specified.</li>
-<li>The new program runs the target program with an exec system call.</li>
+<li>The new program runs the target program with an exec system call. This is implemented in <code>exec_program</code> for a single program, and <code>exec</code> for a chain of executables.</li>
 </ol>
 <h2>About the name</h2>
-<p>The word <code>amadeus</code> derives from a latin word that roughly translates to <code>love God</code>. It is named after the memory storage and artificial intelligence system if the same name, developed by <code>Makise Kurisu</code> at Victor Chondria University. The system was designed to convert human memory data to digital data and to emulate a human brain.</p>
+<p>The word <code>amadeus</code> is a latin word which roughly translates to <code>love God</code>. It is named after the memory storage and artificial intelligence system if the same name, developed by <code>Makise Kurisu</code> at Victor Chondria University. The system was designed to convert human memory data to digital data and to emulate a human brain.</p>
 <h2>Why are all the arrays statically allocated?</h2>
 <ol type="1">
 <li>It's faster that way, since it avoids memory allocation overhead.</li>
