@@ -19,6 +19,23 @@ char *new_string()
     return x;
 }
 
+ParsedInput* generate_passthrough_parsedinput()
+{
+    ParsedInput* p = new_parsedinput();
+
+    Executable* ls = new_executable();
+    strcpy(ls->exec_path,"ls");
+    p->executables[0] = ls;
+
+    Executable* wc = new_executable();
+    strcpy(wc->exec_path,"wc");
+    p->executables[1] = wc;
+    p->executables_count = 2;
+
+    return p;
+}
+
+
 /**
  *  \enum parse_mode
  *  \brief  State numbers for the parser DFA
@@ -35,7 +52,7 @@ enum parse_mode
 
 /**
  *  \struct DFA
- *  \brief A simple container struct for the data of the DFA
+ *  \brief A simple container struct for the state data of the parser
  */
 struct DFA
 {
@@ -55,13 +72,15 @@ ParsedInput *parse(char *input)
     dfa.output = new_parsedinput();
 
     // begin parsing each character
-    while (input++)
+    while (input!='\0')
     {
         switch (dfa.curr_mode)
         {
         case START:
             dfa.curr_word_base = dfa.curr_word = new_string();
             dfa.curr_executable = new_executable();
+            //skip leading spaces
+            while(input == ' ') input++;
             dfa.curr_mode = EXEC_PATH;
             break;
 
@@ -120,7 +139,9 @@ ParsedInput *parse(char *input)
             }
             break;
         }
+        input++;
     }
 
-    return dfa.output;
+    //return dfa.output;
+    return generate_passthrough_parsedinput();
 }
