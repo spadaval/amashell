@@ -36,17 +36,48 @@ void generatePrompt()
 }
 
 /**
+ *  Checks if the last non-whitespace character in `line` is a slash, and replaces it with a null character
+ *  @param  line Ths string to check
+ *  @return      True if line ends with slash, false otherwise.
+ */
+bool line_ends_with_slash(char* line){
+    int offset = strlen(line) - 1;
+    while( offset >= 0)
+        switch(line[offset]){
+            case ' ':
+                line[offset] = '\0';
+                break;
+            case '/':
+                line[offset] = '\0';
+                return true;
+            default:
+                return false;
+        }
+}
+
+/**
  *  Runs the main event loop
  *  @return return code
  */
 int run_event_loop()
 {
-    char input[100];
-
+    char* input = malloc(sizeof(char)*1000);
+    strcpy(input, "");
     while (true)
     {
         generatePrompt();
-        char *input = readline(prompt);
+        do{
+            bool continue = false;
+
+            char* line = readline(prompt);
+            if(line_ends_with_slash(line)){
+                continue = true;
+                strcat(input, line);
+
+            }
+
+        }while(continue==true);
+
         log_debug("Read input '%s'", input);
         if (!input)
         {
