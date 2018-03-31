@@ -40,19 +40,27 @@ void generatePrompt()
  *  @param  line Ths string to check
  *  @return      True if line ends with slash, false otherwise.
  */
-bool line_ends_with_slash(char* line){
+bool line_ends_with_slash(char *line)
+{
     int offset = strlen(line) - 1;
-    while( offset >= 0)
-        switch(line[offset]){
-            case ' ':
-                line[offset] = '\0';
-                break;
-            case '/':
-                line[offset] = '\0';
-                return true;
-            default:
-                return false;
+
+    while (offset >= 0)
+    {
+        switch (line[offset])
+        {
+        case ' ':
+            line[offset] = '\0';
+            break;
+
+        case '/':
+            line[offset] = '\0';
+            return true;
+
+        default:
+            return false;
         }
+    }
+    return false;
 }
 
 /**
@@ -61,22 +69,23 @@ bool line_ends_with_slash(char* line){
  */
 int run_event_loop()
 {
-    char* input = malloc(sizeof(char)*1000);
+    char *input = malloc(sizeof(char) * 1000);
+
     strcpy(input, "");
     while (true)
     {
+        bool continued = false;
         generatePrompt();
-        do{
-            bool continue = false;
-
-            char* line = readline(prompt);
-            if(line_ends_with_slash(line)){
-                continue = true;
-                strcat(input, line);
-
+        do
+        {
+            continued = false;
+            char *line = readline(prompt);
+            if (line_ends_with_slash(line))
+            {
+                continued = true;
             }
-
-        }while(continue==true);
+            strcat(input, line);
+        } while (continued == true);
 
         log_debug("Read input '%s'", input);
         if (!input)
