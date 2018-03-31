@@ -25,11 +25,11 @@ ParsedInput* generate_passthrough_parsedinput()
 
     Executable* ls = new_executable();
     strcpy(ls->exec_path,"ls");
-    p->executables[0] = ls;
+    memcpy(&p->executables[0], ls, sizeof(struct Executable));
 
     Executable* wc = new_executable();
     strcpy(wc->exec_path,"wc");
-    p->executables[1] = wc;
+    memcpy(&p->executables[1], wc, sizeof(struct Executable));
     p->executables_count = 2;
 
     return p;
