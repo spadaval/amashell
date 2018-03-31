@@ -28,7 +28,6 @@ Executable *new_executable()
 ParsedInput *new_parsedinput()
 {
     ParsedInput *p = (ParsedInput *)malloc(sizeof(ParsedInput));
-
     p->executables_count = 0;
 
     return p;
