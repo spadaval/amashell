@@ -41,7 +41,8 @@
  *  \brief Represents one single executable to run, containing the path,
  *         arguments, and redirects.
  */
-typedef struct Executable {
+typedef struct Executable
+{
         char exec_path[PATH_LENGTH];/*!< string of the exectuable to run, may or may not be relative */
         char* stdin;        /*!< What should stdin be set to? (null =>not used) */
         char* stdout;       /*!< What should stdout be set to? (null =>not used)*/
@@ -66,7 +67,8 @@ void dump_executable(Executable* e);
  *  \struct ParsedInput
  *  \brief A chain if executables to run
  */
-typedef struct ParsedInput {
+typedef struct ParsedInput
+{
         Executable executables[MAX_ARGUMENTS];/*!< Chain of executables to run */
         int executables_count;               /*!< Number of executables currently in chain*/
 } ParsedInput;

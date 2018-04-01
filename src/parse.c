@@ -65,6 +65,7 @@ struct DFA
 /// \todo Implement the parser, using basic DFA semantics
 ParsedInput *parse(char *input)
 {
+    printf("Input to be parsed : %s\n",input);
     assert(input != NULL);
 
     // Initialize the DFA
@@ -76,68 +77,68 @@ ParsedInput *parse(char *input)
     {
         switch (dfa.curr_mode)
         {
-        case START:
-            dfa.curr_word_base = dfa.curr_word = new_string();
-            dfa.curr_executable = new_executable();
-            //skip leading spaces
-            while(input == ' ') input++;
-            dfa.curr_mode = EXEC_PATH;
-            break;
+          case START:
+              dfa.curr_word_base = dfa.curr_word = new_string();
+              dfa.curr_executable = new_executable();
+              //skip leading spaces
+              while(input == ' ') input++;
+              dfa.curr_mode = EXEC_PATH;
+              break;
 
-        case EXEC_PATH:
-            switch (*input)
-            {
-            case ' ':
-            case '<':
-            case '>':
-            case '|':
-            default: break;
-            }
-            break;
+          case EXEC_PATH:
+              switch (*input)
+              {
+                case ' ':
+                case '<':
+                case '>':
+                case '|':
+                default: break;
+              }
+              break;
 
-        case ARGUMENT:
-            switch (*input)
-            {
-            case ' ':
-            case '<':
-            case '>':
-            case '|':
-            default: break;
-            }
-            break;
+          case ARGUMENT:
+              switch (*input)
+              {
+                case ' ':
+                case '<':
+                case '>':
+                case '|':
+                default: break;
+              }
+              break;
 
-        case STDIN:
-            switch (*input)
-            {
-            case ' ':
-            case '<':
-            case '>':
-            case '|':
-            default: break;
-            }
-            break;
+          case STDIN:
+              switch (*input)
+              {
+                case ' ':
+                case '<':
+                case '>':
+                case '|':
+                default: break;
+              }
+              break;
 
-        case STDOUT:
-            switch (*input)
-            {
-            case ' ':
-            case '<':
-            case '>':
-            case '|':
-            default: break;
-            }
-            break;
+          case STDOUT:
+              switch (*input)
+              {
+                case ' ':
+                case '<':
+                case '>':
+                case '|':
+                default: break;
+              }
+              break;
 
-        case WHITESPACE:
-            switch (*input)
-            {
-            case ' ':
-            case '<':
-            case '>':
-            case '|':
-            default: break;
-            }
-            break;
+          case WHITESPACE:
+              switch (*input)
+              {
+                case ' ':
+                case '<':
+                case '>':
+                case '|':
+                default: break;
+              }
+              break;
         }
         input++;
     }

@@ -78,12 +78,15 @@ void exec_program(Executable *e)
 /// \todo implement the exec function
 void exec(ParsedInput *input)
 {
+    printf("Exec Called\n");
     int pipe_read_fd = -1, pipe_write_fd = -1;
     int fd[2];
-    for(int i = 0; i < input->executables_count; i++){
+    for(int i = 0; i < input->executables_count; i++)
+    {
         // set current executable as a local convenience variable
         Executable* e = &input->executables[i];
-        if(i != input->executables_count - 1){
+        if(i != input->executables_count - 1)
+        {
             //set read head to the previously opened pipe
             pipe_read_fd = fd[0];
             //open a new pipe to send data to the next executable
@@ -107,11 +110,13 @@ void exec(ParsedInput *input)
 
                 set_redirects(e);
                 //if not the first executable
-                if(i != 0) {
+                if(i != 0)
+                {
                     dup2(pipe_read_fd, fileno(stdin));
                 }
                 // if not the last executable
-                if(i != input->executables_count - 1){
+                if(i != input->executables_count - 1)
+                {
                     dup2(pipe_write_fd, fileno(stdout));
                 }
 
