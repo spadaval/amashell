@@ -118,9 +118,9 @@ void exec(ParsedInput *input)
                 dump_executable(e);
                 if (execvp(e->exec_path, e->argv) != 0)
                 {
-                    log_error("Exec error(error %d)", errno);
+                    log_error(KRED "Exec error(error %d)", errno);
                     log_debug("exec_path:'%s'(%d)", e->exec_path, strlen(e->exec_path));
-                    printf(KNRM "\namash: command not found : '%s'\n\n", e->exec_path);
+                    printf(KRED "\namash: command not found : '%s'\n\n", e->exec_path);
                     abort();
                 }
             }
