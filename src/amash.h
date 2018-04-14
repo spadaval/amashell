@@ -31,6 +31,10 @@
 #define ARG_LENGTH 100
 #define INPUT_LENGTH 1000
 #define MAX_EXECUTABLES 10
+
+extern int offset;
+extern int offset_sc;
+
 //////////////
 //structs.c //
 //////////////
@@ -157,4 +161,9 @@ void printPrompt();
  */
 bool starts_with(const char *pre, const char *str);
 
+int count_sc(char* input);
+
+char* extract_sc(char* input);
+
+void parser(char* input);
 #endif
