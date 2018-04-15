@@ -95,8 +95,19 @@ int run_event_loop()
 
         add_history(input);
 
-        ParsedInput *e = parse(input);
-        exec(e);
+	int c = count_sc(input);
+        int i;
+        for(i=0; i<c; i++)
+        {
+                printf("_____________________________\n\n");
+                char *s = extract_sc(input);
+                printf(">>%s\n",s);
+                parser(s);                    //Each ';' seperated section
+        }
+        offset_sc = 0;
+
+        //ParsedInput *e = parse(input);
+        //exec(e);
 
         free(input);
     }
