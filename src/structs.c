@@ -18,6 +18,9 @@ Executable *new_executable()
     {
         e->argv[i] = NULL;
     }
+    e->stdout = NULL;
+    e->stdin = NULL;
+    e->stderr_to_stdout = false;
 
 
     e->argc = 0;
@@ -40,7 +43,6 @@ void dump_executable(Executable *e)
         log_error("Received null executable!!");
     }
 
-    log_trace("Dumping executable:");
     char arguments_string[100];
     strcpy(arguments_string, "'");
     strcat(arguments_string, e->argv[0]);
@@ -52,6 +54,6 @@ void dump_executable(Executable *e)
         strcat(arguments_string, e->argv[i]);
         strcat(arguments_string, "'");
     }
-    log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin={%s}, stdout={%s}, redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
+    log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin='%s', stdout='%s', redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
               , e->stdin, e->stdout, e->stderr_to_stdout);
 }
