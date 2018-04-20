@@ -31,6 +31,7 @@
 #define ARG_LENGTH 100
 #define INPUT_LENGTH 1000
 #define MAX_EXECUTABLES 10
+#define MAX_LINES 100
 
 extern int offset;
 extern int offset_sc;
@@ -81,6 +82,21 @@ typedef struct ParsedInput {
  */
 ParsedInput* new_parsedinput();
 
+/**
+ *  Stores history in chronoogical order
+ *
+ */
+struct history{
+    char* lines[MAX_LINES];
+    int lines_count;
+}history;
+
+void push_history(char* c);
+
+void init_history();
+
+void get_previous_line(char* c);
+
 ////////////
 //parse.c //
 ////////////
@@ -96,6 +112,13 @@ ParsedInput* parse(char* input);
 ///////////
 //exec.c //
 ///////////
+
+/**
+ *  Run an input string
+ *  @param  input The input string to run
+ *  @return       Return code
+ */
+int run_input(char *input)
 
 /**
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
@@ -166,4 +189,6 @@ int count_sc(char* input);
 char* extract_sc(char* input);
 
 void parser(char* input);
+
+
 #endif

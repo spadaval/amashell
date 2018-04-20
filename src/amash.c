@@ -63,17 +63,19 @@ bool line_ends_with_slash(char *line)
     return false;
 }
 
+
 /**
  *  Runs the main event loop
- *  @return return code
+ *  @return return cod
  */
 int run_event_loop()
 {
     char *input = malloc(sizeof(char) * 1000);
 
-    strcpy(input, "");
     while (true)
     {
+        strcpy(input, "");
+
         bool continued = false;
         generatePrompt();
         do
@@ -93,23 +95,18 @@ int run_event_loop()
             do_quit(NULL);
         }
 
-        add_history(input);
+        push_history(input);
 
-	int c = count_sc(input);
-        int i;
-        for(i=0; i<c; i++)
+        for (int i = 0; i < count_sc(input); i++)
         {
-                printf("_____________________________\n\n");
-                char *s = extract_sc(input);
-                printf(">>%s\n",s);
-                parser(s);                    //Each ';' seperated section
+            char *s = extract_sc(input);
+            log_debug("Running input:%s", s);
+            run_input(s);
         }
-        offset_sc = 0;
+        //offset_sc = 0;
 
         //ParsedInput *e = parse(input);
         //exec(e);
-
-        free(input);
     }
     return 0;
 }
@@ -128,7 +125,14 @@ void print_intro_screen()
  */
 int main()
 {
+    //init_history();
     print_intro_screen();
-    log_set_level(LOG_ERROR);
+    //log_set_level(LOG_ERROR);
     run_event_loop();
+}
+
+
+void push_history(char* input)
+{
+    add_history(input);
 }
