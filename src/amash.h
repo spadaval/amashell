@@ -31,6 +31,7 @@
 #define ARG_LENGTH 100
 #define INPUT_LENGTH 1000
 #define MAX_EXECUTABLES 10
+#define MAX_ALIASES 30
 #define MAX_LINES 100
 
 extern int offset;
@@ -86,10 +87,10 @@ ParsedInput* new_parsedinput();
  *  Stores history in chronoogical order
  *
  */
-struct history{
-    char* lines[MAX_LINES];
-    int lines_count;
-}history;
+struct history {
+        char* lines[MAX_LINES];
+        int lines_count;
+} history;
 
 void push_history(char* c);
 
@@ -190,5 +191,37 @@ char* extract_sc(char* input);
 
 void parser(char* input);
 
+
+////////////
+//alias.c //
+////////////
+
+
+typedef struct Alias {
+        char keys[MAX_ALIASES];
+        char values[MAX_ALIASES];
+        int alias_count;
+} Alias;
+
+/**
+ *  Get a certain alias, given a key
+ *  @param  key What alias to look for
+ *  @return     The aliased string
+ */
+char* get_alias(char* key);
+
+/**
+ *  Create a certain alias
+ *  @param key   THe key of the alias
+ *  @param value The replacement string
+ */
+void set_alias(char* key, char* value);
+
+/**
+ *  Scan an input string, replacing aliases as you go
+ *  @param  input String to scan
+ *  @return       Replaced string
+ */
+char* resolve_input(char* input);
 
 #endif

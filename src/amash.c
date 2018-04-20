@@ -63,7 +63,6 @@ bool line_ends_with_slash(char *line)
     return false;
 }
 
-
 /**
  *  Runs the main event loop
  *  @return return cod
@@ -131,8 +130,7 @@ int main()
     run_event_loop();
 }
 
-
-void push_history(char* input)
+void push_history(char *input)
 {
     add_history(input);
 }

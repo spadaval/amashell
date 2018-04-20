@@ -17,7 +17,7 @@ void set_redirects(Executable *e)
     }
     else
     {
-        log_debug("Not applying stdin redirect");
+        log_trace("Not applying stdin redirect");
     }
     if (e->stdout != NULL && strcmp(e->stdin, "") != 0)
     {
@@ -27,7 +27,7 @@ void set_redirects(Executable *e)
     }
     else
     {
-        log_debug("Not applying stdout redirect");
+        log_trace("Not applying stdout redirect");
     }
 }
 
@@ -127,7 +127,6 @@ void exec(ParsedInput *input)
                 }
             }
         }
-
     }
 
     wait(NULL);
@@ -156,14 +155,13 @@ void do_quit(Executable *e)
     exit(0);
 }
 
-void do_history(Executable* e)
+void do_history(Executable *e)
 {
-
 }
-
 
 int run_input(char *input)
 {
     ParsedInput *p = parse(s);
+
     exec(p);
 }
