@@ -7,24 +7,33 @@
 
 void set_redirects(Executable *e)
 {
-    log_debug("Applying redirects");
-    if (e->stdin != NULL)
+    log_trace("Applying redirects");
+
+    if (e->stdin != NULL && strcmp(e->stdin, "") != 0)
     {
         int fd = open(e->stdin, O_RDONLY);
-        dup2(STDIN_FILENO, fd);
+        dup2(fd, STDIN_FILENO);
         log_trace("Redirecting stdin to '%s'", e->stdin);
     }
-    if (e->stdout != NULL)
+    else
     {
-        int fd = open(e->stdout, O_WRONLY);
-        dup2(STDOUT_FILENO, fd);
-        log_trace("Redirecting stdin to '%s'", e->stdin);
+        log_debug("Not applying stdin redirect");
+    }
+    if (e->stdout != NULL && strcmp(e->stdin, "") != 0)
+    {
+        int fd = open(e->stdout, O_WRONLY | O_CREAT);
+        dup2(fd, STDOUT_FILENO);
+        log_trace("Redirecting stdout to '%s'", e->stdout);
+    }
+    else
+    {
+        log_debug("Not applying stdout redirect");
     }
 }
 
 bool handle_builtins(Executable *e)
 {
-    if (starts_with("quit", e->exec_path))
+    if (starts_with("quit", e->exec_path) || starts_with("exit", e->exec_path))
     {
         log_trace("Quit detected");
         do_quit(e);
@@ -40,57 +49,30 @@ bool handle_builtins(Executable *e)
         do_pwd(e);
         return true;
     }
+    else if (strcmp(e->exec_path, "history") == 0)
+    {
+        do_history(e);
+        return true;
+    }
     else
     {
         return false;
     }
 }
 
-void exec_program(Executable *e)
-{
-    if (handle_builtins(e))
-    {
-        log_trace("Processed as builtin");
-    }
-    else
-    {
-        // fork and handle
-        log_trace("\tBegin forked process");
-
-        if (fork() == 0)
-        {
-            /*child*/
-            set_redirects(e);
-
-            dump_executable(e);
-            if (execvp(e->exec_path, e->argv) != 0)
-            {
-                log_error("Exec error(error %d)", errno);
-                log_debug("exec_path:'%s'(%d)", e->exec_path, strlen(e->exec_path));
-                printf(KNRM "\namash: command not found : '%s'\n\n", e->exec_path);
-                abort();
-            }
-        }
-        wait(NULL);
-    }
-}
-
-/// \todo implement the exec function
+/// \todo implement the exec functiondump_executable
 void exec(ParsedInput *input)
 {
-    int pipe_read_fd = -1, pipe_write_fd = -1;
+    log_debug("Running exec:");
+    assert(input->executables_count > 0);
+
     int fd[2];
-    for(int i = 0; i < input->executables_count; i++){
+
+    for (int i = input->executables_count - 1; i >= 0; i--)
+    {
+        log_debug("Running:");
         // set current executable as a local convenience variable
-        Executable* e = &input->executables[i];
-        if(i != input->executables_count - 1){
-            //set read head to the previously opened pipe
-            pipe_read_fd = fd[0];
-            //open a new pipe to send data to the next executable
-            pipe(fd);
-            //set write head to the currently opened pipe
-            pipe_write_fd = fd[1];
-        }
+        Executable *e = &input->executables[i];
 
         if (handle_builtins(e))
         {
@@ -99,35 +81,56 @@ void exec(ParsedInput *input)
         else
         {
             // fork and handle
-            log_trace("\tBeginning forked process");
+            log_trace("Processing executable:");
+            dump_executable(e);
+
+            int read_target, write_target;
+
+            if (i != input->executables_count - 1)
+            {
+                write_target = fd[1];
+            }
+            if (i != 0)
+            {
+                pipe(fd);
+                log_trace("Create new pipe(fd[0]=%d, fd[1]=%d)", fd[0], fd[1]);
+                read_target = fd[0];
+            }
 
             if (fork() == 0)
             {
+                sleep(1);
                 /*child*/
-
                 set_redirects(e);
-                //if not the first executable
-                if(i != 0) {
-                    dup2(pipe_read_fd, fileno(stdin));
+
+
+                if (i != input->executables_count - 1)
+                {
+                    log_trace("Set %s output to write target %d", input->executables[i].exec_path, write_target);
+                    dup2(write_target, fileno(stdout));
                 }
-                // if not the last executable
-                if(i != input->executables_count - 1){
-                    dup2(pipe_write_fd, fileno(stdout));
+                if (i != 0)
+                {
+                    log_trace("Set %s input to read target %d", input->executables[i].exec_path, read_target);
+                    dup2(read_target, fileno(stdin));
                 }
 
-                dump_executable(e);
+
+                log_trace("Setup complete, running exec:");
                 if (execvp(e->exec_path, e->argv) != 0)
                 {
                     log_error(KRED "Exec error(error %d)", errno);
-                    log_debug("exec_path:'%s'(%d)", e->exec_path, strlen(e->exec_path));
+                    log_debug("exec_path:'%s'(length %d)", e->exec_path, strlen(e->exec_path));
+
                     printf(KRED "\namash: command not found : '%s'\n\n", e->exec_path);
                     abort();
                 }
             }
-            wait(NULL);
         }
 
     }
+
+    wait(NULL);
 }
 
 void do_cd(Executable *e)
@@ -151,4 +154,16 @@ void do_quit(Executable *e)
 {
     printf("\nSayonara!");
     exit(0);
+}
+
+void do_history(Executable* e)
+{
+
+}
+
+
+int run_input(char *input)
+{
+    ParsedInput *p = parse(s);
+    exec(p);
 }
