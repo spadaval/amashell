@@ -60,6 +60,11 @@ bool handle_builtins(Executable* e)
         do_alias(e);
         return true;
     }
+    else if (strcmp(e->exec_path, "env") == 0)
+    {
+        do_env(e);
+        return true;
+    }
     else
     {
         return false;
@@ -182,11 +187,24 @@ int run_input(char* input)
 
 void do_alias(Executable* e)
 {
-    for (int i = 0; i < MAX_ALIASES; i++)
+    for (int i = 0; i < MAX_PAIRS; i++)
     {
         if (aliases->is_set[i])
         {
             printf("\n(%d)%s=%s", i, aliases->values[i], aliases->values[i]);
+            printf("\n");
+        }
+    }
+}
+
+
+void do_env(Executable* e)
+{
+    for (int i = 0; i < MAX_PAIRS; i++)
+    {
+        if (environ->is_set[i])
+        {
+            printf("\n(%d)%s=%s", i, environ->values[i], environ->values[i]);
             printf("\n");
         }
     }

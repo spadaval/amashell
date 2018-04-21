@@ -6,7 +6,7 @@
 
 char* get_alias(char* key)
 {
-    for (int i = 0; i < MAX_ALIASES; i++)
+    for (int i = 0; i < MAX_PAIRS; i++)
     {
         if (!aliases->is_set[i])
         {
@@ -29,7 +29,7 @@ void set_alias(char* key, char* value)
     aliases->keys[pos]       = key;
     aliases->values[pos]     = value;
     aliases->is_set[pos]     = true;
-    aliases->insert_position = (aliases->insert_position + 1) % MAX_ALIASES;
+    aliases->insert_position = (aliases->insert_position + 1) % MAX_PAIRS;
 }
 
 
@@ -39,7 +39,7 @@ char* resolve_input(char* input)
     log_debug("Resolving input string: '%s'", input);
     char* output = input;
 
-    for (int i = 0; i < MAX_ALIASES; i++)
+    for (int i = 0; i < MAX_PAIRS; i++)
     {
         if (!aliases->is_set[i])
         {

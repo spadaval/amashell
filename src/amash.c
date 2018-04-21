@@ -15,7 +15,6 @@ int run_event_loop()
 {
     while (true)
     {
-        bool continued = false;
         generatePrompt();
         char* input = readline(prompt);
 
@@ -44,21 +43,15 @@ int run_event_loop()
 }
 
 
-/// \todo add something cool here
+/// TODO add something cool here
 
 /**
- *  This function prints the intro splash screen at startup.
+ *  Sets up initial data structures and prints the splash screen/MOTD at startup
  */
 void initialize()
 {
-    aliases = malloc(sizeof(Alias));
-    for (size_t i = 0; i < MAX_ALIASES; i++)
-    {
-        aliases->is_set[i]       = false;
-        aliases->keys[i]         = NULL;
-        aliases->values[i]       = NULL;
-        aliases->insert_position = 0;
-    }
+    aliases = new_pairlist();
+    environ = new_pairlist();
     printf("Amash Shell v1.0\n");
 }
 

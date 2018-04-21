@@ -78,3 +78,18 @@ ParsedInput* generate_passthrough_parsedinput()
 
     return p;
 }
+
+
+PairList* new_pairlist()
+{
+    PairList* p = malloc(sizeof(PairList));
+
+    for (size_t i = 0; i < MAX_PAIRS; i++)
+    {
+        p->is_set[i]       = false;
+        p->keys[i]         = NULL;
+        p->values[i]       = NULL;
+        p->insert_position = 0;
+    }
+    return p;
+}

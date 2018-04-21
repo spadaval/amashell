@@ -31,7 +31,7 @@
 #define ARG_LENGTH 100
 #define INPUT_LENGTH 1000
 #define MAX_EXECUTABLES 10
-#define MAX_ALIASES 30
+#define MAX_PAIRS 30
 #define MAX_LINES 100
 
 extern int offset;
@@ -92,11 +92,23 @@ struct history {
         int lines_count;
 } history;
 
+
+typedef struct pair_list {
+        char* keys[MAX_PAIRS];
+        char* values[MAX_PAIRS];
+        bool is_set[MAX_PAIRS];
+        int insert_position;
+} PairList;
+
+
 void push_history(char* c);
 
 void init_history();
 
 void get_previous_line(char* c);
+
+PairList* new_pairlist();
+
 
 ////////////
 //parse.c //
@@ -177,6 +189,14 @@ void do_history(Executable* e);
  */
 void do_alias(Executable* e);
 
+/**
+ *  Run the env builtin command, which prints all set aliases, and sets an
+ *  alias, if given a parameter
+ *  @param e Executable details. If an argument is given (argc>1), alias will
+ *  try to set an alias. Otherwise it lists all set aliases.
+ */
+void do_env(Executable* e);
+
 ////////////
 //amash.c //
 ////////////
@@ -213,14 +233,7 @@ char prompt[200];   /*!< A string containing the prompt to display */
 ////////////
 
 
-typedef struct alias {
-        char* keys[MAX_ALIASES];
-        char* values[MAX_ALIASES];
-        bool is_set[MAX_ALIASES];
-        int insert_position;
-} Alias;
-
-Alias* aliases;
+PairList* aliases;
 
 /**
  *  Get a certain alias, given a key
@@ -254,5 +267,29 @@ char* resolve_input(char* input);
  *  @return      True if line ends with slash, false otherwise.
  */
 bool line_ends_with_slash(char* line);
+
+//////////
+//env.c //
+//////////
+
+PairList* environ;
+
+/**
+ *  Get a certain env, given a key
+ *  @param  key What env to look for
+ *  @return     The env string
+ */
+char* get_env(char* key);
+
+/**
+ *  Create a certain env
+ *  @param key   THe key of the env
+ *  @param value The replacement string
+ */
+void set_env(char* key, char* value);
+
+void generatePrompt();
+
+char* get_current_dir_name();
 
 #endif
