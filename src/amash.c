@@ -9,12 +9,13 @@
 
 /**
  *  Runs the main event loop
- *  @return return cod
+ *  @return return code
  */
 int run_event_loop()
 {
     while (true)
     {
+        printf("\n");
         generatePrompt();
         char* input = readline(prompt);
 
@@ -27,13 +28,13 @@ int run_event_loop()
 
         push_history(input);
 
-        for (int i = 0; i < count_lines(input); i++)
-        {
-            char* s = extract_line(input);
-            log_debug("Running input:%s", s);
-            run_input(s);
-        }
-        // /run_input(input);
+        /*for (int i = 0; i < count_lines(input); i++)
+         * {
+         *  char* s = extract_line(input);
+         *  log_debug("Running input:%s", s);
+         *  run_input(s);
+         * }*/
+        run_input(input);
         offset_sc = 0;
 
         //ParsedInput *e = parse(input);
@@ -50,8 +51,8 @@ int run_event_loop()
  */
 void initialize()
 {
+    log_set_level(LOG_TRACE);
     aliases = new_pairlist();
-    environ = new_pairlist();
     printf("Amash Shell v1.0\n");
 }
 
@@ -62,7 +63,6 @@ void initialize()
 int main()
 {
     initialize();
-    //log_set_level(LOG_ERROR);
     run_event_loop();
 }
 

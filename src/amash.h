@@ -5,6 +5,8 @@
 #ifndef AMASH_H
 #define AMASH_H 1
 
+extern char** environ;
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -197,6 +199,18 @@ void do_alias(Executable* e);
  */
 void do_env(Executable* e);
 
+/**
+ *  Source a script file, running each line in the file as a shell input.
+ *  @param e Executable containing the file to read from.
+ */
+void do_source(Executable* e);
+
+/**
+ *  Add a new environment variable
+ *  @param e Exectuable containing a 'KEY=VAL' string to store
+ */
+void do_export(Executable* e);
+
 ////////////
 //amash.c //
 ////////////
@@ -267,29 +281,5 @@ char* resolve_input(char* input);
  *  @return      True if line ends with slash, false otherwise.
  */
 bool line_ends_with_slash(char* line);
-
-//////////
-//env.c //
-//////////
-
-PairList* environ;
-
-/**
- *  Get a certain env, given a key
- *  @param  key What env to look for
- *  @return     The env string
- */
-char* get_env(char* key);
-
-/**
- *  Create a certain env
- *  @param key   THe key of the env
- *  @param value The replacement string
- */
-void set_env(char* key, char* value);
-
-void generatePrompt();
-
-char* get_current_dir_name();
 
 #endif
