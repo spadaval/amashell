@@ -1,19 +1,19 @@
 /*!
-   \file parse.c
-   \brief Contains subroutines for parsing the input
+ * \file parse.c
+ * \brief Contains subroutines for parsing the input
  */
 #include "amash.h"
 
-int offset = 0;
+int offset    = 0;
 int offset_sc = 0;
 
 /**
  *  mallocs a block of memory INPUT_LENGTH characters long
  *  @return Pointer to the block of memory
  */
-char *new_string()
+char* new_string()
 {
-    char *x = (char *)malloc(sizeof(char) * INPUT_LENGTH);
+    char* x = (char*)malloc(sizeof(char) * INPUT_LENGTH);
 
     for (int i = 0; i < ARG_LENGTH; i++)
     {
@@ -22,28 +22,12 @@ char *new_string()
     return x;
 }
 
-ParsedInput *generate_passthrough_parsedinput()
+
+int count_blocks(char* input)
 {
-    ParsedInput *p = new_parsedinput();
-
-    Executable *ls = new_executable();
-
-    strcpy(ls->exec_path, "ls");
-    memcpy(&p->executables[0], ls, sizeof(struct Executable));
-
-    Executable *wc = new_executable();
-    strcpy(wc->exec_path, "wc");
-    memcpy(&p->executables[1], wc, sizeof(struct Executable));
-    p->executables_count = 2;
-
-    return p;
-}
-
-int count_blocks(char *input)
-{
-    char *i = input;
+    char* i   = input;
     int count = 0;
-    int c = 0;
+    int c     = 0;
 
     //printf("Length = %d\n",strlen(input));
     for (c = 0; c < strlen(input); c++)
@@ -59,11 +43,12 @@ int count_blocks(char *input)
     return count + 1;
 }
 
-int count_sc(char *input)
+
+int count_lines(char* input)
 {
-    char *i = input;
+    char* i   = input;
     int count = 0;
-    int c = 0;
+    int c     = 0;
 
     //printf("Length = %d\n",strlen(input));
     for (c = 0; c < strlen(input); c++)
@@ -79,13 +64,14 @@ int count_sc(char *input)
     return count + 1;
 }
 
-char *extract(char *input)
+
+char* extract(char* input)
 {
-    char *i = input + offset;
+    char* i = input + offset;
     //printf("offset = %d\nNEW : %s\n",offset,i);
-    int j = 0;
+    int  j = 0;
     char block[100];
-    int x = 0;
+    int  x = 0;
 
     for (x = 0; x < 100; x++)
     {
@@ -111,13 +97,14 @@ char *extract(char *input)
     }
 }
 
-char *extract_sc(char *input)
+
+char* extract_line(char* input)
 {
-    char *i = input + offset_sc;
+    char* i = input + offset_sc;
     //printf("offset = %d\nNEW : %s\n",offset,i);
-    int j = 0;
+    int  j = 0;
     char block[100];
-    int x = 0;
+    int  x = 0;
 
     for (x = 0; x < 100; x++)
     {
@@ -143,21 +130,22 @@ char *extract_sc(char *input)
     }
 }
 
-Executable *segment(char *input)
+
+Executable* segment(char* input)
 {
-    printf("\n");
     char temp[100];
-    int match = 0;
-    char *exe;
-    char *argv[10];
-    int argc = 0;
-    char *stdin;
-    char *stdout;
+    int  match = 0;
+    char * exe;
+    char * argv[10];
+    int  argc = 0;
+    char * stdin;
+    char * stdout;
     //Check stdin
-    char *i = input;
-    int j = 0;
+    char* i = input;
+    int j   = 0;
     int c;
     int x = 0;
+
     for (x = 0; x < 100; x++)
     {
         temp[x] = '\0';
@@ -194,15 +182,15 @@ Executable *segment(char *input)
 
     stdin = strdup(temp);
 
-    printf("StdIn = %s\n", temp);
+    log_debug("StdIn = %s\n", temp);
     x = 0;
     for (x = 0; x < 100; x++)
     {
         temp[x] = '\0';
     }
     //Check stdout
-    i = input;
-    j = 0;
+    i     = input;
+    j     = 0;
     match = 0;
     for (c = 0; c < strlen(input); c++)
     {
@@ -234,21 +222,21 @@ Executable *segment(char *input)
         i++;
     }
     stdout = strdup(temp);
-    printf("StdOut = %s\n", temp);
+    log_debug("StdOut = %s\n", temp);
     for (x = 0; x < 100; x++)
     {
         temp[x] = '\0';
     }
-    i = input;
-    j = 0;
+    i     = input;
+    j     = 0;
     match = 1;
     int top = 0;
     for (c = 0; c < strlen(input); c++)
     {
         if ((i[0] == '<') | (i[0] == '>'))
         {
-            match = 0;
-            top = 1;
+            match     = 0;
+            top       = 1;
             temp[j++] = ' ';
         }
         if ((i[0] != '<') & (i[0] != '>') & (i[0] != ' ') & (top == 1) & (match == 0))
@@ -268,7 +256,7 @@ Executable *segment(char *input)
         i++;
     }
     printf("*Execute = %s\n", temp);
-    int flag = 1;
+    int  flag = 1;
     char arg[15];
     match = 0;
     int count = 0;
@@ -282,7 +270,7 @@ Executable *segment(char *input)
         else
         {
             match = 1;
-            flag = 0;
+            flag  = 0;
         }
         if ((match == 1) & (temp[c] != ' '))
         {
@@ -293,7 +281,7 @@ Executable *segment(char *input)
         {
             //printf("argc = %d\n",argc+1);
             arg[count++] = '\0';
-            argv[argc] = strdup(arg);
+            argv[argc]   = strdup(arg);
             argc++;
             flag = 1;
             for (x = 0; x < 15; x++)
@@ -309,20 +297,20 @@ Executable *segment(char *input)
         argv[argc] = strdup(arg);
         argc++;
     }
-    printf("argc = %d\n", argc);
-    printf("argv = ");
+    log_debug("argc = %d\n", argc);
+    log_debug("argv = ");
     for (c = 0; c < argc; c++)
     {
-        printf("%s ", argv[c]);
+        log_debug("%s ", argv[c]);
     }
-    printf("\n");
+    log_debug("\n");
     exe = strdup(argv[0]);
-    printf("Exec = %s\n", exe);
-    Executable *e = new_executable();
+    log_debug("Exec = %s\n", exe);
+    Executable* e = new_executable();
     strcpy(e->exec_path, exe);
     e->stdin = stdin;
     //printf("Copying %s to exectuable as stdin", stdin);
-    e->stdout = stdout;
+    e->stdout           = stdout;
     e->stderr_to_stdout = false;
     for (c = 0; c < argc; c++)
     {
@@ -332,20 +320,21 @@ Executable *segment(char *input)
     return e;
 }
 
-ParsedInput *parse(char *input)
-{
-    printf("Piped_Count = %d\n", count_blocks(input));
 
-    int c = count_blocks(input);
-    int i;
-    ParsedInput *p = new_parsedinput();
+ParsedInput* parse(char* input)
+{
+    log_debug("Piped_Count = %d\n", count_blocks(input));
+
+    int        c = count_blocks(input);
+    int        i;
+    ParsedInput* p = new_parsedinput();
 
     for (i = 0; i < c; i++)
     {
-        printf("_____________________________\n\n");
-        char *s = extract(input);
-        printf(">>%s\n", s);
-        Executable *e = new_executable();
+        log_debug("_____________________________\n\n");
+        char* s = extract(input);
+        log_debug("[parse]Extracted input %s\n", s);
+        Executable* e = new_executable();
         e = segment(s);                                                  //INDIVIDUAL EXECUTABLES : Each '|' seperated section
         memcpy(&p->executables[i], e, sizeof(Executable));
         //TODO Combine these executables<e> to ParsedInput
