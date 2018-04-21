@@ -65,6 +65,16 @@ bool handle_builtins(Executable* e)
         do_env(e);
         return true;
     }
+    else if (strcmp(e->exec_path, "export") == 0)
+    {
+        do_export(e);
+        return true;
+    }
+    else if ((strcmp(e->exec_path, "source") == 0) || (strcmp(e->exec_path, ".") == 0))
+    {
+        do_source(e);
+        return true;
+    }
     else
     {
         return false;
@@ -75,16 +85,16 @@ bool handle_builtins(Executable* e)
 /// \todo implement the exec functiondump_executable
 void exec(ParsedInput* input)
 {
-    log_debug("Running exec:");
+    log_trace("Begin exec");
     assert(input->executables_count > 0);
 
     int fd[2];
 
     for (int i = input->executables_count - 1; i >= 0; i--)
     {
-        log_debug("Running:");
         // set current executable as a local convenience variable
         Executable* e = &input->executables[i];
+        dump_executable(e);
 
         if (handle_builtins(e))
         {
@@ -93,8 +103,6 @@ void exec(ParsedInput* input)
         else
         {
             // fork and handle
-            log_trace("Processing executable:");
-            dump_executable(e);
 
             int read_target, write_target;
 
@@ -111,7 +119,7 @@ void exec(ParsedInput* input)
 
             if (fork() == 0)
             {
-                sleep(1);
+//                sleep(1);
                 /*child*/
                 set_redirects(e);
 
@@ -178,34 +186,94 @@ void do_history(Executable* e)
 
 int run_input(char* input)
 {
-//    input = resolve_input(input);
+    input = resolve_input(input);
     ParsedInput* p = parse(input);
 
     exec(p);
+    return 0;
 }
 
 
 void do_alias(Executable* e)
 {
-    for (int i = 0; i < MAX_PAIRS; i++)
+    if (e->argc == 1)
     {
-        if (aliases->is_set[i])
+        log_trace("Run do_alias in dump mode");
+        for (int i = 0; i < MAX_PAIRS; i++)
         {
-            printf("\n(%d)%s=%s", i, aliases->values[i], aliases->values[i]);
-            printf("\n");
+            if (aliases->is_set[i])
+            {
+                printf("\n(%d)%s=%s", i, aliases->keys[i], aliases->values[i]);
+                printf("\n");
+            }
         }
+    }
+    else
+    {
+        log_trace("Run do_alias in set mode");
+
+        assert(e->argc == 2);
+        char* string = e->argv[1];
+        log_trace("Got string:'%s'", string);
+        char* key = calloc(sizeof(char), strlen(string));
+        char* val = calloc(sizeof(char), strlen(string));
+        char* k   = key;
+        while (string && ((*string) != '='))
+        {
+            *(k++) = *(string++);
+        }
+        log_trace("Got key:'%s', next character:'%c'", key, *string);
+        string++;
+        char* v = val;
+        while (string && *string != ' ' && *string != '\0' && *string != '\n')
+        {
+            *(v++) = *(string++);
+        }
+        log_trace("Got value '%s'", val);
+
+        set_alias(key, val);
     }
 }
 
 
 void do_env(Executable* e)
 {
-    for (int i = 0; i < MAX_PAIRS; i++)
+    char** s = environ;
+
+    while (*s != NULL)
     {
-        if (environ->is_set[i])
-        {
-            printf("\n(%d)%s=%s", i, environ->values[i], environ->values[i]);
-            printf("\n");
-        }
+        printf("\n%s", *s++);
     }
+}
+
+
+void do_export(Executable* e)
+{
+    assert(e->argc == 2);
+    putenv(e->argv[1]);
+}
+
+
+void do_source(Executable* e)
+{
+    log_trace("Running source on filepath '%s'", e->argv[1]);
+    if (e->argc != 2)
+    {
+        printf("\nUsage: source /path/to/file\n");
+        return;
+    }
+
+    FILE* f = fopen(e->argv[1], "r");
+    if (!f)
+    {
+        printf("amash: unable to open file '%s'", e->argv[1]);
+        return;
+    }
+    char* c = calloc(sizeof(char), INPUT_LENGTH);
+    while (!feof(f))
+    {
+        fgets(c, INPUT_LENGTH, f);
+        run_input(c);
+    }
+    fclose(f);
 }
