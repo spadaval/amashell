@@ -35,7 +35,7 @@ int run_event_loop()
             run_input(s);
         }
         // /run_input(input);
-        //offset_sc = 0;
+        offset_sc = 0;
 
         //ParsedInput *e = parse(input);
         //exec(e);
