@@ -119,7 +119,7 @@ ParsedInput* parse(char* input);
  *  @param  input The input string to run
  *  @return       Return code
  */
-int run_input(char *input)
+int run_input(char *input);
 
 /**
  *  Executes a single program in a new process(after forking). Uses execp to search PATH, if necessary.
@@ -162,6 +162,21 @@ void do_pwd(Executable* e);
  */
 void do_quit(Executable* e);
 
+/**
+ *  Run the history builtin, which prints recent history,  and searches through
+ *  it, when given a parameter
+ *  @param e Exectuable details
+ */
+void do_history(Executable* e);
+
+/**
+ *  Run the alias builtin command, which prints all set aliases, and sets an
+ *  alias, if given a parameter
+ *  @param e Executable details. If an argument is given (argc>1), alias will
+ *  try to set an alias. Otherwise it lists all set aliases.
+ */
+void do_alias(Executable* e);
+
 ////////////
 //amash.c //
 ////////////
@@ -185,23 +200,27 @@ void printPrompt();
  */
 bool starts_with(const char *pre, const char *str);
 
-int count_sc(char* input);
+int count_lines(char* input);
 
-char* extract_sc(char* input);
+char* extract_line(char* input);
 
 void parser(char* input);
 
+char prompt[200];   /*!< A string containing the prompt to display */
 
 ////////////
 //alias.c //
 ////////////
 
 
-typedef struct Alias {
-        char keys[MAX_ALIASES];
-        char values[MAX_ALIASES];
-        int alias_count;
+typedef struct alias {
+        char* keys[MAX_ALIASES];
+        char* values[MAX_ALIASES];
+        bool is_set[MAX_ALIASES];
+        int insert_position;
 } Alias;
+
+Alias* aliases;
 
 /**
  *  Get a certain alias, given a key
@@ -223,5 +242,17 @@ void set_alias(char* key, char* value);
  *  @return       Replaced string
  */
 char* resolve_input(char* input);
+
+
+////////////
+//utils.c //
+////////////
+
+/**
+ *  Checks if the last non-whitespace character in `line` is a slash, and replaces it with a null character
+ *  @param  line Ths string to check
+ *  @return      True if line ends with slash, false otherwise.
+ */
+bool line_ends_with_slash(char* line);
 
 #endif
