@@ -1,15 +1,15 @@
 /*!
-   \file exec.c
-   \brief Contains subroutines for executing parsed input.
+ * \file exec.c
+ * \brief Contains subroutines for executing parsed input.
  */
 #include "amash.h"
 #include <sys/wait.h>
 
-void set_redirects(Executable *e)
+void set_redirects(Executable* e)
 {
     log_trace("Applying redirects");
 
-    if (e->stdin != NULL && strcmp(e->stdin, "") != 0)
+    if ((e->stdin != NULL) && (strcmp(e->stdin, "") != 0))
     {
         int fd = open(e->stdin, O_RDONLY);
         dup2(fd, STDIN_FILENO);
@@ -19,7 +19,7 @@ void set_redirects(Executable *e)
     {
         log_trace("Not applying stdin redirect");
     }
-    if (e->stdout != NULL && strcmp(e->stdin, "") != 0)
+    if ((e->stdout != NULL) && (strcmp(e->stdin, "") != 0))
     {
         int fd = open(e->stdout, O_WRONLY | O_CREAT);
         dup2(fd, STDOUT_FILENO);
@@ -31,7 +31,8 @@ void set_redirects(Executable *e)
     }
 }
 
-bool handle_builtins(Executable *e)
+
+bool handle_builtins(Executable* e)
 {
     if (starts_with("quit", e->exec_path) || starts_with("exit", e->exec_path))
     {
@@ -54,14 +55,20 @@ bool handle_builtins(Executable *e)
         do_history(e);
         return true;
     }
+    else if (strcmp(e->exec_path, "alias") == 0)
+    {
+        do_alias(e);
+        return true;
+    }
     else
     {
         return false;
     }
 }
 
+
 /// \todo implement the exec functiondump_executable
-void exec(ParsedInput *input)
+void exec(ParsedInput* input)
 {
     log_debug("Running exec:");
     assert(input->executables_count > 0);
@@ -72,7 +79,7 @@ void exec(ParsedInput *input)
     {
         log_debug("Running:");
         // set current executable as a local convenience variable
-        Executable *e = &input->executables[i];
+        Executable* e = &input->executables[i];
 
         if (handle_builtins(e))
         {
@@ -132,7 +139,8 @@ void exec(ParsedInput *input)
     wait(NULL);
 }
 
-void do_cd(Executable *e)
+
+void do_cd(Executable* e)
 {
     if (e->argv[1] == NULL)
     {
@@ -144,24 +152,42 @@ void do_cd(Executable *e)
     }
 }
 
-void do_pwd(Executable *e)
+
+void do_pwd(Executable* e)
 {
     printf("%s\n", get_current_dir_name());
 }
 
-void do_quit(Executable *e)
+
+void do_quit(Executable* e)
 {
     printf("\nSayonara!");
     exit(0);
 }
 
-void do_history(Executable *e)
+
+void do_history(Executable* e)
 {
 }
 
-int run_input(char *input)
+
+int run_input(char* input)
 {
-    ParsedInput *p = parse(s);
+//    input = resolve_input(input);
+    ParsedInput* p = parse(input);
 
     exec(p);
+}
+
+
+void do_alias(Executable* e)
+{
+    for (int i = 0; i < MAX_ALIASES; i++)
+    {
+        if (aliases->is_set[i])
+        {
+            printf("\n(%d)%s=%s", i, aliases->values[i], aliases->values[i]);
+            printf("\n");
+        }
+    }
 }
