@@ -1,13 +1,13 @@
 /*!
-   \file structs.c
-   \brief Contains subroutines for creating and manipulating objects of the various
-          structs in the project.
+ * \file structs.c
+ * \brief Contains subroutines for creating and manipulating objects of the various
+ *        structs in the project.
  */
 #include "amash.h"
 
-Executable *new_executable()
+Executable* new_executable()
 {
-    Executable *e = (Executable *)malloc(sizeof(Executable));
+    Executable* e = (Executable*)malloc(sizeof(Executable));
 
     for (int i = 0; i < PATH_LENGTH; i++)
     {
@@ -18,8 +18,8 @@ Executable *new_executable()
     {
         e->argv[i] = NULL;
     }
-    e->stdout = NULL;
-    e->stdin = NULL;
+    e->stdout           = NULL;
+    e->stdin            = NULL;
     e->stderr_to_stdout = false;
 
 
@@ -28,15 +28,18 @@ Executable *new_executable()
     return e;
 }
 
-ParsedInput *new_parsedinput()
+
+ParsedInput* new_parsedinput()
 {
-    ParsedInput *p = (ParsedInput *)malloc(sizeof(ParsedInput));
+    ParsedInput* p = (ParsedInput*)malloc(sizeof(ParsedInput));
+
     p->executables_count = 0;
 
     return p;
 }
 
-void dump_executable(Executable *e)
+
+void dump_executable(Executable* e)
 {
     if (e == NULL)
     {
@@ -56,4 +59,22 @@ void dump_executable(Executable *e)
     }
     log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin='%s', stdout='%s', redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
               , e->stdin, e->stdout, e->stderr_to_stdout);
+}
+
+
+ParsedInput* generate_passthrough_parsedinput()
+{
+    ParsedInput* p = new_parsedinput();
+
+    Executable* ls = new_executable();
+
+    strcpy(ls->exec_path, "ls");
+    memcpy(&p->executables[0], ls, sizeof(struct Executable));
+
+    Executable* wc = new_executable();
+    strcpy(wc->exec_path, "wc");
+    memcpy(&p->executables[1], wc, sizeof(struct Executable));
+    p->executables_count = 2;
+
+    return p;
 }
