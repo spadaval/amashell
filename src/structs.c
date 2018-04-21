@@ -57,8 +57,8 @@ void dump_executable(Executable* e)
         strcat(arguments_string, e->argv[i]);
         strcat(arguments_string, "'");
     }
-    log_debug("Executable(path = '%s', argc=%d, argv=(%s), stdin='%s', stdout='%s', redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
-              , e->stdin, e->stdout, e->stderr_to_stdout);
+    log_info("Executable(path = '%s', argc=%d, argv=(%s), stdin='%s', stdout='%s', redirect_stderr={%d})", e->exec_path, e->argc, arguments_string
+             , e->stdin, e->stdout, e->stderr_to_stdout);
 }
 
 

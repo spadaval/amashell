@@ -182,7 +182,7 @@ Executable* segment(char* input)
 
     stdin = strdup(temp);
 
-    log_debug("StdIn = %s\n", temp);
+    //log_debug("StdIn = %s\n", temp);
     x = 0;
     for (x = 0; x < 100; x++)
     {
@@ -222,7 +222,7 @@ Executable* segment(char* input)
         i++;
     }
     stdout = strdup(temp);
-    log_debug("StdOut = %s\n", temp);
+    //log_debug("StdOut = %s\n", temp);
     for (x = 0; x < 100; x++)
     {
         temp[x] = '\0';
@@ -255,7 +255,7 @@ Executable* segment(char* input)
         }
         i++;
     }
-    printf("*Execute = %s\n", temp);
+    //printf("*Execute = %s\n", temp);
     int  flag = 1;
     char arg[15];
     match = 0;
@@ -297,15 +297,15 @@ Executable* segment(char* input)
         argv[argc] = strdup(arg);
         argc++;
     }
-    log_debug("argc = %d\n", argc);
-    log_debug("argv = ");
+    //log_debug("argc = %d\n", argc);
+    //log_debug("argv = ");
     for (c = 0; c < argc; c++)
     {
-        log_debug("%s ", argv[c]);
+        //log_debug("%s ", argv[c]);
     }
-    log_debug("\n");
+    //log_debug("\n");
     exe = strdup(argv[0]);
-    log_debug("Exec = %s\n", exe);
+    //log_debug("Exec = %s\n", exe);
     Executable* e = new_executable();
     strcpy(e->exec_path, exe);
     e->stdin = stdin;
@@ -323,7 +323,7 @@ Executable* segment(char* input)
 
 ParsedInput* parse(char* input)
 {
-    log_debug("Piped_Count = %d\n", count_blocks(input));
+    //log_debug("Piped_Count = %d\n", count_blocks(input));
 
     int        c = count_blocks(input);
     int        i;
@@ -331,9 +331,9 @@ ParsedInput* parse(char* input)
 
     for (i = 0; i < c; i++)
     {
-        log_debug("_____________________________\n\n");
+        //log_debug("_____________________________\n\n");
         char* s = extract(input);
-        log_debug("[parse]Extracted input %s\n", s);
+        //log_debug("[parse]Extracted input %s\n", s);
         Executable* e = new_executable();
         e = segment(s);                                                  //INDIVIDUAL EXECUTABLES : Each '|' seperated section
         memcpy(&p->executables[i], e, sizeof(Executable));
