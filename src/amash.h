@@ -35,6 +35,7 @@ extern char** environ;
 #define MAX_EXECUTABLES 10
 #define MAX_PAIRS 30
 #define MAX_LINES 100
+#define HISTORY_COUNT 20
 
 extern int offset;
 extern int offset_sc;
@@ -181,14 +182,15 @@ void do_quit(Executable* e);
  *  it, when given a parameter
  *  @param e Exectuable details
  */
-void do_history(Executable* e);
-
+void do_history(char *hist[],int current);
 /**
  *  Run the alias builtin command, which prints all set aliases, and sets an
  *  alias, if given a parameter
  *  @param e Executable details. If an argument is given (argc>1), alias will
  *  try to set an alias. Otherwise it lists all set aliases.
  */
+void do_hclear(char *hist[]);
+
 void do_alias(Executable* e);
 
 /**
@@ -212,6 +214,7 @@ void do_source(Executable* e);
 void do_export(Executable* e);
 
 void do_ed2(Executable* e);
+void do_lock(Executable* e);
 
 ////////////
 //amash.c //

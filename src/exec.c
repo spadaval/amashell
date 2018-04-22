@@ -5,6 +5,55 @@
 #include "amash.h"
 #include <sys/wait.h>
 #include <unistd.h>
+#include <termios.h>
+
+
+static struct termios old, new;
+char *hist[HISTORY_COUNT];
+int current;
+
+/* Initialize new terminal i/o settings */
+void initTermios(int echo)
+{
+        tcgetattr(0, &old); /* grab old terminal i/o settings */
+        new = old; /* make new settings same as old settings */
+        new.c_lflag &= ~ICANON; /* disable buffered i/o */
+        if (echo) {
+                new.c_lflag |= ECHO; /* set echo mode */
+        } else {
+                new.c_lflag &= ~ECHO; /* set no echo mode */
+        }
+        tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
+}
+
+/* Restore old terminal i/o settings */
+void resetTermios(void)
+{
+        tcsetattr(0, TCSANOW, &old);
+}
+
+/* Read 1 character - echo defines echo mode */
+char getch_(int echo)
+{
+        char ch;
+        initTermios(echo);
+        ch = getchar();
+        resetTermios();
+        return ch;
+}
+
+/* Read 1 character without echo */
+char getch(void)
+{
+        return getch_(0);
+}
+
+/* Read 1 character with echo */
+char getche(void)
+{
+        return getch_(1);
+}
+
 
 void set_redirects(Executable* e)
 {
@@ -52,10 +101,10 @@ bool handle_builtins(Executable* e)
                 do_pwd(e);
                 return true;
         }
-        
+
         else if (strcmp(e->exec_path, "history") == 0)
         {
-                do_history(e);
+                do_history(hist, current);
                 return true;
         }
         else if (strcmp(e->exec_path, "alias") == 0)
@@ -76,6 +125,11 @@ bool handle_builtins(Executable* e)
         else if (strcmp(e->exec_path, "ed2") == 0)
         {
                 do_ed2(e);
+                return true;
+        }
+        else if (strcmp(e->exec_path, "lock") == 0)
+        {
+                do_lock(e);
                 return true;
         }
         else if ((strcmp(e->exec_path, "source") == 0) || (strcmp(e->exec_path, ".") == 0))
@@ -187,10 +241,30 @@ void do_quit(Executable* e)
 }
 
 
-void do_history(Executable* e)
+void do_history(char *hist[],int current)
 {
+        int i = current;
+        int hist_num = 1;
+        do{
+                if (hist[i])
+                {
+                        printf("%4d  %s\n", hist_num, hist[i]);
+                        hist_num++;
+                }
+                i = (i + 1) % HISTORY_COUNT;
+        }while (i != current);
+
 }
 
+void do_hclear(char *hist[])
+{
+        int i;
+        for (i = 0; i < HISTORY_COUNT; i++)
+        {
+                free(hist[i]);
+                hist[i] = NULL;
+        }
+}
 
 int run_input(char* input)
 {
@@ -293,5 +367,30 @@ void do_ed2(Executable* e)
         {
                 execl("./../ed2/ed2\0","./ed2",NULL);
                 exit(0);
+        }
+}
+
+void do_lock(Executable* e)
+{
+        system("clear");
+        while(1)
+        {
+                char new[40];
+                int p;
+                printf("\n\n\n\tUnlock : ");
+                for(p=0; p<5; p++)
+                {
+                        new[p]=getch();
+                        printf("*");
+                }
+                fflush(stdout);
+                printf("\n");
+                system("clear");
+                sleep(1);
+                //char* input = readline(new);
+                if(strcmp(new,"admin")==0)
+                {
+                        break;
+                }
         }
 }
