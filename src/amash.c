@@ -21,7 +21,7 @@ int run_event_loop()
 
         log_debug("Read input '%s'", input);
 
-        if (!input)
+        if (strlen(input)==0)
         {
             do_quit(NULL);
         }
