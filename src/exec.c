@@ -385,7 +385,7 @@ void do_ed2(Executable* e)
 
 void do_lock(Executable* e)
 {
-        system("clear");
+        clear();
         while(1)
         {
                 char new[40];
@@ -398,7 +398,7 @@ void do_lock(Executable* e)
                 }
                 fflush(stdout);
                 printf("\n");
-                system("clear");
+                clear();
                 sleep(1);
                 //char* input = readline(new);
                 if(strcmp(new,"admin")==0)

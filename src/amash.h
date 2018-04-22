@@ -28,6 +28,8 @@ extern char** environ;
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 
+#define clear() printf("\033[H\033[J")
+
 #define PATH_LENGTH 100
 #define MAX_ARGUMENTS 10
 #define ARG_LENGTH 100
