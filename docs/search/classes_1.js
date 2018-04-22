@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['executable',['Executable',['../structExecutable.html',1,'']]]
+  ['history',['history',['../structhistory.html',1,'']]]
 ];

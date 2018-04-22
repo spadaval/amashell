@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quiet',['quiet',['../log_8c.html#a55602ca214fb365e8deef9a73c8442e7',1,'log.c']]]
+  ['prompt',['prompt',['../amash_8h.html#a78a20d37761bd8f1f8962bd922767c89',1,'amash.h']]]
 ];

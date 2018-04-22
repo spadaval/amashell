@@ -64,8 +64,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -77,67 +75,105 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="amash_8h_source.html">amash.h</a>&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDFA.html">DFA</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple container struct for the data of the <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a>.  <a href="structDFA.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a7f66a2f0b7c864ac01083d9603b84ac6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6">parse_mode</a> { <br />
-&#160;&#160;<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6a13d000b4d7dc70d90239b7430d1eb6b2">START</a>, 
-<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6a392aa9f60d735e98a39477bcd004c9a9">EXEC_PATH</a>, 
-<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6a0d4af967003ab5a27e677af0b336aec2">ARGUMENT</a>, 
-<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6a08864b73fa6c82cb8de78a336050bfdb">STDIN</a>, 
-<br />
-&#160;&#160;<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6ad1026b11391895f6e302f892a44a04df">STDOUT</a>, 
-<a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6aba113c37f25d24aada154b75c7dd91ba">WHITESPACE</a>
-<br />
- }<tr class="memdesc:a7f66a2f0b7c864ac01083d9603b84ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">State numbers for the parser <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a>.  <a href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a7f66a2f0b7c864ac01083d9603b84ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af6fdb4e7bf7bb4d4ed3e6f32a58ad964"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#af6fdb4e7bf7bb4d4ed3e6f32a58ad964">new_string</a> ()</td></tr>
 <tr class="separator:af6fdb4e7bf7bb4d4ed3e6f32a58ad964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9a39bf8e4135ff932d1464dd77206a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aeb9a39bf8e4135ff932d1464dd77206a">count_blocks</a> (char *input)</td></tr>
+<tr class="separator:aeb9a39bf8e4135ff932d1464dd77206a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6fdb946b627b6dd5c62695a0957649"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aac6fdb946b627b6dd5c62695a0957649">count_lines</a> (char *input)</td></tr>
+<tr class="separator:aac6fdb946b627b6dd5c62695a0957649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d3994f3e750586306f064130941360"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aa0d3994f3e750586306f064130941360">extract</a> (char *input)</td></tr>
+<tr class="separator:aa0d3994f3e750586306f064130941360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da5a953be21b6c4f01d0f0f428169f4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a0da5a953be21b6c4f01d0f0f428169f4">extract_line</a> (char *input)</td></tr>
+<tr class="separator:a0da5a953be21b6c4f01d0f0f428169f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae97d1fbf449d3cfb7cea0987f0f8e610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#ae97d1fbf449d3cfb7cea0987f0f8e610">segment</a> (char *input)</td></tr>
+<tr class="separator:ae97d1fbf449d3cfb7cea0987f0f8e610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a7e9b9c35a1c0118c5945cc05be30470e">parse</a> (char *input)</td></tr>
 <tr class="separator:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a97ea04b1b173942ee42a079863920fda"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structDFA.html">DFA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a97ea04b1b173942ee42a079863920fda">dfa</a></td></tr>
-<tr class="separator:a97ea04b1b173942ee42a079863920fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed7ea92f45bd273dde380a45ddced592"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aed7ea92f45bd273dde380a45ddced592">offset</a> = 0</td></tr>
+<tr class="separator:aed7ea92f45bd273dde380a45ddced592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39b76233f788fa27f1ec5a35c1c59f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#af39b76233f788fa27f1ec5a35c1c59f3">offset_sc</a> = 0</td></tr>
+<tr class="separator:af39b76233f788fa27f1ec5a35c1c59f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains subroutines for parsing the input. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a7f66a2f0b7c864ac01083d9603b84ac6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f66a2f0b7c864ac01083d9603b84ac6">&#9670;&nbsp;</a></span>parse_mode</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="aeb9a39bf8e4135ff932d1464dd77206a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9a39bf8e4135ff932d1464dd77206a">&#9670;&nbsp;</a></span>count_blocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="parse_8c.html#a7f66a2f0b7c864ac01083d9603b84ac6">parse_mode</a></td>
+          <td class="memname">int count_blocks </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>State numbers for the parser <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a>. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6a13d000b4d7dc70d90239b7430d1eb6b2"></a>START&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6a392aa9f60d735e98a39477bcd004c9a9"></a>EXEC_PATH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6a0d4af967003ab5a27e677af0b336aec2"></a>ARGUMENT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6a08864b73fa6c82cb8de78a336050bfdb"></a>STDIN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6ad1026b11391895f6e302f892a44a04df"></a>STDOUT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7f66a2f0b7c864ac01083d9603b84ac6aba113c37f25d24aada154b75c7dd91ba"></a>WHITESPACE&#160;</td><td class="fielddoc"></td></tr>
-</table>
+</div>
+</div>
+<a id="aac6fdb946b627b6dd5c62695a0957649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6fdb946b627b6dd5c62695a0957649">&#9670;&nbsp;</a></span>count_lines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count_lines </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
+<a id="aa0d3994f3e750586306f064130941360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d3994f3e750586306f064130941360">&#9670;&nbsp;</a></span>extract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* extract </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0da5a953be21b6c4f01d0f0f428169f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da5a953be21b6c4f01d0f0f428169f4">&#9670;&nbsp;</a></span>extract_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* extract_line </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af6fdb4e7bf7bb4d4ed3e6f32a58ad964"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6fdb4e7bf7bb4d4ed3e6f32a58ad964">&#9670;&nbsp;</a></span>new_string()</h2>
 
@@ -171,19 +207,57 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement the parser, using basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> semantics </dd></dl>
+<p>Parse the received input, and produce a <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object. Utilizes a DFA. Scans the input left-to-right, one character at a time. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>input string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a97ea04b1b173942ee42a079863920fda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97ea04b1b173942ee42a079863920fda">&#9670;&nbsp;</a></span>dfa</h2>
+<a id="ae97d1fbf449d3cfb7cea0987f0f8e610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae97d1fbf449d3cfb7cea0987f0f8e610">&#9670;&nbsp;</a></span>segment()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structDFA.html">DFA</a>  dfa</td>
+          <td class="memname"><a class="el" href="structExecutable.html">Executable</a>* segment </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aed7ea92f45bd273dde380a45ddced592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7ea92f45bd273dde380a45ddced592">&#9670;&nbsp;</a></span>offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int offset = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af39b76233f788fa27f1ec5a35c1c59f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af39b76233f788fa27f1ec5a35c1c59f3">&#9670;&nbsp;</a></span>offset_sc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int offset_sc = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
