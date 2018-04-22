@@ -258,7 +258,7 @@ Executable* segment(char* input)
         }
         //printf("*Execute = %s\n", temp);
         int flag = 1;
-        char arg[15];
+        char arg[25];
         match = 0;
         int count = 0;
         for (c = 0; c < strlen(temp); c++)
@@ -327,7 +327,6 @@ Executable* segment(char* input)
                         int g;
                         for(g=0; g<glob_count; g++)
                         {
-                                printf("\n**%s",results[g]);
                                 e->argv[c+g] = results[g];
                         }
                         c += glob_count-1;
@@ -335,8 +334,6 @@ Executable* segment(char* input)
                 }
         }
         e->argc = argc;
-        printf("\nARG : %s\n",e->argv[1]);
-
         return e;
 }
 

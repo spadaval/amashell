@@ -13,10 +13,10 @@ extern char** environ;
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <errno.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <unistd.h>
 #include "log.h"
 
 #define KNRM  "\x1B[0m"

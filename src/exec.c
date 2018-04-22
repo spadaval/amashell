@@ -4,6 +4,7 @@
  */
 #include "amash.h"
 #include <sys/wait.h>
+#include <unistd.h>
 
 void set_redirects(Executable* e)
 {
@@ -40,6 +41,7 @@ bool handle_builtins(Executable* e)
                 do_quit(e);
                 return true;
         }
+
         else if (strcmp(e->exec_path, "cd") == 0)
         {
                 do_cd(e);
@@ -50,6 +52,7 @@ bool handle_builtins(Executable* e)
                 do_pwd(e);
                 return true;
         }
+        
         else if (strcmp(e->exec_path, "history") == 0)
         {
                 do_history(e);

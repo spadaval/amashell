@@ -18,7 +18,7 @@ int glob(char* input, char** results)
         get_dir(path);
         //display(path);
         count = search(qreg,path,results);
-        display(results);
+        //display(results);
         return count;
 }
 
@@ -114,7 +114,7 @@ int search(char* query, char** path, char** matches)
         regfree(&exp);
         if(count == 0)
         {
-                printf("\nNo Match Found\n");
+                //printf("\nNo Match Found\n");
         }
         return count;
 }
