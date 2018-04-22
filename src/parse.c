@@ -113,7 +113,7 @@ char* extract_line(char* input)
         }
         while (1)
         {
-                if ((i[0] != ';') & (i[0] != '\0') & (i[0] != '\n'))
+                if ((i[0] != ';') && (i[0] != '\0') && (i[0] != '\n'))
                 {
                         //printf("{%c}\n",i[0]);
                         block[j] = i[0];

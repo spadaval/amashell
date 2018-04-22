@@ -147,8 +147,8 @@ bool handle_builtins(Executable* e)
         }
         else if(strcmp(e->exec_path,"hclear")==0)
         {
-        		do_hclear(hist);
-        		return true;
+                do_hclear(hist);
+                return true;
         }
         else
         {
@@ -258,14 +258,14 @@ void do_history(char *hist[],int current)
 {
         int i = current;
         int hist_num = 1;
-        do{
+        do {
                 if (hist[i])
                 {
                         printf("%4d  %s\n", hist_num, hist[i]);
                         hist_num++;
                 }
                 i = (i + 1) % HISTORY_COUNT;
-        }while (i != current);
+        } while (i != current);
 
 }
 
@@ -368,7 +368,15 @@ void do_source(Executable* e)
         while (!feof(f))
         {
                 fgets(c, INPUT_LENGTH, f);
-                run_input(c);
+                int i;
+                offset_sc = 0;
+                for (i = 0; i < count_lines(c); i++)
+                {
+                        char* s = extract_line(c);
+                        log_debug("Running input:%s", s);
+                        run_input(s);
+                }
+                offset_sc = 0;
         }
         fclose(f);
 }
