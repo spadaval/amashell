@@ -53,7 +53,16 @@ void initialize()
 {
     log_set_level(LOG_TRACE);
     aliases = new_pairlist();
-    printf("Amash Shell v1.0\n");
+    int pid;
+    if ((pid = vfork()) == 0)
+    {
+        printf("\n\n\n");
+        execle("/usr/bin/figlet\0","figlet\0","Amash Shell v1.1\0",NULL);
+        sleep(1);
+        //system("figlet \"Amash Shell v1.1\"");
+        exit(0);
+    }
+    wait(NULL);
 }
 
 
