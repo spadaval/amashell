@@ -327,6 +327,7 @@ Executable* segment(char* input)
                         int g;
                         for(g=0; g<glob_count; g++)
                         {
+                                printf("\n**%s",results[g]);
                                 e->argv[c+g] = results[g];
                         }
                         c += glob_count-1;
@@ -334,6 +335,8 @@ Executable* segment(char* input)
                 }
         }
         e->argc = argc;
+        printf("\nARG : %s\n",e->argv[1]);
+
         return e;
 }
 

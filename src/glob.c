@@ -9,18 +9,16 @@ int glob(char* input, char** results)
         char* qreg;
         char* query;
         int count;
-
         path[0]=input;
 
         read_conf(wildcards,actions);
-        query = evaluate(path);
-        printf("HERE\n");
-        qreg = dvlp_reg(query,wildcards,actions);
         set_path(path);
+        query = evaluate(path);
+        qreg = dvlp_reg(query,wildcards,actions);
         get_dir(path);
         //display(path);
-        count = search(qreg,path,matches);
-        display(matches);
+        count = search(qreg,path,results);
+        display(results);
         return count;
 }
 
