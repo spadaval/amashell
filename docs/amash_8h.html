@@ -67,7 +67,8 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">amash.h File Reference</div>  </div>
 </div><!--header-->
@@ -96,6 +97,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParsedInput.html">ParsedInput</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A chain if executables to run.  <a href="structParsedInput.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhistory.html">history</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpair__list.html">pair_list</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -126,6 +131,10 @@ Macros</h2></td></tr>
 <tr class="separator:a67b911556d95e07d10cdc5c630730570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd4a93fd83ce296b84828fa74b7efa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#affd4a93fd83ce296b84828fa74b7efa9">MAX_EXECUTABLES</a>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:affd4a93fd83ce296b84828fa74b7efa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f67348ac828121b1adac2ceadda084"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a57f67348ac828121b1adac2ceadda084">MAX_PAIRS</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a57f67348ac828121b1adac2ceadda084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e2b531c72985b064c431c05dfbc5fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a07e2b531c72985b064c431c05dfbc5fc">MAX_LINES</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a07e2b531c72985b064c431c05dfbc5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -133,6 +142,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a63aba8272f12fe21e9bf8c7453a1f4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af343f5c1259e9b32a663f653dbfd5b48"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structParsedInput.html">ParsedInput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#af343f5c1259e9b32a663f653dbfd5b48">ParsedInput</a></td></tr>
 <tr class="separator:af343f5c1259e9b32a663f653dbfd5b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52d7be5de24273c831de476fa95a530"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structpair__list.html">pair_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a></td></tr>
+<tr class="separator:af52d7be5de24273c831de476fa95a530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -142,8 +153,18 @@ Functions</h2></td></tr>
 <tr class="separator:ae2529ce8d3250f1f9359b39777563286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4def5160ba9bea9b7691efefd0639b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#af4def5160ba9bea9b7691efefd0639b9">new_parsedinput</a> ()</td></tr>
 <tr class="separator:af4def5160ba9bea9b7691efefd0639b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc2be45417b56a676ec088868bdcabd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aafc2be45417b56a676ec088868bdcabd">push_history</a> (char *c)</td></tr>
+<tr class="separator:aafc2be45417b56a676ec088868bdcabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee4efb70391da9ab549d356a85f9dd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8ee4efb70391da9ab549d356a85f9dd3">init_history</a> ()</td></tr>
+<tr class="separator:a8ee4efb70391da9ab549d356a85f9dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a4bce3d12dd27288414a878470409e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a23a4bce3d12dd27288414a878470409e">get_previous_line</a> (char *c)</td></tr>
+<tr class="separator:a23a4bce3d12dd27288414a878470409e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b76679638e0e0d529236c658277620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a87b76679638e0e0d529236c658277620">new_pairlist</a> ()</td></tr>
+<tr class="separator:a87b76679638e0e0d529236c658277620"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a7e9b9c35a1c0118c5945cc05be30470e">parse</a> (char *input)</td></tr>
 <tr class="separator:a7e9b9c35a1c0118c5945cc05be30470e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc43c83e44c61c651ca31cb9d1bcc72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aadc43c83e44c61c651ca31cb9d1bcc72">run_input</a> (char *input)</td></tr>
+<tr class="separator:aadc43c83e44c61c651ca31cb9d1bcc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8a91ac0f7fb10cb26c381b4a2a741749">exec_program</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a8a91ac0f7fb10cb26c381b4a2a741749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a5204d783d20dcfcf31c085622cb43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a24a5204d783d20dcfcf31c085622cb43">exec</a> (<a class="el" href="structParsedInput.html">ParsedInput</a> *e)</td></tr>
@@ -158,12 +179,51 @@ Functions</h2></td></tr>
 <tr class="separator:a06e6e42aa51870698268deadbbc088ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56237fe6b812a37b2227509263c49084"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a56237fe6b812a37b2227509263c49084">do_quit</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
 <tr class="separator:a56237fe6b812a37b2227509263c49084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01af11b936fb53ac0aeb0abd6f24fae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ad01af11b936fb53ac0aeb0abd6f24fae">do_history</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:ad01af11b936fb53ac0aeb0abd6f24fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0146a50e4ca7fba7d5c2333a3cf20fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a0146a50e4ca7fba7d5c2333a3cf20fa3">do_alias</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a0146a50e4ca7fba7d5c2333a3cf20fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d726e39b6a2a835bec6d0bdfdec081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a69d726e39b6a2a835bec6d0bdfdec081">do_env</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a69d726e39b6a2a835bec6d0bdfdec081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a920660c4948951c7e8be264bb0fda5a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a920660c4948951c7e8be264bb0fda5a9">do_source</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a920660c4948951c7e8be264bb0fda5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2289679b1a38b4fd26063fce63344102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a2289679b1a38b4fd26063fce63344102">do_export</a> (<a class="el" href="structExecutable.html">Executable</a> *e)</td></tr>
+<tr class="separator:a2289679b1a38b4fd26063fce63344102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
 <tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70749195adc0ab8c373020426dcf2800"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a70749195adc0ab8c373020426dcf2800">printPrompt</a> ()</td></tr>
 <tr class="separator:a70749195adc0ab8c373020426dcf2800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac68df9d5c0bc680f4315a580fe0fb62d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#ac68df9d5c0bc680f4315a580fe0fb62d">starts_with</a> (const char *pre, const char *str)</td></tr>
 <tr class="separator:ac68df9d5c0bc680f4315a580fe0fb62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6fdb946b627b6dd5c62695a0957649"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aac6fdb946b627b6dd5c62695a0957649">count_lines</a> (char *input)</td></tr>
+<tr class="separator:aac6fdb946b627b6dd5c62695a0957649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da5a953be21b6c4f01d0f0f428169f4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a0da5a953be21b6c4f01d0f0f428169f4">extract_line</a> (char *input)</td></tr>
+<tr class="separator:a0da5a953be21b6c4f01d0f0f428169f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a799246370356d1ee559dece6d2f592"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a4a799246370356d1ee559dece6d2f592">parser</a> (char *input)</td></tr>
+<tr class="separator:a4a799246370356d1ee559dece6d2f592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ea8f8faecf824c4dd49f31fc78a4bd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#af0ea8f8faecf824c4dd49f31fc78a4bd">get_alias</a> (char *key)</td></tr>
+<tr class="separator:af0ea8f8faecf824c4dd49f31fc78a4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadd74ea329ba7af20c7c75bd289f74c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aadd74ea329ba7af20c7c75bd289f74c8">set_alias</a> (char *key, char *value)</td></tr>
+<tr class="separator:aadd74ea329ba7af20c7c75bd289f74c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a110d7b0b4ffaf0882ef2f6a98cf84dc3"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a110d7b0b4ffaf0882ef2f6a98cf84dc3">resolve_input</a> (char *input)</td></tr>
+<tr class="separator:a110d7b0b4ffaf0882ef2f6a98cf84dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d67b50b92d463b254f60e4a3d022c3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a8d67b50b92d463b254f60e4a3d022c3a">line_ends_with_slash</a> (char *line)</td></tr>
+<tr class="separator:a8d67b50b92d463b254f60e4a3d022c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa006daaf11f1e2e45a6ababaf463212b"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aa006daaf11f1e2e45a6ababaf463212b">environ</a></td></tr>
+<tr class="separator:aa006daaf11f1e2e45a6ababaf463212b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed7ea92f45bd273dde380a45ddced592"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#aed7ea92f45bd273dde380a45ddced592">offset</a></td></tr>
+<tr class="separator:aed7ea92f45bd273dde380a45ddced592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39b76233f788fa27f1ec5a35c1c59f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#af39b76233f788fa27f1ec5a35c1c59f3">offset_sc</a></td></tr>
+<tr class="separator:af39b76233f788fa27f1ec5a35c1c59f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41dd667f036c9ad330d2577ef0df5acb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structhistory.html">history</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a41dd667f036c9ad330d2577ef0df5acb">history</a></td></tr>
+<tr class="separator:a41dd667f036c9ad330d2577ef0df5acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a20d37761bd8f1f8962bd922767c89"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a78a20d37761bd8f1f8962bd922767c89">prompt</a> [200]</td></tr>
+<tr class="separator:a78a20d37761bd8f1f8962bd922767c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54dd6f97fd7b7b7212d5b7453c6b4e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8h.html#a54dd6f97fd7b7b7212d5b7453c6b4e6e">aliases</a></td></tr>
+<tr class="separator:a54dd6f97fd7b7b7212d5b7453c6b4e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains definitions for all the structs and functions in the shell. </p>
@@ -336,6 +396,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a07e2b531c72985b064c431c05dfbc5fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e2b531c72985b064c431c05dfbc5fc">&#9670;&nbsp;</a></span>MAX_LINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LINES&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57f67348ac828121b1adac2ceadda084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f67348ac828121b1adac2ceadda084">&#9670;&nbsp;</a></span>MAX_PAIRS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PAIRS&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af9cf34e0db252791157d1860a412381a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9cf34e0db252791157d1860a412381a">&#9670;&nbsp;</a></span>PATH_LENGTH</h2>
 
@@ -365,6 +453,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af52d7be5de24273c831de476fa95a530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af52d7be5de24273c831de476fa95a530">&#9670;&nbsp;</a></span>PairList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structpair__list.html">pair_list</a>  <a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af343f5c1259e9b32a663f653dbfd5b48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af343f5c1259e9b32a663f653dbfd5b48">&#9670;&nbsp;</a></span>ParsedInput</h2>
 
@@ -380,6 +482,48 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="aac6fdb946b627b6dd5c62695a0957649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6fdb946b627b6dd5c62695a0957649">&#9670;&nbsp;</a></span>count_lines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count_lines </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0146a50e4ca7fba7d5c2333a3cf20fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0146a50e4ca7fba7d5c2333a3cf20fa3">&#9670;&nbsp;</a></span>do_alias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_alias </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Run the alias builtin command, which prints all set aliases, and sets an alias, if given a parameter </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> details. If an argument is given (argc&gt;1), alias will try to set an alias. Otherwise it lists all set aliases. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae9e6018bbbaff02faffd9ab885ef17cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9e6018bbbaff02faffd9ab885ef17cd">&#9670;&nbsp;</a></span>do_cd()</h2>
 
@@ -398,6 +542,78 @@ Functions</h2></td></tr>
 <p>Run the cd builtin </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> details </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a69d726e39b6a2a835bec6d0bdfdec081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d726e39b6a2a835bec6d0bdfdec081">&#9670;&nbsp;</a></span>do_env()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_env </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Run the env builtin command, which prints all set aliases, and sets an alias, if given a parameter </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> details. If an argument is given (argc&gt;1), alias will try to set an alias. Otherwise it lists all set aliases. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2289679b1a38b4fd26063fce63344102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2289679b1a38b4fd26063fce63344102">&#9670;&nbsp;</a></span>do_export()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_export </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a new environment variable </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Exectuable containing a 'KEY=VAL' string to store </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad01af11b936fb53ac0aeb0abd6f24fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad01af11b936fb53ac0aeb0abd6f24fae">&#9670;&nbsp;</a></span>do_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_history </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Run the history builtin, which prints recent history, and searches through it, when given a parameter </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Exectuable details </td></tr>
   </table>
   </dd>
 </dl>
@@ -452,6 +668,30 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a920660c4948951c7e8be264bb0fda5a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920660c4948951c7e8be264bb0fda5a9">&#9670;&nbsp;</a></span>do_source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_source </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structExecutable.html">Executable</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Source a script file, running each line in the file as a shell input. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> containing the file to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae2529ce8d3250f1f9359b39777563286"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2529ce8d3250f1f9359b39777563286">&#9670;&nbsp;</a></span>dump_executable()</h2>
 
@@ -486,7 +726,7 @@ Functions</h2></td></tr>
           <td class="memname">void exec </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structParsedInput.html">ParsedInput</a> *&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -497,7 +737,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>implement the exec function </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>implement the exec functiondump_executable </dd></dl>
 
 </div>
 </div>
@@ -522,6 +762,67 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a0da5a953be21b6c4f01d0f0f428169f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da5a953be21b6c4f01d0f0f428169f4">&#9670;&nbsp;</a></span>extract_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* extract_line </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0ea8f8faecf824c4dd49f31fc78a4bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ea8f8faecf824c4dd49f31fc78a4bd">&#9670;&nbsp;</a></span>get_alias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* get_alias </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a certain alias, given a key </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>What alias to look for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The aliased string </dd></dl>
+
+</div>
+</div>
+<a id="a23a4bce3d12dd27288414a878470409e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23a4bce3d12dd27288414a878470409e">&#9670;&nbsp;</a></span>get_previous_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_previous_line </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -550,6 +851,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8ee4efb70391da9ab549d356a85f9dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee4efb70391da9ab549d356a85f9dd3">&#9670;&nbsp;</a></span>init_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_history </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d67b50b92d463b254f60e4a3d022c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d67b50b92d463b254f60e4a3d022c3a">&#9670;&nbsp;</a></span>line_ends_with_slash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool line_ends_with_slash </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if the last non-whitespace character in <code>line</code> is a slash, and replaces it with a null character </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>Ths string to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if line ends with slash, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="ac87a118af55679693aed549766833324"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac87a118af55679693aed549766833324">&#9670;&nbsp;</a></span>new_executable()</h2>
 
@@ -565,6 +908,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Create a new struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </p><dl class="section return"><dt>Returns</dt><dd>A blank struct <a class="el" href="structExecutable.html" title="Represents one single executable to run, containing the path, arguments, and redirects. ">Executable</a> object </dd></dl>
+
+</div>
+</div>
+<a id="a87b76679638e0e0d529236c658277620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b76679638e0e0d529236c658277620">&#9670;&nbsp;</a></span>new_pairlist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a>* new_pairlist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -601,14 +961,31 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Parse the received input, and produce a <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object. Utilizes a <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a>. Scans the input left-to-right, one character at a time. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Parse the received input, and produce a <a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a> object. Utilizes a DFA. Scans the input left-to-right, one character at a time. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>input string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement the parser, using basic <a class="el" href="structDFA.html" title="A simple container struct for the data of the DFA. ">DFA</a> semantics </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structParsedInput.html" title="A chain if executables to run. ">ParsedInput</a></code> object </dd></dl>
+
+</div>
+</div>
+<a id="a4a799246370356d1ee559dece6d2f592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a799246370356d1ee559dece6d2f592">&#9670;&nbsp;</a></span>parser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void parser </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -630,6 +1007,49 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aafc2be45417b56a676ec088868bdcabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc2be45417b56a676ec088868bdcabd">&#9670;&nbsp;</a></span>push_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_history </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a110d7b0b4ffaf0882ef2f6a98cf84dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110d7b0b4ffaf0882ef2f6a98cf84dc3">&#9670;&nbsp;</a></span>resolve_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* resolve_input </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Scan an input string, replacing aliases as you go </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String to scan </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Replaced string </dd></dl>
+
+</div>
+</div>
 <a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a735c28d653d36eb26c7c815a867cd5ac">&#9670;&nbsp;</a></span>run_event_loop()</h2>
 
@@ -646,6 +1066,66 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Starts the main event loop </p><dl class="section return"><dt>Returns</dt><dd>exit code</dd></dl>
 <p>Runs the main event loop </p><dl class="section return"><dt>Returns</dt><dd>return code </dd></dl>
+
+</div>
+</div>
+<a id="aadc43c83e44c61c651ca31cb9d1bcc72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc43c83e44c61c651ca31cb9d1bcc72">&#9670;&nbsp;</a></span>run_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int run_input </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Run an input string </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The input string to run </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return code </dd></dl>
+
+</div>
+</div>
+<a id="aadd74ea329ba7af20c7c75bd289f74c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd74ea329ba7af20c7c75bd289f74c8">&#9670;&nbsp;</a></span>set_alias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_alias </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a certain alias </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>THe key of the alias </td></tr>
+    <tr><td class="paramname">value</td><td>The replacement string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -706,6 +1186,92 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if str starts with pre, false otherwise </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a54dd6f97fd7b7b7212d5b7453c6b4e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54dd6f97fd7b7b7212d5b7453c6b4e6e">&#9670;&nbsp;</a></span>aliases</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="amash_8h.html#af52d7be5de24273c831de476fa95a530">PairList</a>* aliases</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa006daaf11f1e2e45a6ababaf463212b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa006daaf11f1e2e45a6ababaf463212b">&#9670;&nbsp;</a></span>environ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** environ</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41dd667f036c9ad330d2577ef0df5acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41dd667f036c9ad330d2577ef0df5acb">&#9670;&nbsp;</a></span>history</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structhistory.html">history</a>  <a class="el" href="structhistory.html">history</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed7ea92f45bd273dde380a45ddced592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7ea92f45bd273dde380a45ddced592">&#9670;&nbsp;</a></span>offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int offset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af39b76233f788fa27f1ec5a35c1c59f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af39b76233f788fa27f1ec5a35c1c59f3">&#9670;&nbsp;</a></span>offset_sc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int offset_sc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78a20d37761bd8f1f8962bd922767c89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a20d37761bd8f1f8962bd922767c89">&#9670;&nbsp;</a></span>prompt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char prompt[200]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A string containing the prompt to display </p>
 
 </div>
 </div>

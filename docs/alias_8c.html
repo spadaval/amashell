@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The Amadeus Shell: src/amash.c File Reference</title>
+<title>The Amadeus Shell: src/alias.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,76 +66,59 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">amash.c File Reference</div>  </div>
+<div class="title">alias.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains implementations for core functions.  
+<p>Contains subroutines for setting, getting, and processing aliases.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="amash_8h_source.html">amash.h</a>&quot;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a735c28d653d36eb26c7c815a867cd5ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a735c28d653d36eb26c7c815a867cd5ac">run_event_loop</a> ()</td></tr>
-<tr class="separator:a735c28d653d36eb26c7c815a867cd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25a40b6614565f755233080a384c35f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a25a40b6614565f755233080a384c35f1">initialize</a> ()</td></tr>
-<tr class="memdesc:a25a40b6614565f755233080a384c35f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO add something cool here.  <a href="#a25a40b6614565f755233080a384c35f1">More...</a><br /></td></tr>
-<tr class="separator:a25a40b6614565f755233080a384c35f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7673c33173bbde29193a3d428cb048c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amash_8c.html#a7673c33173bbde29193a3d428cb048c5">push_history</a> (char *input)</td></tr>
-<tr class="separator:a7673c33173bbde29193a3d428cb048c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ea8f8faecf824c4dd49f31fc78a4bd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="alias_8c.html#af0ea8f8faecf824c4dd49f31fc78a4bd">get_alias</a> (char *key)</td></tr>
+<tr class="separator:af0ea8f8faecf824c4dd49f31fc78a4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadd74ea329ba7af20c7c75bd289f74c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="alias_8c.html#aadd74ea329ba7af20c7c75bd289f74c8">set_alias</a> (char *key, char *value)</td></tr>
+<tr class="separator:aadd74ea329ba7af20c7c75bd289f74c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a110d7b0b4ffaf0882ef2f6a98cf84dc3"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="alias_8c.html#a110d7b0b4ffaf0882ef2f6a98cf84dc3">resolve_input</a> (char *input)</td></tr>
+<tr class="separator:a110d7b0b4ffaf0882ef2f6a98cf84dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains implementations for core functions. </p>
+<div class="textblock"><p>Contains subroutines for setting, getting, and processing aliases. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a25a40b6614565f755233080a384c35f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25a40b6614565f755233080a384c35f1">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="af0ea8f8faecf824c4dd49f31fc78a4bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ea8f8faecf824c4dd49f31fc78a4bd">&#9670;&nbsp;</a></span>get_alias()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void initialize </td>
+          <td class="memname">char* get_alias </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>TODO add something cool here. </p>
-<p>Sets up initial data structures and prints the splash screen/MOTD at startup </p>
+<p>Get a certain alias, given a key </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>What alias to look for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The aliased string </dd></dl>
 
 </div>
 </div>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+<a id="a110d7b0b4ffaf0882ef2f6a98cf84dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110d7b0b4ffaf0882ef2f6a98cf84dc3">&#9670;&nbsp;</a></span>resolve_input()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The main function </p>
-
-</div>
-</div>
-<a id="a7673c33173bbde29193a3d428cb048c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7673c33173bbde29193a3d428cb048c5">&#9670;&nbsp;</a></span>push_history()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void push_history </td>
+          <td class="memname">char* resolve_input </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -143,24 +126,48 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Scan an input string, replacing aliases as you go </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String to scan </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Replaced string </dd></dl>
 
 </div>
 </div>
-<a id="a735c28d653d36eb26c7c815a867cd5ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a735c28d653d36eb26c7c815a867cd5ac">&#9670;&nbsp;</a></span>run_event_loop()</h2>
+<a id="aadd74ea329ba7af20c7c75bd289f74c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd74ea329ba7af20c7c75bd289f74c8">&#9670;&nbsp;</a></span>set_alias()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int run_event_loop </td>
+          <td class="memname">void set_alias </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Runs the main event loop </p><dl class="section return"><dt>Returns</dt><dd>return code </dd></dl>
+<p>Create a certain alias </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>THe key of the alias </td></tr>
+    <tr><td class="paramname">value</td><td>The replacement string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
