@@ -18,9 +18,12 @@ void initTermios(int echo)
         tcgetattr(0, &old); /* grab old terminal i/o settings */
         new = old; /* make new settings same as old settings */
         new.c_lflag &= ~ICANON; /* disable buffered i/o */
-        if (echo) {
+        if (echo)
+        {
                 new.c_lflag |= ECHO; /* set echo mode */
-        } else {
+        }
+        else
+        {
                 new.c_lflag &= ~ECHO; /* set no echo mode */
         }
         tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
@@ -84,6 +87,11 @@ void set_redirects(Executable* e)
 
 bool handle_builtins(Executable* e)
 {
+        int i;
+        hist[current]=NULL;
+        hist[current] = strdup(e->exec_path);
+        current = (current + 1) % HISTORY_COUNT;
+
         if (starts_with("quit", e->exec_path) || starts_with("exit", e->exec_path))
         {
                 log_trace("Quit detected");
@@ -136,6 +144,11 @@ bool handle_builtins(Executable* e)
         {
                 do_source(e);
                 return true;
+        }
+        else if(strcmp(e->exec_path,"hclear")==0)
+        {
+        		do_hclear(hist);
+        		return true;
         }
         else
         {
