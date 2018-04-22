@@ -1,4 +1,6 @@
 project('amashell', 'c')
 subdir('src')
+subdir('ed2')
 amash = executable('amash', amash_sources, link_args: '-lreadline', install: true)
-run_target('run', command:'scripts/run_shell.sh', depends:amash)
+ed2 = executable('ed2', ed2_sources, link_args: '-lreadline', install: true)
+run_target('run', command:'scripts/run_shell.sh', depends:[amash,ed2])
