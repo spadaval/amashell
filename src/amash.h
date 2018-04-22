@@ -211,6 +211,8 @@ void do_source(Executable* e);
  */
 void do_export(Executable* e);
 
+void do_ed2(Executable* e);
+
 ////////////
 //amash.c //
 ////////////
