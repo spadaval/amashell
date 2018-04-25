@@ -30,14 +30,14 @@
 
 //Display Operations
 #define clear() printf("\033[H\033[J")
-#define cursor() printf(KWHT "|"KRED "|"KWHT);
+#define cursor() printf(KWHT "|"KMAG "|"KWHT);
 
 //Function Prototypes
 void display(int pos);
 void jump_line_up();
 void jump_line_down();
 int insert(char* read);
-
+int delete();
 char filename[] = "new";
 char buffer[256];
 int pos = 0;
@@ -82,14 +82,20 @@ int down()
         return 0;
 }
 
+
 int main()
 {
         //setlocale(LC_ALL,"en_US.utf8");
+        void quit()
+        {
+          //abort();
+          _exit(1);
+        }
         //const wchar_t cur = 0x1d173;
         //printf("%c\n",cur);
         //cursor();
-	FILE *fp = fopen(filename, "ab+");
-	fclose(fp);
+        FILE *fp = fopen(filename, "ab+");
+        fclose(fp);
         strcpy(buffer,"\nACTION:");
         while(1)
         {
@@ -97,6 +103,8 @@ int main()
                 rl_bind_keyseq("\\e[B",down);
                 rl_bind_keyseq("\\e[D",left);
                 rl_bind_keyseq("\\e[C",right);
+                rl_bind_keyseq("~",abort);
+                rl_bind_keyseq("\t",delete);
                 //rl_bind_keyseq("_ins",insert);
                 display(pos);
                 printf("\nCharacters=%d\n",display_max);
@@ -114,7 +122,7 @@ int insert(char* readin)
 {
         if(strlen(readin)==0)
         {
-          readin = strdup("\n");
+                readin = strdup("\n");
         }
         printf("\nINSERT : \n");
         //char* readin = strdup("hello");//buffer;
@@ -127,10 +135,10 @@ int insert(char* readin)
         char * data = malloc(cache_size*sizeof(char));
         char * data2 = malloc(cache_size*sizeof(char));
         int ii;
-        for(ii=0;ii<cache_size;ii++)
+        for(ii=0; ii<cache_size; ii++)
         {
-          data[ii] = '\0';
-          data2[ii] = '\0';
+                data[ii] = '\0';
+                data2[ii] = '\0';
         }
         int cur = 0;
         while(1)
@@ -147,7 +155,7 @@ int insert(char* readin)
                         break;
                 }
                 data[cur++] = symbol;
-                printf("Data Fetched %d - %c\n",cur,symbol);
+                //printf("Data Fetched %d - %c\n",cur,symbol);
         }
         data[cur] = '\0';
         cur = 0;
@@ -160,6 +168,55 @@ int insert(char* readin)
         free(data);
         free(data2);
         pos+=strlen(readin);
+        display(pos);
+        return 0;
+}
+
+int delete()
+{
+        if(pos==0)
+        {
+          return 0;
+        }
+        FILE * file = fopen(filename,"r");
+
+        char * data = malloc(cache_size*sizeof(char));
+        char * data2 = malloc(cache_size*sizeof(char));
+        int ii;
+        for(ii=0; ii<cache_size; ii++)
+        {
+                data[ii] = '\0';
+                data2[ii] = '\0';
+        }
+        int cur = 0;
+        while(1)
+        {
+                if(feof(file))
+                {
+                        fclose(file);
+                        break;
+                }
+                char symbol = fgetc(file);
+                if(symbol==-1)
+                {
+                        fclose(file);
+                        break;
+                }
+                data[cur++] = symbol;
+                //printf("Data Fetched %d - %c\n",cur,symbol);
+        }
+        data[cur] = '\0';
+        cur = 0;
+        strncpy(data2,data,pos-1);
+        //strcat(data2,readin);
+        strcat(data2,data+pos);
+        FILE * file2 = fopen(filename,"w");
+        fprintf(file2,"%s",data2);
+        fclose(file2);
+        free(data);
+        free(data2);
+        pos--;
+        display(pos);
         return 0;
 }
 

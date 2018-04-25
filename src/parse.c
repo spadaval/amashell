@@ -113,7 +113,7 @@ char* extract_line(char* input)
         }
         while (1)
         {
-                if ((i[0] != ';') & (i[0] != '\0') & (i[0] != '\n'))
+                if ((i[0] != ';') && (i[0] != '\0') && (i[0] != '\n'))
                 {
                         //printf("{%c}\n",i[0]);
                         block[j] = i[0];
@@ -258,7 +258,7 @@ Executable* segment(char* input)
         }
         //printf("*Execute = %s\n", temp);
         int flag = 1;
-        char arg[15];
+        char arg[25];
         match = 0;
         int count = 0;
         for (c = 0; c < strlen(temp); c++)
